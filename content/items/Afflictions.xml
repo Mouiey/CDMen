@@ -1,0 +1,979 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Afflictions>
+  <!--门途径-->
+  <Affliction name="门途径" identifier="cdmeninfections" isbuff="true"  type="buff" limbspecific="false" maxstrength="100" affectmachines="false" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    <Description
+      textidentifier="afflictiondescription.cdmeninfections01"
+      minstrength="0"
+      maxstrength="11"/>
+    <Description
+      textidentifier="afflictiondescription.cdmeninfections02"
+      minstrength="11"
+      maxstrength="22"/>
+    <Description
+      textidentifier="afflictiondescription.cdmeninfections03"
+      minstrength="22"
+      maxstrength="33"/>
+    <Description
+      textidentifier="afflictiondescription.cdmeninfections04"
+      minstrength="33"
+      maxstrength="44"/>
+    <Description
+      textidentifier="afflictiondescription.cdmeninfections05"
+      minstrength="44"
+      maxstrength="55"/>
+    <Description
+      textidentifier="afflictiondescription.cdmeninfections06"
+      minstrength="55"
+      maxstrength="66"/>
+    <Description
+      textidentifier="afflictiondescription.cdmeninfections07"
+      minstrength="66"
+      maxstrength="77"/>
+    <Description
+      textidentifier="afflictiondescription.cdmeninfections08"
+      minstrength="77"
+      maxstrength="88"/>
+    <Description
+      textidentifier="afflictiondescription.cdmeninfections09"
+      minstrength="88"
+      maxstrength="99.4"/>
+    <Description
+      textidentifier="afflictiondescription.cdmeninfections10"
+      minstrength="99.4"
+      maxstrength="99.9"/>
+    <Description
+      textidentifier="afflictiondescription.cdmeninfections11"
+      minstrength="99.9"
+      maxstrength="100"/>
+    <!--1~11-->
+    <Effect minstrength="0" maxstrength="11" strengthchange="0">
+      <!--提高50%技能获取速度-->
+      <StatValue stattype="SkillGainSpeed" value="0.5" />
+      <!--受伤计数
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="5" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="10" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="20" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="50" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      -->
+    </Effect>
+    <!--12~22-->
+    <Effect minstrength="11" maxstrength="22" strengthchange="0">
+      <!--提高50%技能获取速度-->
+      <StatValue stattype="SkillGainSpeed" value="0.5" />
+      <!--提高20%移动速度-->
+      <StatValue stattype="MovementSpeed" value="0.2" />
+      <!--受伤计数
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="5" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="10" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="20" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="50" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      -->
+    </Effect>
+    <!--23~33-->
+    <Effect minstrength="22" maxstrength="33" strengthchange="0">
+      <!--提高50%技能获取速度-->
+      <StatValue stattype="SkillGainSpeed" value="0.5" />
+      <!--提高20%移动速度-->
+      <StatValue stattype="MovementSpeed" value="0.2" />
+      <!--修理速度提高150%，制造等级提高1-->
+      <StatValue stattype="RepairSpeed" value="1.5" />
+      <StatValue stattype="IncreaseFabricationQuality" value="1" />
+      <!--受伤计数
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="5" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="10" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="20" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="50" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      -->
+    </Effect>
+    <!--34~44-->
+    <Effect minstrength="33" maxstrength="44" strengthchange="0">
+      <!--提高50%技能获取速度-->
+      <StatValue stattype="SkillGainSpeed" value="0.5" />
+      <!--提高20%移动速度-->
+      <StatValue stattype="MovementSpeed" value="0.2" />
+      <!--修理速度提高150%，制造等级提高1-->
+      <StatValue stattype="RepairSpeed" value="1.5" />
+      <StatValue stattype="IncreaseFabricationQuality" value="1" />
+      <!--20远程攻速，20散布-->
+      <StatValue stattype="RangedAttackSpeed" value="0.2" />
+      <StatValue stattype="RangedSpreadReduction" value="0.2" />
+      <!--受伤计数
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="5" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="10" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="20" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="50" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      -->
+    </Effect>
+    <!--45~55-->
+    <Effect minstrength="44" maxstrength="55" strengthchange="0">
+      <!--提高50%技能获取速度-->
+      <StatValue stattype="SkillGainSpeed" value="0.5" />
+      <!--提高20%移动速度-->
+      <StatValue stattype="MovementSpeed" value="0.2" />
+      <!--修理速度提高150%，制造等级提高1-->
+      <StatValue stattype="RepairSpeed" value="1.5" />
+      <StatValue stattype="IncreaseFabricationQuality" value="1" />
+      <!--20远程攻速，20散布-->
+      <StatValue stattype="RangedAttackSpeed" value="0.2" />
+      <StatValue stattype="RangedSpreadReduction" value="0.2" />
+      <!--50近战攻击力，50近战攻速-->
+      <StatValue stattype="meleeattackmultiplier" value="0.5" />
+      <StatValue stattype="MeleeAttackSpeed" value="0.5" />
+      <!--受伤计数
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="5" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="10" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="20" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="50" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      -->
+    </Effect>
+    <!--56~66-->
+    <Effect minstrength="55" maxstrength="66" strengthchange="0" resistancefor="stun,acidburn" minresistance="0.2" maxresistance="0.2">
+      <!--提高50%技能获取速度-->
+      <StatValue stattype="SkillGainSpeed" value="0.5" />
+      <!--提高20%移动速度-->
+      <StatValue stattype="MovementSpeed" value="0.2" />
+      <!--修理速度提高150%，制造等级提高1-->
+      <StatValue stattype="RepairSpeed" value="1.5" />
+      <StatValue stattype="IncreaseFabricationQuality" value="1" />
+      <!--20远程攻速，20散布-->
+      <StatValue stattype="RangedAttackSpeed" value="0.2" />
+      <StatValue stattype="RangedSpreadReduction" value="0.2" />
+      <!--50近战攻击力，50近战攻速-->
+      <StatValue stattype="meleeattackmultiplier" value="0.5" />
+      <StatValue stattype="MeleeAttackSpeed" value="0.5" />
+      <!--20眩晕抗性酸抗-->
+      <!--免疫画皮-->
+      <StatusEffect target="Character" type="OnActive" interval="1" disabledeltatime="true">
+        <Conditional huskinfection="gt 50" />
+        <ReduceAffliction identifier="huskinfection" amount="0.08" />
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnActive" interval="1" disabledeltatime="true">
+        <Conditional huskinfection="gt 80" />
+        <ReduceAffliction identifier="huskinfection" amount="1" />
+      </StatusEffect>
+      <!--死亡爆蜘蛛-->
+      <StatusEffect target="Character" type="OnDeath" delay="1">
+        <Conditional cddeadgoodspider="lte 0" />
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="2" scalemax="3" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <sound file="Content/Sounds/Damage/Implode.ogg" range="1000" volume="1" dontmuffle="false" />
+        <SpawnCharacter speciesname="cdDeathspider" count="1" spread="0" />
+      </StatusEffect>
+      <!--死亡爆友方蜘蛛（无垢信仰）-->
+      <StatusEffect target="Character" type="OnDeath" delay="1">
+        <Conditional cddeadgoodspider="gt 0" />
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="2" scalemax="3" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <sound file="Content/Sounds/Damage/Implode.ogg" range="1000" volume="1" dontmuffle="false" />
+        <SpawnCharacter speciesname="cdGoodDeathspider" count="1" spread="0" />
+      </StatusEffect>
+      <StatusEffect type="OnDeath" target="This" duration="3" stackable="false" targetlimb="Torso">
+        <ParticleEmitter particle="blood" particlespersecond="5" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="waterblood" particlespersecond="3" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="gib" particlespersecond="15" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+      </StatusEffect>
+      <!--受伤计数
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="5" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="10" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="20" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="50" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      -->
+    </Effect>
+    <!--67~77-->
+    <Effect minstrength="66" maxstrength="77" strengthchange="0" resistancefor="stun,acidburn" minresistance="0.4" maxresistance="0.4">
+      <!--提高50%技能获取速度-->
+      <StatValue stattype="SkillGainSpeed" value="0.5" />
+      <!--提高20%移动速度-->
+      <StatValue stattype="MovementSpeed" value="0.2" />
+      <!--修理速度提高150%，制造等级提高1-->
+      <StatValue stattype="RepairSpeed" value="1.5" />
+      <StatValue stattype="IncreaseFabricationQuality" value="1" />
+      <!--20远程攻速，20散布-->
+      <StatValue stattype="RangedAttackSpeed" value="0.2" />
+      <StatValue stattype="RangedSpreadReduction" value="0.2" />
+      <!--50近战攻击力，50近战攻速-->
+      <StatValue stattype="meleeattackmultiplier" value="0.5" />
+      <StatValue stattype="MeleeAttackSpeed" value="0.5" />
+      <!--40眩晕抗性酸抗-->
+      <!--免疫画皮-->
+      <StatusEffect target="Character" type="OnActive" interval="1" disabledeltatime="true">
+        <Conditional huskinfection="gt 50" />
+        <ReduceAffliction identifier="huskinfection" amount="0.08" />
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnActive" interval="1" disabledeltatime="true">
+        <Conditional huskinfection="gt 80" />
+        <ReduceAffliction identifier="huskinfection" amount="1" />
+      </StatusEffect>
+      <!--免疫原版毒-->
+      <StatusEffect target="Character">
+        <ReduceAffliction identifier="morbusinepoisoning" amount="40" /><!--致死-->
+        <ReduceAffliction identifier="cyanidepoisoning" amount="40" /><!--氰化物-->
+        <ReduceAffliction identifier="sufforinpoisoning" amount="40" /><!--升天-->
+        <ReduceAffliction identifier="radiationsickness" amount="40" /><!--辐射-->
+        <ReduceAffliction identifier="paralysis" amount="40" /><!--麻痹-->
+      </StatusEffect>
+      <!--90游泳速度-->
+      <StatValue stattype="swimmingspeed" value="0.9" />
+      <!--死亡爆蜘蛛-->
+      <StatusEffect target="Character" type="OnDeath" delay="1">
+        <Conditional cddeadgoodspider="lte 0" />
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="2" scalemax="3" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <sound file="Content/Sounds/Damage/Implode.ogg" range="1000" volume="1" dontmuffle="false" />
+        <SpawnCharacter speciesname="cdDeathspider" count="2" spread="0" />
+      </StatusEffect>
+      <!--死亡爆友方蜘蛛（无垢信仰）-->
+      <StatusEffect target="Character" type="OnDeath" delay="1">
+        <Conditional cddeadgoodspider="gt 0" />
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="2" scalemax="3" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <sound file="Content/Sounds/Damage/Implode.ogg" range="1000" volume="1" dontmuffle="false" />
+        <SpawnCharacter speciesname="cdGoodDeathspider" count="2" spread="0" />
+      </StatusEffect>
+      <StatusEffect type="OnDeath" target="This" duration="3" stackable="false" targetlimb="Torso">
+        <ParticleEmitter particle="blood" particlespersecond="5" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="waterblood" particlespersecond="3" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="gib" particlespersecond="15" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+      </StatusEffect>
+      <!--受伤计数
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="5" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="10" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="20" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="50" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      -->
+    </Effect>
+    <!--78~88-->
+    <Effect minstrength="77" maxstrength="88" strengthchange="0" resistancefor="stun,acidburn" minresistance="0.6" maxresistance="0.6">
+      <!--提高50%技能获取速度-->
+      <StatValue stattype="SkillGainSpeed" value="0.5" />
+      <!--提高20%移动速度-->
+      <StatValue stattype="MovementSpeed" value="0.2" />
+      <!--修理速度提高150%，制造等级提高1-->
+      <StatValue stattype="RepairSpeed" value="1.5" />
+      <StatValue stattype="IncreaseFabricationQuality" value="1" />
+      <!--20远程攻速，20散布-->
+      <StatValue stattype="RangedAttackSpeed" value="0.2" />
+      <StatValue stattype="RangedSpreadReduction" value="0.2" />
+      <!--50近战攻击力，50近战攻速-->
+      <StatValue stattype="meleeattackmultiplier" value="0.5" />
+      <StatValue stattype="MeleeAttackSpeed" value="0.5" />
+      <!--60眩晕抗性酸抗-->
+      <!--免疫画皮-->
+      <StatusEffect target="Character" type="OnActive" interval="1" disabledeltatime="true">
+        <Conditional huskinfection="gt 50" />
+        <ReduceAffliction identifier="huskinfection" amount="0.08" />
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnActive" interval="1" disabledeltatime="true">
+        <Conditional huskinfection="gt 80" />
+        <ReduceAffliction identifier="huskinfection" amount="1" />
+      </StatusEffect>
+      <!--免疫原版毒-->
+      <StatusEffect target="Character">
+        <ReduceAffliction identifier="morbusinepoisoning" amount="40" /><!--致死-->
+        <ReduceAffliction identifier="cyanidepoisoning" amount="40" /><!--氰化物-->
+        <ReduceAffliction identifier="sufforinpoisoning" amount="40" /><!--升天-->
+        <ReduceAffliction identifier="radiationsickness" amount="40" /><!--辐射-->
+        <ReduceAffliction identifier="paralysis" amount="40" /><!--麻痹-->
+      </StatusEffect>
+      <!--90游泳速度-->
+      <StatValue stattype="swimmingspeed" value="0.9" />
+      <!--免疫水压及缺氧-->
+      <StatusEffect target="Character" PressureProtection="20000.0" usehulloxygen="false" needsair="false" setvalue="true">
+        <ReduceAffliction identifier="oxygenlow" strength="0.5"/>
+      </StatusEffect>
+      <!--死亡爆蜘蛛-->
+      <StatusEffect target="Character" type="OnDeath" delay="1">
+        <Conditional cddeadgoodspider="lte 0" />
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="2" scalemax="3" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <sound file="Content/Sounds/Damage/Implode.ogg" range="1000" volume="1" dontmuffle="false" />
+        <SpawnCharacter speciesname="cdDeathspider" count="3" spread="0" />
+      </StatusEffect>
+      <!--死亡爆友方蜘蛛（无垢信仰）-->
+      <StatusEffect target="Character" type="OnDeath" delay="1">
+        <Conditional cddeadgoodspider="gt 0" />
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="2" scalemax="3" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <sound file="Content/Sounds/Damage/Implode.ogg" range="1000" volume="1" dontmuffle="false" />
+        <SpawnCharacter speciesname="cdGoodDeathspider" count="3" spread="0" />
+      </StatusEffect>
+      <StatusEffect type="OnDeath" target="This" duration="3" stackable="false" targetlimb="Torso">
+        <ParticleEmitter particle="blood" particlespersecond="5" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="waterblood" particlespersecond="3" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="gib" particlespersecond="15" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+      </StatusEffect>
+      <!--受伤计数
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="5" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="10" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="20" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="50" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      -->
+    </Effect>
+    <!--89~98-->
+    <Effect minstrength="88" maxstrength="99.4" strengthchange="0" resistancefor="stun,acidburn" minresistance="0.8" maxresistance="0.8">
+      <!--提高50%技能获取速度-->
+      <StatValue stattype="SkillGainSpeed" value="0.5" />
+      <!--提高20%移动速度-->
+      <StatValue stattype="MovementSpeed" value="0.2" />
+      <!--修理速度提高150%，制造等级提高1-->
+      <StatValue stattype="RepairSpeed" value="1.5" />
+      <StatValue stattype="IncreaseFabricationQuality" value="1" />
+      <!--20远程攻速，20散布-->
+      <StatValue stattype="RangedAttackSpeed" value="0.2" />
+      <StatValue stattype="RangedSpreadReduction" value="0.2" />
+      <!--50近战攻击力，50近战攻速-->
+      <StatValue stattype="meleeattackmultiplier" value="0.5" />
+      <StatValue stattype="MeleeAttackSpeed" value="0.5" />
+      <!--80眩晕抗性酸抗-->
+      <!--免疫画皮-->
+      <StatusEffect target="Character" type="OnActive" interval="1" disabledeltatime="true">
+        <Conditional huskinfection="gt 50" />
+        <ReduceAffliction identifier="huskinfection" amount="0.08" />
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnActive" interval="1" disabledeltatime="true">
+        <Conditional huskinfection="gt 80" />
+        <ReduceAffliction identifier="huskinfection" amount="1" />
+      </StatusEffect>
+      <!--免疫原版毒-->
+      <StatusEffect target="Character">
+        <ReduceAffliction identifier="morbusinepoisoning" amount="40" /><!--致死-->
+        <ReduceAffliction identifier="cyanidepoisoning" amount="40" /><!--氰化物-->
+        <ReduceAffliction identifier="sufforinpoisoning" amount="40" /><!--升天-->
+        <ReduceAffliction identifier="radiationsickness" amount="40" /><!--辐射-->
+        <ReduceAffliction identifier="paralysis" amount="40" /><!--麻痹-->
+      </StatusEffect>
+      <!--90游泳速度-->
+      <StatValue stattype="swimmingspeed" value="0.9" />
+      <!--免疫水压及缺氧-->
+      <StatusEffect target="Character" PressureProtection="20000.0" usehulloxygen="false" needsair="false" setvalue="true">
+        <ReduceAffliction identifier="oxygenlow" strength="0.5"/>
+      </StatusEffect>
+      <!--全技能等级+50，技能上限200-->
+      <StatValue stattype="ElectricalSkillBonus" value="50" />
+      <StatValue stattype="HelmSkillBonus" value="50" />
+      <StatValue stattype="MechanicalSkillBonus" value="50" />
+      <StatValue stattype="MedicalSkillBonus" value="50" />
+      <StatValue stattype="WeaponsSkillBonus" value="50" />
+      <AbilityFlag flagtype="GainSkillPastMaximum" />
+      <!--死亡爆蜘蛛-->
+      <StatusEffect target="Character" type="OnDeath" delay="1">
+        <Conditional cddeadgoodspider="lte 0" />
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="2" scalemax="3" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <sound file="Content/Sounds/Damage/Implode.ogg" range="1000" volume="1" dontmuffle="false" />
+        <SpawnCharacter speciesname="cdDeathspider" count="4" spread="0" />
+      </StatusEffect>
+      <!--死亡爆友方蜘蛛（无垢信仰）-->
+      <StatusEffect target="Character" type="OnDeath" delay="1">
+        <Conditional cddeadgoodspider="gt 0" />
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="2" scalemax="3" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <sound file="Content/Sounds/Damage/Implode.ogg" range="1000" volume="1" dontmuffle="false" />
+        <SpawnCharacter speciesname="cdGoodDeathspider" count="4" spread="0" />
+      </StatusEffect>
+      <StatusEffect type="OnDeath" target="This" duration="3" stackable="false" targetlimb="Torso">
+        <ParticleEmitter particle="blood" particlespersecond="5" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="waterblood" particlespersecond="3" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="gib" particlespersecond="15" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+      </StatusEffect>
+      <!--受伤计数
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="5" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="10" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="20" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="50" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      -->
+    </Effect>
+    <!--99-->
+    <Effect minstrength="99.4" maxstrength="99.9" strengthchange="0" resistancefor="stun,acidburn" minresistance="0.8" maxresistance="0.8">
+      <!--提高50%技能获取速度-->
+      <StatValue stattype="SkillGainSpeed" value="0.5" />
+      <!--提高20%移动速度-->
+      <StatValue stattype="MovementSpeed" value="0.2" />
+      <!--修理速度提高150%，制造等级提高1-->
+      <StatValue stattype="RepairSpeed" value="1.5" />
+      <StatValue stattype="IncreaseFabricationQuality" value="1" />
+      <!--20远程攻速，20散布-->
+      <StatValue stattype="RangedAttackSpeed" value="0.2" />
+      <StatValue stattype="RangedSpreadReduction" value="0.2" />
+      <!--50近战攻击力，50近战攻速-->
+      <StatValue stattype="meleeattackmultiplier" value="0.5" />
+      <StatValue stattype="MeleeAttackSpeed" value="0.5" />
+      <!--80眩晕抗性酸抗-->
+      <!--免疫画皮-->
+      <StatusEffect target="Character" type="OnActive" interval="1" disabledeltatime="true">
+        <Conditional huskinfection="gt 50" />
+        <ReduceAffliction identifier="huskinfection" amount="0.08" />
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnActive" interval="1" disabledeltatime="true">
+        <Conditional huskinfection="gt 80" />
+        <ReduceAffliction identifier="huskinfection" amount="1" />
+      </StatusEffect>
+      <!--免疫原版毒-->
+      <StatusEffect target="Character">
+        <ReduceAffliction identifier="morbusinepoisoning" amount="40" /><!--致死-->
+        <ReduceAffliction identifier="cyanidepoisoning" amount="40" /><!--氰化物-->
+        <ReduceAffliction identifier="sufforinpoisoning" amount="40" /><!--升天-->
+        <ReduceAffliction identifier="radiationsickness" amount="40" /><!--辐射-->
+        <ReduceAffliction identifier="paralysis" amount="40" /><!--麻痹-->
+      </StatusEffect>
+      <!--90游泳速度-->
+      <StatValue stattype="swimmingspeed" value="0.9" />
+      <!--免疫水压及缺氧-->
+      <StatusEffect target="Character" PressureProtection="20000.0" usehulloxygen="false" needsair="false" setvalue="true">
+        <ReduceAffliction identifier="oxygenlow" strength="0.5"/>
+      </StatusEffect>
+      <!--全技能等级+50，技能上限200-->
+      <StatValue stattype="ElectricalSkillBonus" value="50" />
+      <StatValue stattype="HelmSkillBonus" value="50" />
+      <StatValue stattype="MechanicalSkillBonus" value="50" />
+      <StatValue stattype="MedicalSkillBonus" value="50" />
+      <StatValue stattype="WeaponsSkillBonus" value="50" />
+      <AbilityFlag flagtype="GainSkillPastMaximum" />
+      <!--不死加末梢-->
+      <AbilityFlag flagtype="AlwaysStayConscious" />
+      <AbilityFlag flagtype="CanNotDieToAfflictions" /> 
+      <!--死亡爆蜘蛛-->
+      <StatusEffect target="Character" type="OnDeath" delay="1">
+        <Conditional cddeadgoodspider="lte 0" />
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="2" scalemax="3" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <sound file="Content/Sounds/Damage/Implode.ogg" range="1000" volume="1" dontmuffle="false" />
+        <SpawnCharacter speciesname="cdDeathspider" count="6" spread="0" />
+      </StatusEffect>
+      <!--死亡爆友方蜘蛛（无垢信仰）-->
+      <StatusEffect target="Character" type="OnDeath" delay="1">
+        <Conditional cddeadgoodspider="gt 0" />
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="2" scalemax="3" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <sound file="Content/Sounds/Damage/Implode.ogg" range="1000" volume="1" dontmuffle="false" />
+        <SpawnCharacter speciesname="cdGoodDeathspider" count="6" spread="0" />
+      </StatusEffect>
+      <StatusEffect type="OnDeath" target="This" duration="3" stackable="false" targetlimb="Torso">
+        <ParticleEmitter particle="blood" particlespersecond="5" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="waterblood" particlespersecond="3" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="gib" particlespersecond="15" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+      </StatusEffect>
+      <!--受伤计数
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="5" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="10" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="20" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="50" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      -->
+    </Effect>
+    <!--100-->
+    <Effect minstrength="99.9" maxstrength="100" strengthchange="0" >
+      <StatusEffect target="Character">
+        <!--苏醒-->
+        <Affliction identifier="sxinfection" strength="1" />
+      </StatusEffect>
+      <!--死亡爆蜘蛛
+      <StatusEffect target="Character" type="OnDeath" delay="1">
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="2" scalemax="3" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <sound file="Content/Sounds/Damage/Implode.ogg" range="1000" volume="1" dontmuffle="false" />
+        <SpawnCharacter speciesname="cdDeathspider" count="8" spread="0" />
+      </StatusEffect>
+      <StatusEffect type="OnDeath" target="This" duration="3" stackable="false" targetlimb="Torso">
+        <ParticleEmitter particle="blood" particlespersecond="5" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="waterblood" particlespersecond="3" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="gib" particlespersecond="15" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+      </StatusEffect>
+      -->
+      <!--受伤计数
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="5" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="10" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="20" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="50" />
+        <Affliction identifier="cdcuntinfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      -->
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="122,137,122,119" color="255,255,255,255" origin="0,0" />
+  </Affliction>
+  <!--魔能计数-->
+  <Affliction name="濒临失控" identifier="cdcuntinfections" isbuff="true"  type="buff" limbspecific="false" maxstrength="100"  showiconthreshold="28" showinhealthscannerthreshold="28"  affectmachines="false" iconcolors="186,153,242,255;140,77,245,255;105,20,245,255">
+    <Effect minstrength="0" maxstrength="30" strengthchange="0">
+    </Effect>
+    <Effect minstrength="30" maxstrength="100" strengthchange="0">
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="damage" minstrength="5" />
+        <Affliction identifier="cdmeninfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+        <Affliction identifier="cdmeninfections" strength="10" probability="0.05" MultiplyByMaxVitality="True"/>
+        <Affliction identifier="cdmeninfections" strength="50" probability="0.001" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDamaged">
+        <requiredaffliction type="staredamage" minstrength="5" />
+        <Affliction identifier="cdmeninfections" strength="1" probability="1" MultiplyByMaxVitality="True"/>
+        <Affliction identifier="cdmeninfections" strength="10" probability="0.05" MultiplyByMaxVitality="True"/>
+        <Affliction identifier="cdmeninfections" strength="50" probability="0.001" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="0,137,122,119" color="255,100,100,255" origin="0,0" />
+  </Affliction>
+  <!--计数抑制-->
+  <Affliction name="失控抑制" identifier="cdlesscount" isbuff="true"  type="buff" limbspecific="false" maxstrength="600"  showiconthreshold="1" showinhealthscannerthreshold="1"  affectmachines="false" MedicalSkillGain="0.01">
+    <Effect minstrength="0" maxstrength="600" strengthchange="-1" resistancefor="cdcuntinfections" minresistance="0.9" maxresistance="0.9">
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="512,137,122,119" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!--强化aff-->
+  <Affliction name="失控" identifier="cdsxstrength" isbuff="true"  type="buff" limbspecific="false" maxstrength="1"  showiconthreshold="300" showinhealthscannerthreshold="300"  affectmachines="false" iconcolors="186,153,242,255;140,77,245,255;105,20,245,255">
+    <Effect minstrength="0" maxstrength="1" strengthchange="0" resistancefor="slow,infection,pressure,cdcuntinfections,cdwithdrawal,insideacidburn,voidrust,triton_7L,staredamage,cdreaperstax,cdicedebuff" minresistance="0.00" maxresistance="1">
+      <AbilityFlag flagtype="AlwaysStayConscious" />
+      <StatusEffect target="Character" delay="2" stackable="false" >
+        <ReduceAffliction type="stun" amount="10000" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="0,137,122,119" color="255,0,0,255" origin="0,0" />
+  </Affliction>
+  <!--唯一性判定-->
+  <Affliction name="" identifier="cdhaswyx" isbuff="true"  type="buff" limbspecific="false" maxstrength="1"  showiconthreshold="300" showinhealthscannerthreshold="300"  affectmachines="false" iconcolors="186,153,242,255;140,77,245,255;105,20,245,255">
+    <Effect minstrength="0" maxstrength="1" strengthchange="0">
+      <StatusEffect type="OnDeath" target="Character" targetslot="0" delay="0">
+        <SpawnItem identifier="cdsplinter" spawnposition="ThisInventory" count="1"/>
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="0,137,122,119" color="255,0,0,255" origin="0,0" />
+  </Affliction>
+  <Affliction name="不稳定活性" identifier="cdsxejdstrength" isbuff="true"  type="buff" limbspecific="false" maxstrength="5"  showiconthreshold="300" showinhealthscannerthreshold="300"  affectmachines="false" iconcolors="186,153,242,255;140,77,245,255;105,20,245,255">
+    <Effect minstrength="0" maxstrength="5" strengthchange="-1" resistancefor="stun,acidburn" minresistance="2" maxresistance="2">
+      <StatValue stattype="WalkingSpeed" minvalue="0.5" maxvalue="0.5" />
+      <StatusEffect type="OnActive" target="Character" interval="1.0" disabledeltatime="true" >
+        <Conditional cdblooddamage="lt 100" />
+        <Affliction identifier="cdblooddamage" strength="50" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect target="Character" targetlimbs="LeftHand,RightHand,Head,LeftLeg,RightLeg,Torso">
+        <Affliction identifier="burn" amount="0.05" MultiplyByMaxVitality="True"/>
+        <Affliction identifier="internaldamage" amount="0.016" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect  target="NearbyCharacters" range="100">
+        <Affliction identifier="cdreaperstax" amount="1.0"  MultiplyByMaxVitality="false"/>
+        <Affliction identifier="staredamage" amount="0.5"  MultiplyByMaxVitality="false"/>
+      </StatusEffect>
+      <!--
+      <StatusEffect target="Character" type="OnDamaged" disabledeltatime="true" >
+        <requiredaffliction type="damage" minstrength="50" />
+        <ReduceAffliction identifier="damage" amount="50" />
+      </StatusEffect>
+      <StatusEffect  target="NearbyCharacters" range="200">
+        <Affliction identifier="staredamage" amount="0.5"  MultiplyByMaxVitality="false"/>
+      </StatusEffect>
+      -->
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="0,137,122,119" color="255,0,0,255" origin="0,0" />
+  </Affliction>
+  <Affliction name="固态印记" identifier="cdsxnotdie" isbuff="true"  type="buff" limbspecific="false" maxstrength="1"  showiconthreshold="300" showinhealthscannerthreshold="300"  affectmachines="false" iconcolors="186,153,242,255;140,77,245,255;105,20,245,255">
+    <Effect minstrength="0" maxstrength="1" strengthchange="-10">
+      <AbilityFlag flagtype="CanNotDieToAfflictions" />
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="0,137,122,119" color="255,0,0,255" origin="0,0" />
+  </Affliction>
+  <Affliction name="唯一性干预" identifier="cdwyxbuff" isbuff="true"  type="buff" limbspecific="false" maxstrength="1"  showiconthreshold="10" showinhealthscannerthreshold="10"  affectmachines="false" iconcolors="186,153,242,255;140,77,245,255;105,20,245,255">
+    <Effect minstrength="0" maxstrength="1" strengthchange="-5">
+      <StatusEffect target="Character" >
+        <Conditional speciesname="human" />
+        <Affliction identifier="cdwyxbsbuff" strength="10" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="0,137,122,119" color="255,0,0,255" origin="0,0" />
+  </Affliction>
+  <Affliction name="受选者" identifier="cdwyxbsbuff" isbuff="true"  type="buff" limbspecific="false" maxstrength="1"  showiconthreshold="10" showinhealthscannerthreshold="10"  affectmachines="false" iconcolors="186,153,242,255;140,77,245,255;105,20,245,255">
+    <Effect minstrength="0" maxstrength="1" strengthchange="-5">
+      <AbilityFlag flagtype="CanNotDieToAfflictions" />
+      <StatusEffect target="Character" >
+        <Conditional healthpercentage="lte -100"/>
+        <Affliction identifier="sxinfection" strength="10" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="0,137,122,119" color="255,0,0,255" origin="0,0" />
+  </Affliction>
+  <Affliction name="成神仪式" identifier="cdgodwaybuff" isbuff="true"  type="buff" limbspecific="false" maxstrength="100"  showiconthreshold="1000" showinhealthscannerthreshold="1000"  affectmachines="false" iconcolors="186,153,242,255;140,77,245,255;105,20,245,255">
+    <Effect minstrength="0" maxstrength="50" strengthchange="0">
+      <StatusEffect target="Character"  disabledeltatime="true">
+        <Affliction identifier="cdmeninfections" strength="12" MultiplyByMaxVitality="True"/>
+        <Affliction identifier="cdmeninfections" strength="-0.3" MultiplyByMaxVitality="True"/>
+        <Affliction identifier="cdgodwaybuff" strength="100" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="50" maxstrength="100" strengthchange="0">
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="0,137,122,119" color="255,0,0,255" origin="0,0" />
+  </Affliction>
+  <Affliction name="域外眷属" identifier="cdzzstrength" isbuff="true"  type="buff" limbspecific="false" maxstrength="1"  showiconthreshold="300" showinhealthscannerthreshold="300"  affectmachines="false" iconcolors="186,153,242,255;140,77,245,255;105,20,245,255">
+    <Effect minstrength="0" maxstrength="1" strengthchange="0" resistancefor="infection" minresistance="0.00" maxresistance="1">
+      <!--100游泳速度-->
+      <StatValue stattype="swimmingspeed" value="2" />
+      <!--提高100%移动速度-->
+      <StatValue stattype="MovementSpeed" value="2" />
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="0,137,122,119" color="255,0,0,255" origin="0,0" />
+  </Affliction>
+  <!--蜘蛛感染-->
+  <Affliction name="未知受胎" identifier="cdzzspawner" isbuff="true"  type="buff" limbspecific="false" maxstrength="1"  showiconthreshold="100" showinhealthscannerthreshold="100"  affectmachines="false" iconcolors="186,153,242,255;140,77,245,255;105,20,245,255">
+    <Effect minstrength="0" maxstrength="1" strengthchange="0">
+      <!--友方单位免疫-->
+      <StatusEffect target="Character" disabledeltatime="true" conditionalcomparison="and">
+        <Conditional speciesgroup="ne sx" />
+        <ReduceAffliction identifier="cdzzspawner" amount="10" />
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDeath" delay="1.1">
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="2" scalemax="3" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <sound file="Content/Sounds/Damage/Implode.ogg" range="1000" volume="1" dontmuffle="false" />
+        <SpawnCharacter speciesname="cdDeathspider" count="1" spread="0" />
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDeath" delay="5">
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="2" scalemax="3" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <sound file="Content/Sounds/Damage/Implode.ogg" range="1000" volume="1" dontmuffle="false" />
+        <SpawnCharacter speciesname="cdDeathspider" count="1" spread="0" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="0,137,122,119" color="255,0,0,255" origin="0,0" />
+  </Affliction>
+  <!--友善蜘蛛感染-->
+  <Affliction name="活化受胎" identifier="cdgoodzzspawner" isbuff="true"  type="buff" limbspecific="false" maxstrength="1"  showiconthreshold="100" showinhealthscannerthreshold="100"  affectmachines="false" iconcolors="186,153,242,255;140,77,245,255;105,20,245,255">
+    <Effect minstrength="0" maxstrength="1" strengthchange="0">
+      <!--友方单位免疫-->
+      <StatusEffect target="Character" disabledeltatime="true">
+        <Conditional speciesname="ne cdGoodDeathSpider" />
+        <ReduceAffliction identifier="cdgoodzzspawner" amount="10" />
+      </StatusEffect>
+      <StatusEffect target="Character" type="OnDeath" delay="1.1">
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="2" scalemax="3" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <sound file="Content/Sounds/Damage/Implode.ogg" range="1000" volume="1" dontmuffle="false" />
+        <SpawnCharacter speciesname="cdGoodDeathSpider" count="1" spread="0" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="0,137,122,119" color="255,0,0,255" origin="0,0" />
+  </Affliction>
+  <!--苏醒-->
+  <AfflictionHusk name="苏醒" identifier="sxinfection" description="有什么在你体内苏醒了" type="sx" causeofdeathdescription="" selfcauseofdeathdescription="" activationthreshold="0" huskedspeciesname="[speciesname]sx" targets="human" SendMessages="false" dormantthreshold="50" activethreshold="100" transferbuffs="true" transformthresholdondeath="0" transitionthreshold="100" limbspecific="false" indicatorlimb="Torso" showiconthreshold="1" showinhealthscannerthreshold="1" maxstrength="100" healableinmedicalclinic="false" iconcolors="140,140,140,255;140,140,140,255;140,140,140,255">
+    <!--0-99 眩晕-->
+    <Effect minstrength="0" maxstrength="99" maxvitalitydecrease="0" strengthchange="9" minbodytint="195,195,195,0" maxbodytint="195,195,195,150">
+      <StatusEffect target="Character">
+        <Affliction identifier="stun" amount="5" />
+        <ReduceAffliction identifier="huskinfection" amount="100" />
+        <ParticleEmitter particle="bloodsplash" particlespersecond="100" scalemin="1" scalemax="2" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="blackblood" particlespersecond="100" scalemin="1" scalemax="2" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="waterblood" particlespersecond="100" scalemin="1" scalemax="2" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+      </StatusEffect>
+    </Effect>
+    <!--达到100杀死宿主-->
+    <Effect minstrength="99" maxstrength="100" maxvitalitydecrease="0" strengthchange="9"  resistancefor="cdmiracleworker011,miracleworker" minresistance="2" maxresistance="2" minbodytint="195,195,195,150" maxbodytint="195,195,195,255">
+      <StatusEffect target="Character" comparison="and" isdead="true" delay="5" stackable="false" /> 
+      <StatusEffect target="Character" comparison="and"> 
+        <Affliction identifier="internaldamage" amount="17" />
+        <Affliction identifier="staredamage" amount="17" />
+        <Affliction identifier="stun" amount="500" />
+        <ParticleEmitter particle="bloodsplash" particlespersecond="100" scalemin="1" scalemax="2" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="blackblood" particlespersecond="100" scalemin="1" scalemax="2" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="waterblood" particlespersecond="100" scalemin="1" scalemax="2" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="0,137,122,119" color="255,0,0,255" origin="0,0" />
+  </AfflictionHusk>
+  <!--增伤-->
+  <Affliction name="劫灭" identifier="cdblooddamage"  description="随着体力的下降，伤害逐渐上升"  isbuff="true"  type="cdblooddamage" limbspecific="false" maxstrength="1000"  showiconthreshold="1" showinhealthscannerthreshold="1"  affectmachines="false"  iconcolors="210,110,0,255;210,110,0,255;210,110,0,255">
+    <Effect minstrength="0" maxstrength="1000" strengthchange="-1" >
+      <StatValue stattype="AttackMultiplier" minvalue="0" maxvalue="10.0" />
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="383,137,122,119" color="210,110,0,255" origin="0,0" />
+  </Affliction>
+  <!--武器抗拒-->
+  <Affliction name="灵性绝缘" identifier="cdresistbuff"  description="这把武器拒绝了你"  isbuff="false"  type="debuff" limbspecific="false" indicatorlimb="Head" maxstrength="1" showiconthreshold="0" showinhealthscannerthreshold="0" affectmachines="false"  iconcolors="237,17,17,255;237,17,17,255;237,17,17,255">
+    <Effect minstrength="0" maxstrength="1" strengthchange="-0.5" resistancefor="cdblooddamage" minresistance="1" maxresistance="1">
+      <StatusEffect target="Character" >
+        <ReduceAffliction type="cdblooddamage" amount="1000" />
+      </StatusEffect>
+      <StatValue stattype="RepairSpeed" value="-0.5" />
+      <StatValue stattype="AttackMultiplier" value="-0.75" />
+      <StatValue stattype="RangedSpreadReduction" minvalue="-0.5" maxvalue="-0.5" />
+      <StatValue stattype="RangedAttackSpeed" value="-0.5" />
+      <StatValue stattype="TurretAttackSpeed" minvalue="-0.4" maxvalue="-0.4" />
+      <StatValue stattype="MovementSpeed" value="-10.0" />
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="645,137,122,119" color="210,110,0,255" origin="0,0" />
+  </Affliction>
+  <!--邪神斩杀-->
+  <Affliction name="永恒的长眠" identifier="cdsxkillbuff"  description="“那永恒长眠的并非亡者，在奇妙的万古之中即便死亡亦会消逝”‌" causeofdeathdescription="消逝于梦中" selfcauseofdeathdescription="消逝于梦中" isbuff="false"  type="cdsxkillbuff" limbspecific="false" indicatorlimb="Head" maxstrength="1" showiconthreshold="0" showinhealthscannerthreshold="0" healcostmultiplier="100000" affectmachines="false"  iconcolors="255,0,0,255;255,0,0,255;255,0,0,255">
+    <Effect minstrength="0" maxstrength="1" strengthchange="0" resistancefor="stun" minresistance="-1" maxresistance="-1" minvitalitydecrease="2" maxvitalitydecrease="2" multiplybymaxvitality="true">
+      <StatusEffect target="Character" >
+        <Affliction identifier="stun" amount="500" MultiplyByMaxVitality="True"/>
+        <Affliction identifier="paralysis" amount="500" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="0,137,122,119" color="255,0,0,255" origin="0,0"/>
+  </Affliction>
+  <!--苏醒抑制-->
+  <Affliction name="苏醒抑制" identifier="cdreducesx"  description=""  isbuff="true"  type="cdreducesx" limbspecific="false" maxstrength="1"  showiconthreshold="10" showinhealthscannerthreshold="10"  affectmachines="false"  iconcolors="210,110,0,255;210,110,0,255;210,110,0,255">
+    <Effect minstrength="0" maxstrength="1" strengthchange="0" resistancefor="sxinfection" minresistance="1" maxresistance="1" >
+      <StatusEffect target="Character" >
+        <ReduceAffliction type="sxinfection" amount="1000" />
+        <ReduceAffliction type="cdmeninfections" amount="1000" />
+        <ReduceAffliction type="cdmanzzspawner" amount="1000" />
+      </StatusEffect>
+      <StatusEffect target="Character"  Comparison="and" >
+        <Conditional sxinfection="lte 0" />
+        <Conditional cdmeninfections="lte 0"/>
+        <ReduceAffliction type="cdreducesx" amount="1000" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="383,137,122,119" color="210,110,0,255" origin="0,0" />
+  </Affliction>
+  <!--蜘蛛污染-->
+  <Affliction name="受胎" identifier="cdmanzzspawner"  description=""  isbuff="true"  type="cdreducesx" limbspecific="false" maxstrength="1"  showiconthreshold="10" showinhealthscannerthreshold="10"  affectmachines="false"  iconcolors="210,110,0,255;210,110,0,255;210,110,0,255">
+    <Effect minstrength="0" maxstrength="1" strengthchange="0" >
+      <!--死亡爆蜘蛛-->
+      <StatusEffect target="Character" type="OnDeath" delay="1">
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="2" scalemax="3" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <sound file="Content/Sounds/Damage/Implode.ogg" range="1000" volume="1" dontmuffle="false" />
+        <SpawnCharacter speciesname="cdDeathspider" count="6" spread="0" />
+      </StatusEffect>
+      <StatusEffect type="OnDeath" target="This" duration="3" stackable="false" targetlimb="Torso">
+        <ParticleEmitter particle="blood" particlespersecond="5" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="waterblood" particlespersecond="3" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="gib" particlespersecond="15" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+        <ParticleEmitter particle="heavygib" particlespersecond="5" scalemin="1" scalemax="2" velocitymin="0" velocitymax="50" anglemin="0" anglemax="360" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="383,137,122,119" color="210,110,0,255" origin="0,0" />
+  </Affliction>
+  <!--夜视-->
+  <Affliction name="夜视效果" identifier="cdmennightsee" type="none" isbuff="true" limbspecific="false" indicatorlimb="Head" maxstrength="100" showiconthreshold="infinity">
+    <Effect minstrength="0" maxstrength="100" multiplybymaxvitality="true" graincolor="0,0,0,255" mingrainstrength="2.95" maxgrainstrength="3.05" minscreenblur="0.095" maxscreenblur="0.105" strengthchange="-50"></Effect>
+  </Affliction>
+  <!--神识-->
+  <Affliction identifier="cdmensightthermal" description="" isbuff="true" type="sight" limbspecific="false" indicatorlimb="Head" showiconthreshold="1000" showicontoothersthreshold="40" showinhealthscannerthreshold="20" karmachangeonapplied="0" maxstrength="3" affectmachines="false">
+    <Effect minstrength="0" maxstrength="3" strengthchange="-1" ThermalOverlayRange="1500" ThermalOverlayColor="180,180,180,180">
+    </Effect>
+  </Affliction>
+  <!--污染-->
+  <Affliction
+    name="污染"
+    identifier="cdreaperstax"
+    type="cdreaperstax"
+    description="旧日的疫病开始蔓延"
+    causeofdeathdescription="污染致死"
+    selfcauseofdeathdescription="污染致死"
+    limbspecific="false"
+    indicatorlimb="Torso"
+    activationthreshold="0"
+    treatmentthreshold="1000"
+    maxstrength="100"
+    healcostmultiplier="200">
+    <!-- Reduce skills and vitality -->
+    <Effect minstrength="0" maxstrength="100"
+      minscreendistort="0"
+      maxscreendistort="0"
+      strengthchange="0"
+      minskillmultiplier="0.9"
+      maxskillmultiplier="0.1"
+      minspeedmultiplier="1"
+      maxspeedmultiplier="0.5">
+      <StatValue stattype="MaximumHealthMultiplier"  minvalue="0.1" maxvalue="-0.8"  />
+    </Effect>
+    <icon texture="Content/UI/CommandUIAtlas.png" sourcerect="768,768,128,128" color="143,111,160,255" origin="0,0"/>
+  </Affliction>
+  <!--凝视-->
+  <Staredamage
+    identifier="staredamage"
+    name="不可直视神"
+    type="staredamage"
+    limbspecific="true"
+    maxstrength="200"
+    burnoverlayalpha="0"
+    causeofdeathdescription="不可直视神"
+    selfcauseofdeathdescription="不可直视神"
+    healcostmultiplier="22.5"
+    WeaponsSkillGain="1">
+     <Description
+      textidentifier="afflictiondescription.staredamage01"
+      minstrength="0"
+      maxstrength="30"/>
+    <Description
+      textidentifier="afflictiondescription.staredamage02"
+      minstrength="30"
+      maxstrength="60"/>
+    <Description
+      textidentifier="afflictiondescription.staredamage03"
+      minstrength="60"
+      maxstrength="200"/>
+    <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true"
+      strengthchange="-0.5"
+      resistancefor="staredamage,damage,burn" minresistance="0.00" maxresistance="-4"
+      minspeedmultiplier="1"
+      maxspeedmultiplier="0.35" 
+      minvitalitydecrease="0"
+      maxvitalitydecrease="2"/>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="0,137,122,119" color="255,0,0,255" origin="0,0"/>
+  </Staredamage>
+  <!-- 堕落 -->
+  <Affliction name="堕落者的组织液" identifier="cdcorruptionattack" isbuff="false" type="debuff" limbspecific="false" maxstrength="5" affectmachines="false" showiconthreshold="10" showinhealthscannerthreshold="10">
+    <Effect minstrength="0" maxstrength="5" strengthchange="-1" >
+      <StatusEffect target="Character" interval="3" setvalue="false" delay="0.0" Comparison="and" disabledeltatime="true">
+        <Conditional cdmeninfections="gt 0"/>
+        <Affliction identifier="cdmeninfections" strength="10" probability="0.8" MultiplyByMaxVitality="True" />
+        <Affliction identifier="cdmeninfections" strength="-5" probability="0.8" MultiplyByMaxVitality="True" />
+        <Affliction identifier="cdmeninfections" strength="15" probability="0.4" MultiplyByMaxVitality="True" />
+        <Affliction identifier="cdmeninfections" strength="-20" probability="0.4" MultiplyByMaxVitality="True" />
+        <Affliction identifier="cdmeninfections" strength="30" probability="0.2" MultiplyByMaxVitality="True" />
+        <Affliction identifier="cdmeninfections" strength="-25" probability="0.2" MultiplyByMaxVitality="True" />
+        <Affliction identifier="cdmeninfections" strength="50" probability="0.05" MultiplyByMaxVitality="True" />
+        <Affliction identifier="cdmeninfections" strength="-60" probability="0.05" MultiplyByMaxVitality="True" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="0,0,122,119" color="150,30,30,100" origin="0,0" />
+  </Affliction>
+  <!--回血aff-->
+  <Affliction name="物伤治愈" identifier="cdhealdamage" isbuff="true"  type="buff" limbspecific="false" maxstrength="2000"  showiconthreshold="3000" showinhealthscannerthreshold="3000"  affectmachines="false" iconcolors="186,153,242,255;140,77,245,255;105,20,245,255">
+    <Effect minstrength="0" maxstrength="2000" strengthchange="0">
+      <AbilityFlag flagtype="CanNotDieToAfflictions" />
+      <StatusEffect target="Character"  disabledeltatime="true" >
+        <ReduceAffliction type="damage" amount="1" />
+        <ReduceAffliction identifier="cdhealdamage" amount="1" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="0,137,122,119" color="255,0,0,255" origin="0,0" />
+  </Affliction>
+  <Affliction name="烧伤治愈" identifier="cdhealburn" isbuff="true"  type="buff" limbspecific="false" maxstrength="1000"  showiconthreshold="3000" showinhealthscannerthreshold="3000"  affectmachines="false" iconcolors="186,153,242,255;140,77,245,255;105,20,245,255">
+    <Effect minstrength="0" maxstrength="1000" strengthchange="0">
+      <AbilityFlag flagtype="CanNotDieToAfflictions" />
+      <StatusEffect target="Character"  disabledeltatime="true" >
+        <ReduceAffliction type="burn" amount="1" />
+        <ReduceAffliction identifier="cdhealburn" amount="1" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="0,137,122,119" color="255,0,0,255" origin="0,0" />
+  </Affliction>
+  <!--无垢信仰标记-->
+  <Affliction identifier="cddeadgoodspider" type="talentbuff" isbuff="true" limbspecific="false" maxstrength="1" treatmentthreshold="1000"  showiconthreshold="3000" showinhealthscannerthreshold="3000" hideiconafterdelay="true" duration="1" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    <Effect minstrength="0" maxstrength="1">
+    </Effect>
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,2" sheetelementsize="128,128" origin="0,0"/>
+  </Affliction>
+</Afflictions>

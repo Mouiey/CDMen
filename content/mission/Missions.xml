@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Missions>
+  <AbandonedOutpostMission identifier="cdabandonedsx" tags="abandonedoutpost" successmessage="" type="OutpostDestroy" description="" reward="48000" difficulty="5" commonness="64" allowretry="true" targetitem="reactor" minleveldifficulty="25" maxleveldifficulty="100" unhideentitysubcategories="abandonedhuman">
+    <Icon texture="Content/UI/MissionIcons.png" sourcerect="0,768,256,256" color="243,146,55"/>
+    <LocationType identifier="Abandoned" />
+    <LocationTypeChange from="Abandoned" to="Outpost" requireddurationrange="2,3" cooldownafterchange="5" />
+    <Reputation identifier="separatists" amount="+15" />
+    <Reputation identifier="coalition" amount="-10" />
+    <Characters>
+      <Character requirekill="true" identifier="cdsxhuli" from="sxer" moduleflags="researchmodule" />
+      <Character identifier="bandit" from="abandonedoutpostnpcs" moduleflags="crewmodule"/>
+      <Character identifier="bandit" from="abandonedoutpostnpcs" moduleflags="crewmodule" multiplayeronly="true"/>
+      <Character identifier="bandit" from="abandonedoutpostnpcs" moduleflags="engineeringmodule"/>
+      <Character identifier="bandit" from="abandonedoutpostnpcs" moduleflags="securitymodule" />
+      <Character identifier="bandit" from="abandonedoutpostnpcs" moduleflags="securitymodule" multiplayeronly="true" />
+      <Character identifier="bandit" from="abandonedoutpostnpcs" moduleflags="seccrewmodule" />
+      <Character identifier="bandit" from="abandonedoutpostnpcs" moduleflags="seccrewmodule" multiplayeronly="true"/>
+      <Character identifier="cdDeathspider" min="2" max="2" asfaraspossible="true" requirekill="true" />
+    </Characters>
+    <TriggerEvent state="0" delay="5" eventidentifier="cd_indestructible_wall" campaignonly="true" />
+    <TriggerEvent state="0" delay="5" eventidentifier="cd_remove_husk" campaignonly="true" />
+    <TriggerEvent state="0" delay="5" eventidentifier="cd_forsaken" campaignonly="true" />
+    <TriggerEvent state="0" delay="1" eventidentifier="giveitemtosx" campaignonly="true" />
+    <TriggerEvent state="0" delay="1" eventidentifier="cdchemicalreinforcements" campaignonly="true" />
+    <message header="" text="" />
+  </AbandonedOutpostMission>
+</Missions>

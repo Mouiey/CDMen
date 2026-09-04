@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Randomevents>
+  <EventPrefabs>
+    <!--邪神苏醒-->
+    <ScriptedEvent identifier="giveitemtosx">
+      <TagAction criteria="humanprefabidentifier:cdsxhuli" tag="teshuzhan1dui" continueifnotargetsfound="true" />
+        <StatusEffectAction targettag="teshuzhan1dui">
+          <StatusEffect target="This" enabledespawn="true"  disabledeltatime="true" >
+            <Affliction identifier="cdmeninfections" strength="1000"  MultiplyByMaxVitality="True"/>
+          </StatusEffect>
+        </StatusEffectAction>
+    </ScriptedEvent>
+  </EventPrefabs>
+  <!--废站清理-->
+  <EventPrefabs>
+    <!--站点无敌-->
+    <ScriptedEvent identifier="cd_indestructible_wall">
+      <!-- StructurePrefabs.xml -->
+      <TagAction criteria="structureidentifier:ff_x_wall" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:ff_y_wall" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshella25" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshella26" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshellaglassd" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshellaglasse" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshellaglassf" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:topwindow" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:verticalwindow" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:inwalll90cables" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:ff_x_wall_cables" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <!-- OutpostStructurePrefabs.xml -->
+      <TagAction criteria="structureidentifier:icewall" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:icewall90" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <!-- StructurePrefabsWrecked.xml -->
+      <TagAction criteria="structureidentifier:ff_x_wall_wrecked" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshella07wrecked" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshella21wrecked" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshella23wrecked" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:shella26degwrecked" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshellaglassdwrecked" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshellaglassewrecked" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshellaglassfwrecked" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <StatusEffectAction targettag="targetwall">
+        <StatusEffect target="This" indestructible="true" />
+      </StatusEffectAction>
+    </ScriptedEvent>
+    <ScriptedEvent identifier="cd_forsaken">
+      <TagAction Criteria="speciesname:Human" Tag="enemy" Team="None" IgnoreIncapacitatedCharacters="false" />
+      <TagAction Criteria="hull" Tag="anyhull" SubmarineType="Player" />
+      <Label Name="waitforintruder" />
+      <ClearTagAction Tag="defender" />
+      <ClearTagAction Tag="intruder" />
+      <ClearTagAction Tag="targetidcard" />
+      <TagAction Criteria="eventtag:enemy" Tag="defender" SubmarineType="Outpost" IgnoreIncapacitatedCharacters="false" />
+      <TriggerAction Target1Tag="defender" Target2Tag="anyhull" ApplyToTarget1="intruder" DisableInCombat="false" DisableIfTargetIncapacitated="false" />
+      <StatusEffectAction TargetTag="intruder">
+        <StatusEffect target="This">
+          <LuaHook name="intruder.SetOrder" />
+        </StatusEffect>
+      </StatusEffectAction>
+      <CheckItemAction TargetTag="intruder" ItemIdentifiers="idcard" ApplyTagToItem="targetidcard" />
+      <StatusEffectAction targettag="targetidcard">
+        <StatusEffect target="This" SubmarineSpecificID="0" setvalue="true" />
+      </StatusEffectAction>
+      <GoTo Name="waitforintruder" />
+    </ScriptedEvent>
+    <!--站点清除画皮-->
+    <ScriptedEvent identifier="cd_remove_husk">
+      <TagAction criteria="itemtag:reactor" tag="reactor" submarinetype="Outpost" chooserandom="true" />
+      <StatusEffectAction targettag="reactor">
+        <StatusEffect target="NearbyCharacters" range="1000000" conditionalcomparison="and">
+          <Conditional isonplayerteam="false" />
+          <Conditional isoriginallyonplayerteam="false" />
+          <Conditional IsHusk="true" />
+          <RemoveCharacter />
+        </StatusEffect>
+      </StatusEffectAction>
+    </ScriptedEvent>
+  </EventPrefabs>
+  <EventPrefabs>
+    <ScriptedEvent identifier="cdchemicalreinforcements">
+    </ScriptedEvent>
+  </EventPrefabs>
+</Randomevents>

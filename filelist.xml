@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="门途径" modversion="1.0.0" corepackage="False" gameversion="1.7.7.0">
+  <Text file="%ModDir%/content/Localization/SimplifiedChinese.xml" />
+  <Afflictions file="%ModDir%/content/items/Afflictions.xml" />
+  <Character file="%ModDir%/content/character/characters.xml" />
+  <Character file="%ModDir%/content/Monster/cdDeathSpider/cdDeathSpider.xml" />
+  <Character file="%ModDir%/content/Monster/cdGoodDeathSpider/cdGoodDeathSpider.xml" />
+  <Character file="%ModDir%/content/Monster/Reprobate/Reprobate.xml" />
+  <Character file="%ModDir%/content/Monster/Reprobatesr/Reprobatesr.xml" />
+  <Item file="%ModDir%/content/items/epuipment.xml" />
+  <Item file="%ModDir%/content/items/others.xml" />
+  <Item file="%ModDir%/content/items/cdpotion.xml" />
+  <Item file="%ModDir%/content/items/weapon.xml" />
+  <Wreck file="%ModDir%/content/sub/星之匙（已沉没）.sub" />
+  <Other file="%ModDir%/Lua/Autorun/init.lua" />
+  <Other file="%ModDir%/Lua/Scripts/Client/weapon_zoom.lua" />
+  <Submarine file="%ModDir%/content/sub/BeaconStation_HissihissShuttl1.sub" />
+  <BeaconStation file="%ModDir%/content/sub/BeaconStation_Hissihiss1.sub" />
+  <BeaconStation file="%ModDir%/content/sub/编号65332的求■■■快跑！不要回■.sub" />
+  <Talents file="%ModDir%/content/job/Talents.xml" />
+  <TalentTrees file="%ModDir%/content/job/TalentTrees.xml" />
+  <Jobs file="%ModDir%/content/job/jobs.xml" />
+  <RandomEvents file="%ModDir%/content/event/events.xml" />
+  <Missions file="%ModDir%/content/mission/Missions.xml" />
+  <NPCSets file="%ModDir%/content/npc/specialcombatnpc.xml" />
+</contentpackage>

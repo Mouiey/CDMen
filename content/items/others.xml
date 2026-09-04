@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Item name="非凡收容箱" identifier="cd_danger_box" subcategory="CD" description="用于收容异常物品" category="Equipment" tags="mediumitem,mobilecontainer,artifactcontainer,poweredcontainer,tsm_danger_box,cd_danger_box" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.037" fireproof="true" waterproof="true" mpactsoundtag="impact_metal_heavy" RequireAimToUse="True">
+    <Deconstruct time="10">
+      <Item identifier="steel" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="15">
+      <RequiredSkill identifier="mechanical" level="20" />
+      <Item identifier="steel" amount="2" />
+      <Item identifier="iron" amount="2" />
+      <Item identifier="dementonite" amount="8" />
+      <Item identifier="lead" amount="2" />
+    </Fabricate>
+    <Price baseprice="377" sold="false">
+      <Price locationtype="city" multiplier="1.2" maxavailable="1" />
+      <Price locationtype="research" multiplier="0.8" maxavailable="1" />
+      <Price locationtype="military" multiplier="1" maxavailable="1" />
+    </Price>
+    <InventoryIcon texture="%ModDir%/content/png/收容箱.png" sourcerect="0,0,1300,1650" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/收容箱.png" sourcerect="0,0,1300,1650" origin="0.5,0.5" depth="0.6" />
+    <Body width="1350" height="1400" density="0" />
+    <!--
+    <MeleeWeapon slots="Any,RightHand,LeftHand" controlpose="true" aimpos="45,15" handle1="0,30" holdangle="90" reload="1" range="50" combatpriority="6" msg="ItemMsgPickUpSelect">
+      <Attack structuredamage="10" itemdamage="5" targetimpulse="2">
+        <Affliction identifier="blunttrauma" strength="2" />
+        <Affliction identifier="stun" strength="0.6" />
+        <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
+      </Attack>
+    </MeleeWeapon>
+    -->
+    <Holdable slots="RightHand+LeftHand" holdpos="40,-15" handle1="0,10" handle2="0,-10" aimable="false"></Holdable>
+    <ItemContainer capacity="1" hideitems="true" ContainedStateIndicatorSlot="1">
+      <Containable items="tsm_danger_item,tsm_danger_bloack,alienartifact,traitormissionitem,cdsplinter" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="mobilebattery">
+          <StatusEffect type="OnContaining" target="Contained" Condition="-0.5">
+            <RequiredItem items="tsm_danger_item,tsm_danger_bloack,alienartifact,traitormissionitem,cdsplinter" type="Contained" />
+          </StatusEffect>
+          <StatusEffect type="OnContaining" target="This" Voltage="1.0" setvalue="true" />
+        </Containable>
+      </SubContainer>
+    </ItemContainer>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+  </Item>
+  <Item name="活化特性卵" identifier="cdgoodspideregg" description="使用非凡特性孵化活化特性" hideinmenus="true" health="100" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.4" impactsoundtag="impact_soft" spritecolor="200,200,255,255">
+    <Upgrade gameversion="0.20.15.0" scale="0.4" />
+    <Price baseprice="550" sold="false" />
+    <Sprite texture="%ModDir%/content/Monster/cdGoodDeathSpider/CreatureLoot.png" depth="0.18" sourcerect="80,105,124,147" origin="0.5,0.5" />
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="10" requiresrecipe="true">
+      <Item identifier="cdmenpotion" />
+    </Fabricate>
+    <Deconstruct time="10"></Deconstruct>
+    <!-- rectangular body to prevent the egg from rolling -->
+    <Body width="120" height="120" friction="1.0" restitution="0.01" angulardamping="1.0" density="12" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false">
+      <StatusEffect type="OnBroken" target="This">
+        <particleemitter particle="whitegoosplash" particleamount="20" velocitymin="0" velocitymax="300" anglemin="0" anglemax="360" scalemin="0.5" scalemax="1.0" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
+        <particleemitter particle="mudrapeggbrownchunks" particleamount="100" velocitymin="100" velocitymax="2000" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
+        <Sound file="Content/Sounds/Damage/Gore6.ogg" range="800" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnDamaged" target="This">
+        <particleemitter particle="mudrapeggbrownchunks" particleamount="8" velocitymin="100" velocitymax="1000" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnFire" target="This" Condition="-5.0" />
+    </Holdable>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" showcontainedstateindicator="false" canbeselected="true">
+      <GuiFrame relativesize="0.15,0.2" anchor="Center" style="ItemUI" />
+      <StatusEffect type="OnBroken" target="This">
+        <particleemitter particle="mudrapeggbrownchunks" particleamount="100" velocitymin="100" velocitymax="2000" anglemin="0" anglemax="360" scalemin="0.4" scalemax="0.6" />
+        <particleemitter particle="whitegoosplash" particleamount="20" velocitymin="0" velocitymax="300" anglemin="0" anglemax="360" scalemin="0.5" scalemax="1.0" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
+        <Sound file="Content/Sounds/Damage/Gore7.ogg" range="800" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnDamaged" target="This">
+        <particleemitter particle="mudrapeggbrownchunks" particleamount="8" velocitymin="100" velocitymax="1000" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnFire" target="This" Condition="-5.0" />
+      <StatusEffect type="Always" target="This" Condition="0" setvalue="true">
+        <Conditional Scale="gte 0.5" />
+        <SpawnCharacter speciesname="cdGoodDeathSpider" totalmaxcount="100" inheritteam="true" />
+        <Remove />
+      </StatusEffect>
+      <Containable items="cdmenpotion">
+        <!-- increase scale -->
+        <StatusEffect type="OnContaining" target="This" Scale="0.002" />
+        <StatusEffect type="OnContaining" target="Contained" Condition="-1" />
+      </Containable>
+    </ItemContainer>
+    <LightComponent range="5" lightcolor="255,255,255,61" powerconsumption="0" IsOn="true" castshadows="false" allowingameediting="false" pulsefrequency="1" pulseamount="0.30">
+      <sprite texture="%ModDir%/content/Monster/cdGoodDeathSpider/CreatureLoot.png" depth="0.025" sourcerect="300,291,98,113" origin="0.5,0.6" alpha="1.0" />
+    </LightComponent>
+    <LightComponent range="40" lightcolor="255,255,255,70" powerconsumption="0" IsOn="true" castshadows="false" allowingameediting="false">
+      <sprite texture="%ModDir%/content/Monster/cdGoodDeathSpider/CreatureLoot.png" depth="0.025" sourcerect="410,301,88,95" origin="0.5,0.6" alpha="1.0" />
+    </LightComponent>
+  </Item>
+  <Item name="亵渎之牌" identifier="cdmenintroduce" description="门途径效果简介" category="Misc" Tags="smallitem,traitorguidelinesforsecurity" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <Deconstruct time="1"></Deconstruct>
+    <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="1" fabricationlimitmin="5" fabricationlimitmax="10" quality="0" />
+    <PreferredContainer primary="secarmcab,crewcab" secondary="locker" notpvp="true" />
+    <InventoryIcon texture="Content/Map/Outposts/Art/FactionItems.png" sourcerect="218,195,37,55" origin="0.5,0.5" />
+    <Sprite texture="Content/Map/Outposts/Art/FactionItems.png" sourcerect="367,194,12,44" origin="0.5,0.5" depth="0.8" />
+    <Body width="35" height="40" density="8" />
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect" />
+    <Terminal canbeselected="true" msg="ItemMsgInteractSelect" AllowInGameEditing="false" AutoHideScrollbar="true" readonly="true" autoscrolltobottom="false" linestartsymbol="" marginmultiplier="1.5" drawhudwhenequipped="true" welcomemessage="men.traitor.guidelines" textcolor="50,50,50,255">
+      <GuiFrame relativesize="0.3,0.5" anchor="Center" style="Paper" hidedragicons="true" />
+    </Terminal>
+  </Item>
+  <Override>
+    <Item name="唯一性" identifier="cdsplinter" description="非凡特性凝聚而成" category="Material" Tags="cdsplinter" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+      <Price baseprice="8000" sold="false">
+        <Price storeidentifier="merchantoutpost" />
+        <Price storeidentifier="merchantcity" />
+        <Price storeidentifier="merchantresearch" multiplier="2" />
+        <Price storeidentifier="merchantmilitary" />
+        <Price storeidentifier="merchantmine" />
+        <Price storeidentifier="merchantengineering" multiplier="1.5" />
+      </Price>
+      <Deconstruct time="120"></Deconstruct>
+      <Sprite texture="%ModDir%/content/png/唯一性碎片.PNG" depth="0.55" sourcerect="0,0,80,130" origin="0.5,0.5" />
+      <Body width="80" height="130" density="12" />
+      <Holdable slots="Any,RightHand+LeftHand" holdpos="30,-15" handle1="0,10" handle2="0,-10" msg="ItemMsgPickUpSelect">
+        <!---->
+        <StatusEffect type="OnSpawn" target="This" disabledeltatime="true">
+          <LuaHook name="cdremovewyx.OnSpawn" />
+        </StatusEffect>
+        <StatusEffect type="Always" target="This,Character" checkconditionalalways="true">
+          <Conditional hastag="neq artifactcontainer" targetcontainer="true" />
+          <Conditional Voltage="lte 0" targetcontainer="true" />
+          <Affliction identifier="staredamage" strength="0.6" MultiplyByMaxVitality="True" />
+          <Affliction identifier="cdwyxbuff" strength="10" MultiplyByMaxVitality="True" />
+        </StatusEffect>
+        <StatusEffect type="Always" target="This,NearbyCharacters" range="200" checkconditionalalways="true" setvalue="true" Comparison="and" Condition="0">
+          <Conditional hastag="neq artifactcontainer" targetcontainer="true" />
+          <Conditional cdrobotaffchemicalprotectorenemy="gt 0" />
+        </StatusEffect>
+        <StatusEffect type="Always" target="This,Character" checkconditionalalways="true" setvalue="true" Condition="0">
+          <Conditional sxinfection="gt 0" />
+        </StatusEffect>
+        <!--
+      <StatusEffect type="Always" target="This,NearbyCharacters" range="1" checkconditionalalways="true" setvalue="true" Condition="0">
+        <Conditional sxinfection="gt 0"/>
+        <Affliction identifier="cdlesscount" strength="10" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <StatusEffect type="Always" target="This,NearbyCharacters" range="1" stackable="false" checkconditionalalways="true">
+        <Conditional hastag="neq artifactcontainer" targetcontainer="true" />
+        <Conditional Voltage="lte 0" targetcontainer="true" />
+        <Affliction identifier="staredamage" strength="0.6" MultiplyByMaxVitality="True"/>
+        <Affliction identifier="cdwyxbuff" strength="10" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      -->
+        <StatusEffect type="Always" target="This" interval="5.0" disabledeltatime="true">
+          <Conditional hastag="neq artifactcontainer" targetcontainer="true" />
+          <Conditional Voltage="lte 0" targetcontainer="true" />
+          <ParticleEmitter particle="skyholderfx2" anglemax="360" distancemin="100" distancemax="300" velocitymin="-700" velocitymax="-1200" particlespersecond="100" />
+          <ParticleEmitter particle="skyholderfx" anglemax="360" particlespersecond="2" />
+          <Explosion range="200" camerashake="0" underwaterbubble="false" ballastfloradamage="0" itemdamage="150000" structuredamage="0" distancefalloff="true" force="0.1" sparks="false" shockwave="false" flames="false" smoke="false" flash="false"></Explosion>
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This" disabledeltatime="true">
+          <Remove />
+        </StatusEffect>
+      </Holdable>
+    </Item>
+  </Override>
+  <!--锁手符-->
+  <Item name=" " description="" identifier="cdlockhand" category="weapon" subcategory="CD" cargocontaineridentifier="metalcrate" tags="bigitem,weapon,gun,gunsmith,sniperrifle,mountableweapon,provocativetohumanai" scale="0.25" impactsoundtag="impact_metal_light" hideinmenus="true">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <InventoryIcon texture="%ModDir%/content/png/empty.png" sourcerect="192,112,16,16" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/empty.png" sourcerect="192,112,16,16" depth="0.55" origin="0.5,0.5" />
+    <Body width="35" height="35" density="12" />
+    <Holdable slots="LeftHand+RightHand" controlpose="false" handle1="0,0" handle2="0,0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <!--空-->
+  <Item identifier="cdnothingmtj" name="" description="" category="Misc" subcategory="CD" Tags="smallitem,explosive,demolitionsexpert,cdflamerammo" maxstacksize="1" Scale="0.5" cargocontaineridentifier="explosivecrate" impactsoundtag="impact_soft" hideinmenus="true">
+    <Upgrade gameversion="0.9.3.0" scale="0.5" />
+    <InventoryIcon texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" origin="0.5,0.5" />
+    <Body width="22" height="64" density="9.7" />
+    <ItemComponent>
+      <StatusEffect type="Always" target="This">
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+
+  <Item name="不稳定的活化特性卵" identifier="cdspideregg_cargo" description="不太稳定,随时破壳" tags="smallitem" hideinmenus="true" health="100" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.4" impactsoundtag="impact_soft" spritecolor="200,200,255,255">
+    <Upgrade gameversion="0.20.15.0" scale="0.4" />
+    <Price baseprice="550" sold="false" />
+    <Sprite texture="%ModDir%/content/Monster/cdGoodDeathSpider/CreatureLoot.png" depth="0.18" sourcerect="80,105,124,147" origin="0.5,0.5" />
+    <!-- rectangular body to prevent the egg from rolling -->
+    <Body width="120" height="120" friction="1.0" restitution="0.01" angulardamping="1.0" density="12" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false">
+      <StatusEffect type="OnBroken" target="This">
+        <particleemitter particle="whitegoosplash" particleamount="20" velocitymin="0" velocitymax="300" anglemin="0" anglemax="360" scalemin="0.5" scalemax="1.0" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
+        <particleemitter particle="mudrapeggbrownchunks" particleamount="100" velocitymin="100" velocitymax="2000" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
+        <Sound file="Content/Sounds/Damage/Gore6.ogg" range="800" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnDamaged" target="This">
+        <particleemitter particle="mudrapeggbrownchunks" particleamount="8" velocitymin="100" velocitymax="1000" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnFire" target="This" Condition="-5.0" />
+    </Holdable>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" showcontainedstateindicator="false" canbeselected="true">
+      <GuiFrame relativesize="0.15,0.2" anchor="Center" style="ItemUI" />
+      <StatusEffect type="OnBroken" target="This">
+        <particleemitter particle="mudrapeggbrownchunks" particleamount="100" velocitymin="100" velocitymax="2000" anglemin="0" anglemax="360" scalemin="0.4" scalemax="0.6" />
+        <particleemitter particle="whitegoosplash" particleamount="20" velocitymin="0" velocitymax="300" anglemin="0" anglemax="360" scalemin="0.5" scalemax="1.0" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
+        <Sound file="Content/Sounds/Damage/Gore7.ogg" range="800" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnDamaged" target="This">
+        <particleemitter particle="mudrapeggbrownchunks" particleamount="8" velocitymin="100" velocitymax="1000" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnFire" target="This" Condition="-5.0" />
+      <StatusEffect type="Always" target="This" Condition="-0.16"/>
+      <StatusEffect type="Always" target="This" Condition="0" setvalue="true">
+        <Conditional Scale="gte 0.5" />
+        <SpawnCharacter speciesname="cdDeathSpider" totalmaxcount="100" inheritteam="true" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Conditional Condition="0" />
+        <SpawnCharacter speciesname="cdDeathSpider" totalmaxcount="100" inheritteam="true" />
+        <Remove />
+      </StatusEffect>
+      <Containable items="cdmenpotion">
+        <!-- increase scale -->
+        <StatusEffect type="OnContaining" target="This" Scale="0.002" />
+        <StatusEffect type="OnContaining" target="Contained" Condition="-1" />
+      </Containable>
+    </ItemContainer>
+    <LightComponent range="5" lightcolor="255,255,255,61" powerconsumption="0" IsOn="true" castshadows="false" allowingameediting="false" pulsefrequency="1" pulseamount="0.30">
+      <sprite texture="%ModDir%/content/Monster/cdGoodDeathSpider/CreatureLoot.png" depth="0.025" sourcerect="300,291,98,113" origin="0.5,0.6" alpha="1.0" />
+    </LightComponent>
+    <LightComponent range="40" lightcolor="255,255,255,70" powerconsumption="0" IsOn="true" castshadows="false" allowingameediting="false">
+      <sprite texture="%ModDir%/content/Monster/cdGoodDeathSpider/CreatureLoot.png" depth="0.025" sourcerect="410,301,88,95" origin="0.5,0.6" alpha="1.0" />
+    </LightComponent>
+  </Item>
+
+
+
+
+
+
+
+
+</Items>

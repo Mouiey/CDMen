@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TalentTrees>
+  <TalentTree jobidentifier="cdmener">
+    <SubTree identifier="cdmener_primary" nameidentifier="talenttree.primary" type="primary">
+      <TalentOptions requiredtalents="1" maxchosentalents="5">
+        <!--抵抗军-->
+        <TalentOption identifier="laresistance" />
+        <!--自我保健-->
+        <TalentOption identifier="selfcare" />
+        <!--消防搬运-->
+        <TalentOption identifier="firemanscarry" />
+        <!--脚底抹油-->
+        <TalentOption identifier="skedaddle" />
+        <!--复仇小队-->
+        <TalentOption identifier="revengesquad" />
+      </TalentOptions>
+      <TalentOptions requiredtalents="1" maxchosentalents="5">
+        <!--急救培训-->
+        <TalentOption identifier="firstaidtraining" />
+        <!--身强体壮-->
+        <TalentOption identifier="buff" />
+        <!--潜艇医者-->
+        <TalentOption identifier="drsubmarine" />
+        <!--舒缓之声-->
+        <TalentOption identifier="melodicrespite" />
+        <!--激昂曲调-->
+        <TalentOption identifier="inspiringtunes" />
+      </TalentOptions>
+    </SubTree>
+    <SubTree identifier="cdmener_Shipborne" type="specialization" requires="cdmener_primary">
+      <TalentOptions requiredtalents="1" maxchosentalents="1">
+        <!--等待名单-->
+        <TalentOption identifier="thewaitinglist" />
+      </TalentOptions>
+      <TalentOptions requiredtalents="1" maxchosentalents="2">
+        <!--一天一个苹果-->
+        <TalentOption identifier="anappleaday" />
+        <!--醉汉水手-->
+        <TalentOption identifier="drunkensailor" />
+      </TalentOptions>
+      <TalentOptions requiredtalents="1" maxchosentalents="2">
+        <!--重炮手-->
+        <TalentOption identifier="bigguns" />
+        <!--奸诈人渣-->
+        <TalentOption identifier="cddisloyalscum" />
+      </TalentOptions>
+      <TalentOptions requiredtalents="1" maxchosentalents="1">
+        <!--无垢信仰-->
+        <TalentOption identifier="cddeadgoodspider" />
+      </TalentOptions>
+    </SubTree>
+    <SubTree identifier="cdmener_fleet" type="specialization" requires="cdmener_primary">
+      <TalentOptions requiredtalents="1" maxchosentalents="1">
+        <!--行刑者-->
+        <TalentOption identifier="cdmendamagetalant" />
+      </TalentOptions>
+      <TalentOptions requiredtalents="1" maxchosentalents="2">
+        <!--巡检警察-->
+        <TalentOption identifier="beatcop" />
+        <!--突击队-->
+        <TalentOption identifier="commando" />
+      </TalentOptions>
+      <TalentOptions requiredtalents="1" maxchosentalents="2">
+        <!--交叉火力-->
+        <TalentOption identifier="tandemfire" />
+        <!--通灵-->
+        <TalentOption identifier="cdweaponallow" />
+      </TalentOptions>
+      <TalentOptions requiredtalents="1" maxchosentalents="1">
+        <!--破釜沉舟-->
+        <TalentOption identifier="implacable" />
+      </TalentOptions>
+    </SubTree>
+    <SubTree identifier="cdmener_flagship" type="specialization" requires="cdmener_primary">
+      <TalentOptions requiredtalents="1" maxchosentalents="1">
+        <!--献祭-->
+        <TalentOption identifier="cdmenpotionbusiness" />
+      </TalentOptions>
+      <TalentOptions requiredtalents="1" maxchosentalents="2">
+        <!--润滑机械-->
+        <TalentOption identifier="oiledmachinery" />
+        <!--十二成新-->
+        <TalentOption identifier="betterthannew" />
+      </TalentOptions>
+      <TalentOptions requiredtalents="1" maxchosentalents="2">
+        <!--闪电巫师-->
+        <TalentOption identifier="lightningwizard" />
+        <!--从彼岸归来-->
+        <TalentOption identifier="cdnosx" />
+      </TalentOptions>
+      <TalentOptions requiredtalents="1" maxchosentalents="1">
+        <!--非凡赐福-->
+        <TalentOption identifier="cdgetgoodspider" />
+      </TalentOptions>
+    </SubTree>
+  </TalentTree>
+</TalentTrees>

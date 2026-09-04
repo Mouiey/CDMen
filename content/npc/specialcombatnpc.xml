@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<npcsets>
+  <npcset identifier="sxer">
+    <npc identifier="cdsxhuli" moduleflags="none" healthmultiplier="1" behavior="StayInHull">
+      <Character speciesname="human" tags="head2,female" salary="2652" experiencepoints="6720" additionaltalentpoints="0" talentResetCount="0" hairindex="3" beardindex="16" moustacheindex="11" faceattachmentindex="0" skincolor="252,225,198,255" haircolor="222,215,204,255" facialhaircolor="255,255,255,255" startitemsgiven="false" personality="brokenenglish" refundpoints="0" lastrewarddistribution="66" permanentlydead="false" IsOnReserveBench="false" renamingenabled="false" missionscompletedsincedeath="0">
+        <job name="安全官" identifier="securityofficer">
+          <skill identifier="weapons" level="67.91856" />
+          <skill identifier="medical" level="40.704407" />
+          <skill identifier="mechanical" level="27.791697" />
+          <skill identifier="electrical" level="28.523064" />
+          <skill identifier="helm" level="13.778603" />
+        </job>
+        <Talents>
+          <Talent identifier="buff" resettable="false" />
+          <Talent identifier="weaponsmith" resettable="false" />
+        </Talents>
+      </Character>
+      <ItemSet commonness="1">
+        <Item identifier="idcard" equip="true" />
+        <Item identifier="captainscap3" equip="true" />
+        <Item identifier="captainsuniform3" equip="true" />
+        <Item identifier="cdmenpotion" amount="6" />
+        <Item identifier="cdmenintroduce" amount="1" />
+        <Item identifier="cdlesssxpotion" amount="1" />
+      </ItemSet>
+      <AutonomousObjectives>
+        <Order identifier="fightintruders" prioritymodifier="1" />
+        <Order identifier="rescue" prioritymodifier="1" />
+        <Order identifier="extinguishfires" prioritymodifier="0.75" />
+        <Order identifier="repairsystems" prioritymodifier="0.5" />
+        <Order identifier="fixleaks" prioritymodifier="0.5" />
+      </AutonomousObjectives>
+      <AppropriateOrders>
+        <Order identifier="operateweapons" />
+        <Order identifier="fightintruders" />
+      </AppropriateOrders>
+    </npc>
+  </npcset>
+</npcsets>

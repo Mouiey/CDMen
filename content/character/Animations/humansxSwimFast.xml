@@ -1,0 +1,2 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ShyguySwimFast LegMoveAmount="5" LegCycleLength="5" HandMoveAmount="2.5,15" HandCycleSpeed="6.5" HandMoveOffset="70,0" FootAngle="0" ArmMoveStrength="3" HandMoveStrength="4" FixedHeadAngle="True" SteerTorque="25" LegTorque="25" MovementSpeed="8.450871" CycleSpeed="8.450871" HeadAngle="63" TorsoAngle="-18" HeadTorque="50" TorsoTorque="50" FootTorque="25" AnimationType="SwimFast" ArmIKStrength="10" HandIKStrength="10" />
