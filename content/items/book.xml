@@ -1,5 +1,76 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
+    <!--魔法书实例：朝上施法+展示内容-->
+  <Item name="魔法书_法阵特效测试" identifier="cdexamplebook2" category="Weapon" description="" subcategory="CD" tags="smallitem,weapon,book" hideinmenus="false" scale="0.2" impactsoundtag="weaponheavydrop"  hideconditionintooltip="true" >
+    <!--贴图正面--><!--914,6,379,861-->
+    <InventoryIcon texture="%ModDir%/content/png/D05_深海遗物典.png" sourcerect="10,10,118,157" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/D05_深海遗物典90.png" sourcerect="6,61,215,95" depth="0.55" origin="0.5,0.5" />
+    <!--正面贴图-->
+    <BrokenSprite texture="%ModDir%/content/png/D05_深海遗物典.png" depth="0.55" sourcerect="10,10,118,157"  maxcondition="89" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir%/content/png/D05_深海遗物典.png" depth="0.55" sourcerect="10,10,118,157"  maxcondition="95.5" origin="0.5,0.5" />
+    <!--朝上开启贴图-->
+    <BrokenSprite texture="%ModDir%/content/png/D05_深海遗物典90.png" depth="0.55" sourcerect="6,61,215,95" maxcondition="100" origin="0.509,0.8" />
+    <Body width="400" height="154" density="50" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="40,0" aimpos="50,-10" handle1="-0,-24" handle2="-0,-55" holdangle="-30" msg="ItemMsgPickUpSelect" >
+      <StatusEffect type="OnSecondaryUse" target="this,Contained" condition="100" setvalue="true" allowwhenbroken="true" />
+      <!-- 法阵旋转效果开始 -->
+      <StatusEffect type="OnSecondaryUse" target="This" offset="0,0" checkconditionalalways="true" stackable="true">
+        <ParticleEmitter particle="magiclab_user_project_1yd8xfu_p_mtosgl3b7f" itemlayerdepth="true" followemitter="true" followemitterfadeout="0.2" anglemin="0" anglemax="0" distancemin="0" distancemax="0" velocitymin="0" velocitymax="0" scalemin="1" scalemax="1" scalemultiplier="1,1" emitinterval="34" particleamount="1" particlespersecond="0" initialdelay="0" colormultiplier="255,255,255,255" lifetimemultiplier="1" copyparentparticlescale="false" highqualitycollisiondetection="false" copyentityangle="false" copyentitydir="false" copytargetangle="false" emitacrossrayinterval="0" usetracerpoints="false" draworder="Default" />
+        <ParticleEmitter particle="magiclab_user_project_1yd8xfu_p_mtosgl3b7h" itemlayerdepth="true" followemitter="true" followemitterfadeout="0.2" anglemin="0" anglemax="0" distancemin="0" distancemax="0" velocitymin="0" velocitymax="0" scalemin="1" scalemax="1" scalemultiplier="1,1" emitinterval="34" particleamount="1" particlespersecond="0" initialdelay="0" colormultiplier="255,255,255,255" lifetimemultiplier="1" copyparentparticlescale="false" highqualitycollisiondetection="false" copyentityangle="false" copyentitydir="false" copytargetangle="false" emitacrossrayinterval="0" usetracerpoints="false" draworder="Default" />
+        <ParticleEmitter particle="magiclab_user_project_1yd8xfu_p_mtosgl3b7j" itemlayerdepth="true" followemitter="true" followemitterfadeout="0.2" anglemin="0" anglemax="0" distancemin="0" distancemax="0" velocitymin="0" velocitymax="0" scalemin="1" scalemax="1" scalemultiplier="1,1" emitinterval="34" particleamount="1" particlespersecond="0" initialdelay="0" colormultiplier="255,255,255,255" lifetimemultiplier="1" copyparentparticlescale="false" highqualitycollisiondetection="false" copyentityangle="false" copyentitydir="false" copytargetangle="false" emitacrossrayinterval="0" usetracerpoints="false" draworder="Default" />
+        <ParticleEmitter particle="magiclab_user_project_1yd8xfu_p_mtosgl3b7l" itemlayerdepth="true" followemitter="true" followemitterfadeout="0.2" anglemin="0" anglemax="0" distancemin="0" distancemax="0" velocitymin="0" velocitymax="0" scalemin="1" scalemax="1" scalemultiplier="1,1" emitinterval="34" particleamount="1" particlespersecond="0" initialdelay="0" colormultiplier="255,255,255,255" lifetimemultiplier="1" copyparentparticlescale="false" highqualitycollisiondetection="false" copyentityangle="false" copyentitydir="false" copytargetangle="false" emitacrossrayinterval="0" usetracerpoints="false" draworder="Default" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This" offset="2.068389,0.222072" checkconditionalalways="true" stackable="true" delay="2">
+        <ParticleEmitter particle="magiclab_user_project_1yd8xfu_p_mtoskhx67s" itemlayerdepth="true" followemitter="true" followemitterfadeout="0.2" anglemin="0" anglemax="0" distancemin="0" distancemax="0" velocitymin="0" velocitymax="0" scalemin="1" scalemax="1" scalemultiplier="1,1" emitinterval="34" particleamount="1" particlespersecond="0" initialdelay="0" colormultiplier="255,255,255,255" lifetimemultiplier="1" copyparentparticlescale="false" highqualitycollisiondetection="false" copyentityangle="false" copyentitydir="false" copytargetangle="false" emitacrossrayinterval="0" usetracerpoints="false" draworder="Default" />
+        <ParticleEmitter particle="magiclab_user_project_1yd8xfu_p_mtoskhx67t" itemlayerdepth="true" followemitter="true" followemitterfadeout="0.2" anglemin="0" anglemax="0" distancemin="0" distancemax="0" velocitymin="0" velocitymax="0" scalemin="1" scalemax="1" scalemultiplier="1,1" emitinterval="34" particleamount="1" particlespersecond="0" initialdelay="0" colormultiplier="255,255,255,255" lifetimemultiplier="1" copyparentparticlescale="false" highqualitycollisiondetection="false" copyentityangle="false" copyentitydir="false" copytargetangle="false" emitacrossrayinterval="0" usetracerpoints="false" draworder="Default" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This" offset="1.7204,0.222072" checkconditionalalways="true" stackable="true" delay="2">
+        <ParticleEmitter particle="magiclab_user_project_1yd8xfu_p_mtoskhx67u" itemlayerdepth="true" followemitter="true" followemitterfadeout="0.2" anglemin="0" anglemax="0" distancemin="0" distancemax="0" velocitymin="0" velocitymax="0" scalemin="1" scalemax="1" scalemultiplier="1,1" emitinterval="34" particleamount="1" particlespersecond="0" initialdelay="0" colormultiplier="255,255,255,255" lifetimemultiplier="1" copyparentparticlescale="false" highqualitycollisiondetection="false" copyentityangle="false" copyentitydir="false" copytargetangle="false" emitacrossrayinterval="0" usetracerpoints="false" draworder="Default" />
+        <ParticleEmitter particle="magiclab_user_project_1yd8xfu_p_mtoskhx67v" itemlayerdepth="true" followemitter="true" followemitterfadeout="0.2" anglemin="0" anglemax="0" distancemin="0" distancemax="0" velocitymin="0" velocitymax="0" scalemin="1" scalemax="1" scalemultiplier="1,1" emitinterval="34" particleamount="1" particlespersecond="0" initialdelay="0" colormultiplier="255,255,255,255" lifetimemultiplier="1" copyparentparticlescale="false" highqualitycollisiondetection="false" copyentityangle="false" copyentitydir="false" copytargetangle="false" emitacrossrayinterval="0" usetracerpoints="false" draworder="Default" />
+      </StatusEffect>
+      <!-- 法阵旋转效果结束 -->
+      <StatusEffect type="Always" target="This" Condition="-50">
+        <Conditional Condition="gt 88" />
+      </StatusEffect>
+      <!--开书时生成展示物-->
+      <StatusEffect type="OnSecondaryUse" target="This" disabledeltatime="true">
+        <Conditional Condition="gt 88" />
+        <SpawnItem identifiers="cdexamplebook1chargefire" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </Holdable>
+    <RangedWeapon weapondamagemodifier="1.8" penetration="0.05" reload="1.5" barrelpos="0,125" spread="6" unskilledspread="25" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2" holdtrigger="true" maxchargetime="1">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <!--吟唱特效-->
+      <ParticleEmitterCharge particle="chargepulselaser" particlespersecond="60" scalemultiplier="0.75,0.75" scalemin="1.0" scalemax="1.0" anglemin="0" anglemax="359" colormultiplier="255,255,20,255" />
+      <!--释放特效-->
+      <ParticleEmitter particle="impactfirearm" particleamount="1" anglemin="0" anglemax="360" velocitymin="0" velocitymax="0" scalemultiplier="10.0,7.0" colormultiplier="255,100,100,200" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="150.0" force="1" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="1.0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Conditional HasTag="eq cdfirelancemagazine" />
+        <Use />
+      </StatusEffect>
+      <RequiredItems items="cdexamplebook1magazine" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="80" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="6" hideitems="false" drawinventory="false" containedstateindicatorstyle="bullet"  SpawnWithId="cdexamplebook1magazine" removecontaineditemsondeconstruct="true"  containedstateindicatorslot="0">
+      <Containable items="cdexamplebook1magazine">
+      </Containable>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="cdexamplebook1chargefire" hide="false" itempos="0,30">
+          <StatusEffect type="OnContaining" target="This" cameraaimoffset="500" setvalue="true" interval="1" />
+          <StatusEffect type="OnRemoved" target="This" cameraaimoffset="0" setvalue="true" />
+        </Containable>
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="5000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.15" />
+    </Quality>
+    <SkillRequirementHint identifier="weapons" level="80" />
+  </Item>
   <!--魔法书实例：朝上施法+展示内容-->
   <Item name="魔法书" identifier="cdexamplebook1" category="Weapon" description="" subcategory="CD" tags="smallitem,weapon,book" hideinmenus="false" scale="0.2" impactsoundtag="weaponheavydrop"  hideconditionintooltip="true" >
     <!--贴图正面--><!--914,6,379,861-->
@@ -120,3 +191,4 @@
     </ItemComponent>
   </Item>
 </Items>
+

@@ -1,8 +1,9 @@
-# Emitter Follow Client
+# Emitter Follow + Item Layer Client
 
 面向 Barotrauma 1.13.4.0 / LuaCs 的纯客户端粒子扩展。它给原版
-`ParticleEmitter` 增加可选的父子变换和“心跳停止后淡出”行为，不修改游戏 DLL，
-也不创建任何隐藏物品、射弹或状态效果。
+`ParticleEmitter` 增加两项彼此独立的可选能力：父子变换/“心跳停止后淡出”，以及
+以人物所在的 `0.5` 深度为边界插入物品式粒子层级。它不修改游戏 DLL，也不创建
+任何隐藏物品、射弹或状态效果。
 
 ## 安装
 
@@ -20,6 +21,7 @@
 <StatusEffect type="OnSecondaryUse" target="This">
   <ParticleEmitter
       particle="magic_circle"
+      itemlayerdepth="true"
       followemitter="true"
       followemitterfadeout="0.2"
       copyentityangle="true"
@@ -32,11 +34,32 @@
 - `followemitter` 默认为 `false`。只有设为 `true` 的发射器进入扩展路径。
 - `followemitterfadeout` 默认为 `0.2` 秒。`0` 立即删除；负数、NaN、Infinity
   或无法解析的值回退为 `0.2`，整次加载只记录一次警告。
+- `itemlayerdepth` 默认为 `false`，可以单独使用，也可以和 `followemitter` 组合。
+  启用后读取每个粒子实际随机选中的 Sprite/AnimatedSprite 的 `Depth`：
+  `Depth > 0.5` 绘制在后层实体之后、人物之前；`Depth <= 0.5` 绘制在人物之后、
+  前层实体之前。同一侧不再与每个物品逐个按深度排序。
+- `itemlayerdepth` 同时保留 `AlphaBlend` 与 `Additive` 混合，但要求粒子 prefab 使用
+  `DrawTarget="Both"`。`Air`/`Water` 会各 prefab 警告一次并退回原版绘制。
+- `itemlayerdepth` 优先于发射器或粒子 prefab 的 `DrawOrder`。此类内容应显式使用
+  `DrawOrder="Default"`；其他值会警告一次，但仍按 `itemlayerdepth` 绘制。
 - `copyentityangle="true"` 让原版把物品方向传给发射器，因此旋转、贴图角度
   和速度方向才能随物品变化；不设置时仍会跟随位置。
 
-属性名按不区分大小写读取。没有加载本 C# 扩展的客户端会由原版忽略这两个
-未知属性，效果退化为普通粒子。
+扩展属性名按不区分大小写读取。没有加载本 C# 扩展的客户端会由原版忽略这些
+未知属性，效果安全退化为普通粒子。
+
+## 物品式绘制层级
+
+`itemlayerdepth` 只改变绘制位置，不改变粒子坐标、速度、碰撞、寿命或对象池行为。
+它在主场景的两个批次边界插入绘制：
+
+```text
+后层物品与结构 -> Depth > 0.5 粒子 -> 人物
+人物 -> Depth <= 0.5 粒子 -> 前层物品与结构
+```
+
+每一层均先按原版创建顺序绘制 `AlphaBlend`，再按原版创建顺序绘制 `Additive`。
+粒子编辑器、菜单及非 `GameScreen.DrawMap` 的绘制调用不会被过滤。
 
 ## OnSecondaryUse 约束
 
@@ -67,17 +90,20 @@
 
 ## 失效保护
 
-启动时会一次性核对目标方法、重载和私有字段。如果当前游戏版本不兼容，扩展
-会记录一条错误并完全禁用，保留原版粒子行为。运行中若补丁发生异常，也会恢复
-正在淡出的粒子颜色、清空绑定并停用扩展，避免错误扩散到普通粒子。
+启动时会一次性核对目标方法、重载和私有字段。物品式绘制还会核对 `DrawMap`
+中三次 `DrawBack`、一次 `DrawFront`、`Particle.Draw`、活动 Sprite 索引和粒子创建
+顺序集合。分层兼容检查或运行时绘制失败时，只停用 `itemlayerdepth` 并让后续帧
+退回原版；不会关闭 `followemitter`。跟随功能自身异常时仍会恢复正在淡出的粒子
+颜色、清空跟随绑定并停用跟随功能，避免错误扩散到普通粒子。
 
 ## 本地验证
 
 在 PowerShell 中运行：
 
 ```powershell
-pwsh -File .\Tests\validate.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File .\Tests\validate.ps1
 ```
 
-该检查验证包清单、客户端边界、示例结构、禁止的网络调用以及核心角度/潜艇
-局部坐标数学。最终仍需在游戏中按验收矩阵验证绘制、对象池和多人表现。
+该检查验证包清单、客户端边界、示例结构、禁止的网络调用、核心角度/潜艇局部
+坐标数学，以及八个法阵发射器的分层属性。最终仍需在游戏中按验收矩阵验证
+遮挡、混合、照明、对象池和多人表现。
