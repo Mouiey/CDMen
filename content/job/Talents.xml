@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <!--成神之路-->
+  <Talent identifier="cdgodway" trackedstat="godwaycount" trackedmax="1000">
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="1,4" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.cdgodway" />
+    <!-- 杀敌计数触发器 -->
+    <AbilityGroupEffect abilityeffecttype="OnKillCharacter">
+      <Conditions>
+        <AbilityConditionCharacter targettypes="Enemy">
+          <Conditional maxhealth="gte 50" />
+        </AbilityConditionCharacter>
+      </Conditions>
+      <Abilities>
+        <!-- 增加计数器 -->
+        <CharacterAbilityGivePermanentStat statidentifier="godwaycount" value="1" removeondeath="false" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <!-- 1000杀 -->
+    <AbilityGroupInterval interval="0.9">
+      <Conditions>
+        <AbilityConditionHasPermanentStat statidentifier="godwaycount" min="1000" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="This" multiplyafflictionsbymaxvitality="true" disabledeltatime="true">
+              <Affliction identifier="cdgodwaybuff" amount="1.0"/>
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupInterval>
+    <AbilityGroupInterval interval="0.9">
+      <Conditions>
+        <AbilityConditionHasPermanentStat statidentifier="godwaycount" min="1000" />
+        <AbilityConditionHasPermanentStat statidentifier="godwaycount_Done" min="1" invert="true" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityGivePermanentStat statidentifier="godwaycount_Done" value="1" removeondeath="false" />
+      </Abilities>
+    </AbilityGroupInterval>
+  </Talent>
+  <!--非凡赐福-->
+  <Talent identifier="cdgetgoodspider">
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="2,0" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.cdgetgoodspider"/>
+    <!--
+    <Description tag="talentdescription.cdgetgoodspiderreminder">
+      <Replace tag="[amount]" value="2" color="gui.green"/>
+    </Description>
+    -->
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="活化特性卵" color="gui.orange"/>
+    </Description>
+    <AddedRecipe itemidentifier="cdgoodspideregg"/>
+  </Talent>
+  <!--献祭-->
+  <Talent identifier="cdmenpotionbusiness">
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="1,4" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.cdmenpotionbusiness">
+      <Replace tag="[item]" value="非凡特性" color="gui.orange"/>
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="OnLootCharacter">
+      <Conditions>
+        <AbilityConditionCharacter targettype="Monster">
+          <!--
+          <Conditional IsMachine="false" />
+          <Conditional IsHusk="false" />
+          -->
+          <Conditional maxhealth="gt 6000"/>
+        </AbilityConditionCharacter>
+        <AbilityConditionCharacterNotLooted identifier="cdmenpotionbusiness" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="UseTarget" spawnitemrandomly="true" >
+              <SpawnItem identifiers="cdmenpotion"  count="5" spawnposition="ThisInventory" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+        <CharacterAbilityMarkAsLooted identifier="cdmenpotionbusiness"/>
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+  <!-- 奸诈人渣 -->
+  <Talent identifier="cddisloyalscum">
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="0,4" sheetelementsize="128,128" />
+    <Description tag="talentdescription.cddisloyalscum.1">
+      <Replace tag="[amount]" value="20" color="gui.green" />
+    </Description>
+    <AbilityGroupInterval interval="0.1">
+      <Abilities>
+        <CharacterAbilityApplyStatusEffectsToAllies allowself="true">
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character" disabledeltatime="true">
+              <Affliction identifier="disloyalscum" strength="1.0" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffectsToAllies>
+      </Abilities>
+    </AbilityGroupInterval>
+  </Talent>
+  <!-- 无垢信仰 -->
+  <Talent identifier="cddeadgoodspider">
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,2" sheetelementsize="128,128" />
+    <Description tag="talentdescription.cddeadgoodspider.1">
+      <Replace tag="[amount]" value="20" color="gui.green" />
+    </Description>
+    <AbilityGroupInterval interval="0.1">
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="This" disabledeltatime="true">
+              <Affliction identifier="cddeadgoodspider" strength="1.0" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupInterval>
+  </Talent>
+  <!-- 行刑者：序列加伤害 -->
+  <Talent identifier="cdmendamagetalant">
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,4" sheetelementsize="128,128" />
+    <Description tag="talentdescription.cdmendamagetalant" >
+      <Replace tag="[amount]" value="5" color="gui.green" />
+      <Replace tag="[maxamount]" value="50" color="gui.green" />
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionHasAffliction afflictionidentifier="cdmeninfections"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.05" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionHasAffliction afflictionidentifier="cdmeninfections" minimumpercentage="0.11"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.05" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionHasAffliction afflictionidentifier="cdmeninfections" minimumpercentage="0.22"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.05" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionHasAffliction afflictionidentifier="cdmeninfections" minimumpercentage="0.33"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.05" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionHasAffliction afflictionidentifier="cdmeninfections" minimumpercentage="0.44"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.05" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionHasAffliction afflictionidentifier="cdmeninfections" minimumpercentage="0.55"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.05" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionHasAffliction afflictionidentifier="cdmeninfections" minimumpercentage="0.66"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.05" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionHasAffliction afflictionidentifier="cdmeninfections" minimumpercentage="0.99"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.05" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionHasAffliction afflictionidentifier="cdmeninfections" minimumpercentage="0.88"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.05" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionHasAffliction afflictionidentifier="cdmeninfections" minimumpercentage="0.994"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.05" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+  <!-- 从彼岸归来：苏醒有概率中断 -->
+  <Talent identifier="cdnosx">
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="3,1" sheetelementsize="128,128" />
+    <Description tag="talentdescription.cdnosx">
+      <Replace tag="[item]" value="扮演" color="gui.green" />
+    </Description>
+    <AbilityGroupInterval interval="1">
+      <Conditions>
+        <AbilityConditionHasAffliction afflictionidentifier="sxinfection"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="This" disabledeltatime="true">
+              <Affliction identifier="cdreducesx" strength="1.0" probability="0.05"/>
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupInterval>
+    <AbilityGroupInterval interval="0.1">
+      <Conditions>
+        <AbilityConditionHasAffliction afflictionidentifier="cdmanzzspawner"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="This" disabledeltatime="true">
+              <Affliction identifier="cdreducesx" strength="1.0" probability="1"/>
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupInterval>
+  </Talent>
+  <!--通灵：非凡武器不再拒绝你-->
+  <Talent identifier="cdweaponallow">
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="3,7" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.cdweaponallow">
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveResistance resistanceid="cdresistbuff" multiplier="0"/>
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+</Override>

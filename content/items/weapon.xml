@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Item name="‖color:210,110,0,255‖天火圣裁‖end‖" identifier="cdskyfire" description="天火，出鞘。" category="Weapon" Tags="smallitem,weapon" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <PreferredContainer primary="armcab" minamount="0" maxamount="1" spawnprobability="0.5" />
+    <PreferredContainer secondary="wreckarmcab" minamount="0" maxamount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="abandonedarmcab,abandonedstoragecab" minamount="0" maxamount="1" spawnprobability="0.3" />
+    <Deconstruct time="10">
+      <Item identifier="titaniumaluminiumalloy" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredSkill identifier="weapons" level="80" />
+      <RequiredItem identifier="incendium" />
+      <RequiredItem identifier="physicorium" />
+      <RequiredItem identifier="titaniumaluminiumalloy" />
+    </Fabricate>
+    <InventoryIcon texture="%ModDir%/content/png/天火圣裁.PNG" sourcerect="0,0,394,394" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/天火圣裁4.PNG" sourcerect="0,0,550,181" depth="0.55" origin="0.5,0.5" />
+    <Body width="550" height="50" density="25" />
+    <MeleeWeapon slots="Any,RightHand+LeftHand" controlpose="true"  holdpos="110,-60"  aimpos="30,50" handle1="-70,0" handle2="-115,10" holdangle="40" aimangle="20" reload="1" range="3000" combatPriority="25" msg="ItemMsgPickUpSelect">
+      <!--别剑
+      <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+        <sprite name="" texture="%ModDir%/content/png/斩舰刀2.PNG" canbehiddenbyotherwearables="false" sourcerect="0,0,300,53" rotation="45" inheritlimbdepth="false" depth="0.55" limb="Torso" scale="0.5" origin="0.8,-0.3" />
+      </Wearable>
+      -->
+      <Attack targetimpulse="2" severlimbsprobability="0.9"  targetforce="50" itemdamage="32" structuredamage="0" structuresoundtype="StructureSlash" penetration="0.25">
+        <Affliction identifier="lacerations" strength="30" />
+        <Affliction identifier="bleeding" strength="25" />
+        <Affliction identifier="internaldamage" strength="15" />
+        <Affliction identifier="stun" strength="0.5" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character" />
+          <Sound file="Content/Sounds/Damage/LimbSlash1.ogg" selectionmode="random" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash2.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash3.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash4.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash5.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500" />
+        </StatusEffect>
+      </Attack>
+      <!--特效-->
+      <!--
+      <StatusEffect type="OnActive" target="This">
+        <ParticleEmitter particle="whitegas" particlespersecond="8" colormultiplier="210,110,0,255" copyentityangle="true" distancemin="-100" distancemax="100" />
+      </StatusEffect>
+      -->
+      <!--
+      <StatusEffect type="OnActive" target="This">
+        <ParticleEmitter particle="faradayfx" scalemultiplier="4,2" anglemax="360" emitinterval="2" particleamount="1" particlespersecond="3" colormultiplier="210,110,0,255"  distancemin="-50" distancemax="50" />
+      </StatusEffect>
+      -->
+      <!--段变增伤-->
+      <!--100血10增伤-->
+      <StatusEffect type="OnActive" target="Character" delay="1" stackable="false" >
+        <Conditional cdblooddamage="lt 10" />
+        <Affliction identifier="cdblooddamage" strength="150" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <!--80血40增伤-->
+      <StatusEffect type="OnActive" target="Character" Comparison="and" delay="1" stackable="false" >
+        <Conditional cdblooddamage="lt 40" />
+        <Conditional healthpercentage="lte 80"/>
+        <Affliction identifier="cdblooddamage" strength="200" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <!--60血80增伤-->
+      <StatusEffect type="OnActive" target="Character" Comparison="and" delay="1" stackable="false" >
+        <Conditional cdblooddamage="lt 80" />
+        <Conditional healthpercentage="lte 60"/>
+        <Affliction identifier="cdblooddamage" strength="200" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <!--40血120增伤-->
+      <StatusEffect type="OnActive" target="Character" Comparison="and" delay="1" stackable="false" >
+        <Conditional cdblooddamage="lt 120" />
+        <Conditional healthpercentage="lte 40"/>
+        <Affliction identifier="cdblooddamage" strength="200" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <!--20血160增伤-->
+      <StatusEffect type="OnActive" target="Character" Comparison="and" delay="1" stackable="false" >
+        <Conditional cdblooddamage="lt 160" />
+        <Conditional healthpercentage="lte 20"/>
+        <Affliction identifier="cdblooddamage" strength="200" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <!--0血200增伤-->
+      <StatusEffect type="OnActive" target="Character" Comparison="and" delay="1" stackable="false" >
+        <Conditional cdblooddamage="lt 200" />
+        <Conditional healthpercentage="lte 0"/>
+        <Affliction identifier="cdblooddamage" strength="200" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <!---50血400增伤-->
+      <StatusEffect type="OnActive" target="Character" Comparison="and" delay="1" stackable="false" >
+        <Conditional cdblooddamage="lt 400" />
+        <Conditional healthpercentage="lte -50"/>
+        <Affliction identifier="cdblooddamage" strength="500" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+    </MeleeWeapon>
+    <aitarget sightrange="500" soundrange="250" fadeouttime="1" />
+    <Quality>
+      <QualityStat stattype="StrikingPowerMultiplier" value="0.2" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+  </Item>
+  <Item name="‖color:210,110,0,255‖天火圣裁II‖end‖" identifier="cdskyfire2" description="天火，出鞘。" category="Weapon" Tags="smallitem,weapon" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <Deconstruct time="10">
+      <Item identifier="cdskyfire" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredSkill identifier="weapons" level="80" />
+      <RequiredItem identifier="fulgurium" amount="6" />
+      <RequiredItem identifier="physicorium" amount="6" />
+      <RequiredItem identifier="cdskyfire" />
+    </Fabricate>
+    <InventoryIcon texture="%ModDir%/content/png/天火圣裁2.PNG" sourcerect="0,0,394,394" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/天火圣裁4.PNG" sourcerect="0,0,550,181" depth="0.55" origin="0.5,0.5" />
+    <Body width="550" height="50" density="25" />
+    <MeleeWeapon slots="Any,RightHand+LeftHand" controlpose="true"  holdpos="110,-60"  aimpos="30,50" handle1="-70,0" handle2="-115,10" holdangle="40" aimangle="20" reload="1" range="3000" combatPriority="25" msg="ItemMsgPickUpSelect">
+      <!--别剑
+      <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+        <sprite name="" texture="%ModDir%/content/png/斩舰刀2.PNG" canbehiddenbyotherwearables="false" sourcerect="0,0,300,53" rotation="45" inheritlimbdepth="false" depth="0.55" limb="Torso" scale="0.5" origin="0.8,-0.3" />
+      </Wearable>
+      -->
+      <Attack targetimpulse="2" severlimbsprobability="0.9"  targetforce="50" itemdamage="32" structuredamage="0" structuresoundtype="StructureSlash" penetration="0.5">
+        <Affliction identifier="lacerations" strength="30" />
+        <Affliction identifier="burn" strength="35" />
+        <Affliction identifier="internaldamage" strength="30" />
+        <Affliction identifier="stun" strength="0.5" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character" />
+          <Sound file="Content/Sounds/Damage/LimbSlash1.ogg" selectionmode="random" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash2.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash3.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash4.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash5.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500" />
+        </StatusEffect>
+      </Attack>
+      <!--特效-->
+      <!--
+      <StatusEffect type="OnActive" target="This">
+        <ParticleEmitter particle="whitegas" particlespersecond="8" colormultiplier="210,110,0,255" copyentityangle="true" distancemin="-100" distancemax="100" />
+      </StatusEffect>
+      -->
+      <StatusEffect type="OnActive" target="This">
+        <ParticleEmitter particle="faradayfx" scalemultiplier="4,2" anglemax="360" emitinterval="2" particleamount="1" particlespersecond="3" colormultiplier="210,110,0,255"  distancemin="-50" distancemax="50" />
+      </StatusEffect>
+      <!--武器抵抗-->
+      <StatusEffect type="OnActive" target="Character" delay="1" stackable="false" >
+        <Conditional cdmeninfections="lte 44" />
+        <Affliction identifier="cdresistbuff" strength="100" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <!--段变增伤-->
+      <!--100血60增伤-->
+      <StatusEffect type="OnActive" target="Character" delay="1" stackable="false" >
+        <Conditional cdblooddamage="lt 60" />
+        <Affliction identifier="cdblooddamage" strength="300" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <!--80血120增伤-->
+      <StatusEffect type="OnActive" target="Character" Comparison="and" delay="1" stackable="false" >
+        <Conditional cdblooddamage="lt 120" />
+        <Conditional healthpercentage="lte 80"/>
+        <Affliction identifier="cdblooddamage" strength="300" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <!--60血180增伤-->
+      <StatusEffect type="OnActive" target="Character" Comparison="and" delay="1" stackable="false" >
+        <Conditional cdblooddamage="lt 180" />
+        <Conditional healthpercentage="lte 60"/>
+        <Affliction identifier="cdblooddamage" strength="300" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <!--40血240增伤-->
+      <StatusEffect type="OnActive" target="Character" Comparison="and" delay="1" stackable="false" >
+        <Conditional cdblooddamage="lt 240" />
+        <Conditional healthpercentage="lte 40"/>
+        <Affliction identifier="cdblooddamage" strength="300" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <!--20血300增伤-->
+      <StatusEffect type="OnActive" target="Character" Comparison="and" delay="1" stackable="false" >
+        <Conditional cdblooddamage="lt 300" />
+        <Conditional healthpercentage="lte 20"/>
+        <Affliction identifier="cdblooddamage" strength="300" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <!--0血420增伤-->
+      <StatusEffect type="OnActive" target="Character" Comparison="and" delay="1" stackable="false" >
+        <Conditional cdblooddamage="lt 420" />
+        <Conditional healthpercentage="lte 0"/>
+        <Affliction identifier="cdblooddamage" strength="300" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <!---50血600增伤-->
+      <StatusEffect type="OnActive" target="Character" Comparison="and" delay="1" stackable="false" >
+        <Conditional cdblooddamage="lt 600" />
+        <Conditional healthpercentage="lte -50"/>
+        <Affliction identifier="cdblooddamage" strength="500" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+    </MeleeWeapon>
+    <aitarget sightrange="500" soundrange="250" fadeouttime="1" />
+    <Quality>
+      <QualityStat stattype="StrikingPowerMultiplier" value="0.2" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+  </Item>
+  <Item name="‖color:210,110,0,255‖天火圣裁III‖end‖" identifier="cdskyfire3" description="天火，出鞘。" category="Weapon" Tags="smallitem,weapon" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <Deconstruct time="10">
+      <Item identifier="cdskyfire2" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredSkill identifier="weapons" level="100" />
+      <RequiredItem identifier="cdsplinter" amount="1" />
+      <RequiredItem identifier="fulgurium" amount="6" />
+      <RequiredItem identifier="incendium" amount="6" />
+      <RequiredItem identifier="physicorium" amount="12" />
+      <RequiredItem identifier="cdskyfire2" />
+    </Fabricate>
+    <InventoryIcon texture="%ModDir%/content/png/天火圣裁2.PNG" sourcerect="0,0,394,394" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/天火圣裁4.PNG" sourcerect="0,0,550,181" depth="0.55" origin="0.5,0.5" />
+    <Body width="550" height="50" density="25" />
+    <MeleeWeapon slots="Any,RightHand+LeftHand" controlpose="true"  holdpos="110,-60"  aimpos="30,50" handle1="-70,0" handle2="-115,10" holdangle="40" aimangle="20" reload="1" range="3000" combatPriority="25" msg="ItemMsgPickUpSelect">
+      <!--别剑
+      <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+        <sprite name="" texture="%ModDir%/content/png/斩舰刀2.PNG" canbehiddenbyotherwearables="false" sourcerect="0,0,300,53" rotation="45" inheritlimbdepth="false" depth="0.55" limb="Torso" scale="0.5" origin="0.8,-0.3" />
+      </Wearable>
+      -->
+      <Attack targetimpulse="2" severlimbsprobability="0.9"  targetforce="50" itemdamage="32" structuredamage="0" structuresoundtype="StructureSlash" penetration="0.75">
+        <Affliction identifier="lacerations" strength="35" />
+        <Affliction identifier="burn" strength="50" />
+        <Affliction identifier="internaldamage" strength="35" />
+        <Affliction identifier="staredamage" strength="30" />
+        <Affliction identifier="stun" strength="1" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character" />
+          <Sound file="Content/Sounds/Damage/LimbSlash1.ogg" selectionmode="random" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash2.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash3.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash4.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash5.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500" />
+        </StatusEffect>
+      </Attack>
+      <!--特效-->
+      <!--
+      <StatusEffect type="OnActive" target="This">
+        <ParticleEmitter particle="whitegas" particlespersecond="8" colormultiplier="210,110,0,255" copyentityangle="true" distancemin="-100" distancemax="100" />
+      </StatusEffect>
+      -->
+      <StatusEffect type="OnActive" target="This">
+        <ParticleEmitter particle="faradayfx" scalemultiplier="4,2" anglemax="360" emitinterval="2" particleamount="1" particlespersecond="5" colormultiplier="210,110,0,255"  distancemin="-50" distancemax="50" />
+      </StatusEffect>
+      <!--武器抵抗-->
+      <StatusEffect type="OnActive" target="Character" delay="1" stackable="false" >
+        <Conditional cdmeninfections="lte 88" />
+        <Affliction identifier="cdresistbuff" strength="100" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <!--段变增伤-->
+      <!--100血120增伤-->
+      <StatusEffect type="OnActive" target="Character" delay="1" stackable="false" >
+        <Conditional cdblooddamage="lt 120" />
+        <Affliction identifier="cdblooddamage" strength="600" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <!--80血240增伤-->
+      <StatusEffect type="OnActive" target="Character" Comparison="and" delay="1" stackable="false" >
+        <Conditional cdblooddamage="lt 240" />
+        <Conditional healthpercentage="lte 80"/>
+        <Affliction identifier="cdblooddamage" strength="600" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <!--60血360增伤-->
+      <StatusEffect type="OnActive" target="Character" Comparison="and" delay="1" stackable="false" >
+        <Conditional cdblooddamage="lt 360" />
+        <Conditional healthpercentage="lte 60"/>
+        <Affliction identifier="cdblooddamage" strength="600" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <!--40血480增伤-->
+      <StatusEffect type="OnActive" target="Character" Comparison="and" delay="1" stackable="false" >
+        <Conditional cdblooddamage="lt 480" />
+        <Conditional healthpercentage="lte 40"/>
+        <Affliction identifier="cdblooddamage" strength="600" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <!--20血600增伤-->
+      <StatusEffect type="OnActive" target="Character" Comparison="and" delay="1" stackable="false" >
+        <Conditional cdblooddamage="lt 600" />
+        <Conditional healthpercentage="lte 20"/>
+        <Affliction identifier="cdblooddamage" strength="600" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <!--0血720增伤-->
+      <StatusEffect type="OnActive" target="Character" Comparison="and" delay="1" stackable="false" >
+        <Conditional cdblooddamage="lt 720" />
+        <Conditional healthpercentage="lte 0"/>
+        <Affliction identifier="cdblooddamage" strength="600" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+      <!---50血1000增伤-->
+      <StatusEffect type="OnActive" target="Character" Comparison="and" delay="1" stackable="false" >
+        <Conditional cdblooddamage="lt 1000" />
+        <Conditional healthpercentage="lte -50"/>
+        <Affliction identifier="cdblooddamage" strength="1000" MultiplyByMaxVitality="True"/>
+      </StatusEffect>
+    </MeleeWeapon>
+    <!--发光-->
+    <LightComponent type="Always" target="This" LightColor="70,53,40,150" blinkfrequency="0.0" Flicker="0.0" range="2048" IsOn="true"></LightComponent>
+    <Quality>
+      <QualityStat stattype="StrikingPowerMultiplier" value="0.2" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+  </Item>
+</Items>

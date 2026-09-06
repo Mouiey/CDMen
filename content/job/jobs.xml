@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Jobs>
+  <Job identifier="cdmener" initialcount="0" minkarma="0"  vitalitymodifier="0" hiddenjob="false" pricemultiplier="1.5" idlebehavior="Patrol"><!--uicolor="0.5,0.86,0.9"-->
+    <Jobicon>
+      <sprite texture="%ModDir%/content/png/门图标2.png"  sourcerect="0,0,300,300" origin="0.5,0.5" />
+    </Jobicon>
+    <JobiconSmall>
+      <sprite texture="%ModDir%/content/png/门图标2.png"  sourcerect="0,0,300,300" origin="0.5,0.5" />
+    </JobiconSmall>
+    <Skills>
+      <Skill identifier="mechanical" level="40,50" primary="true" pvplevel="70" pricemultiplier="20"/>
+      <Skill identifier="electrical" level="25,35" pvplevel="50"/>
+      <Skill identifier="weapons" level="15,25" pvplevel="50"/>
+      <Skill identifier="medical" level="15,25" pvplevel="50"/>
+      <Skill identifier="helm" level="5,10" pvplevel="50" pricemultiplier="10"/>
+    </Skills>
+    <ItemSet>
+      <Item identifier="idcard" equip="true" showpreview="false"/>
+      <Item identifier="assistantclothes" equip="true" outfit="true"/>
+      <Item identifier="wrench" GameMode="PvE"/>
+      <Item identifier="screwdriver" GameMode="PvE"/>
+      <Item identifier="weldingtool" GameMode="PvE" >
+        <Item identifier="weldingfueltank" showpreview="false"/>
+      </Item>
+      <Item identifier="headset" equip="true" showpreview="false"/>
+      <Item identifier="divingknife" equip="false" />
+      <Item identifier="revolver" equip="false">
+        <Item identifier="revolverround" />
+        <Item identifier="revolverround" />
+        <Item identifier="revolverround" />
+        <Item identifier="revolverround" />
+        <Item identifier="revolverround" />
+        <Item identifier="revolverround" />
+      </Item>
+      <Item identifier="cdautomenpotion" equip="false"/>
+    </ItemSet>
+    <ItemSet>
+      <Item identifier="idcard" equip="true" showpreview="false"/>
+      <Item identifier="separatistcommoner1" equip="true" outfit="true"/>
+      <Item identifier="wrench" GameMode="PvE"/>
+      <Item identifier="screwdriver" GameMode="PvE"/>
+      <Item identifier="weldingtool" GameMode="PvE" >
+        <Item identifier="weldingfueltank" showpreview="false"/>
+      </Item>
+      <Item identifier="headset" equip="true" showpreview="false"/>
+      <Item identifier="divingknife" equip="false" />
+      <Item identifier="fraggrenade" equip="false"/>
+      <Item identifier="cdautomenpotion" equip="false"/>
+    </ItemSet>
+    <AutonomousObjectives>
+      <Order identifier="fightintruders" prioritymodifier="1" />
+      <Order identifier="extinguishfires" prioritymodifier="1" />
+      <Order identifier="rescue" prioritymodifier="1" />
+      <Order identifier="operatereactor" option="powerup" prioritymodifier="1" />
+      <Order identifier="fixleaks" prioritymodifier="1" />
+    </AutonomousObjectives>
+    <AppropriateOrders>
+      <Order identifier="operateweapons" />
+      <Order identifier="fightintruders" />
+    </AppropriateOrders>
+  </Job>
+</Jobs>
