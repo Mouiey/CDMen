@@ -11,6 +11,8 @@
   <Item file="%ModDir%/content/items/others.xml" />
   <Item file="%ModDir%/content/items/cdpotion.xml" />
   <Item file="%ModDir%/content/items/weapon.xml" />
+  <Item file="%ModDir%/content/items/book.xml" />
+  <Particles file="%ModDir%/content/Particles/Particles.xml" />
   <Wreck file="%ModDir%/content/sub/星之匙（已沉没）.sub" />
   <Other file="%ModDir%/Lua/Autorun/init.lua" />
   <Other file="%ModDir%/Lua/Scripts/Client/weapon_zoom.lua" />

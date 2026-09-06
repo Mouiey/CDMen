@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!--魔法书实例：朝上施法+展示内容-->
+  <Item name="魔法书" identifier="cdexamplebook1" category="Weapon" description="" subcategory="CD" tags="smallitem,weapon,book" hideinmenus="false" scale="0.2" impactsoundtag="weaponheavydrop"  hideconditionintooltip="true" >
+    <!--贴图正面--><!--914,6,379,861-->
+    <InventoryIcon texture="%ModDir%/content/png/D05_深海遗物典.png" sourcerect="10,10,118,157" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/D05_深海遗物典90.png" sourcerect="6,61,215,95" depth="0.55" origin="0.5,0.5" />
+    <!--正面贴图-->
+    <BrokenSprite texture="%ModDir%/content/png/D05_深海遗物典.png" depth="0.55" sourcerect="10,10,118,157"  maxcondition="89" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir%/content/png/D05_深海遗物典.png" depth="0.55" sourcerect="10,10,118,157"  maxcondition="95.5" origin="0.5,0.5" />
+    <!--朝上开启贴图-->
+    <BrokenSprite texture="%ModDir%/content/png/D05_深海遗物典90.png" depth="0.55" sourcerect="6,61,215,95" maxcondition="100" origin="0.509,0.8" />
+    <Body width="400" height="154" density="50" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="40,0" aimpos="50,-10" handle1="-0,-24" handle2="-0,-55" holdangle="-30" msg="ItemMsgPickUpSelect" >
+      <StatusEffect type="OnSecondaryUse" target="this,Contained" condition="100" setvalue="true" allowwhenbroken="true" />
+      <StatusEffect type="Always" target="This" Condition="-50">
+        <Conditional Condition="gt 88" />
+      </StatusEffect>
+      <!--开书时生成展示物-->
+      <StatusEffect type="OnSecondaryUse" target="This" disabledeltatime="true">
+        <Conditional Condition="gt 88" />
+        <SpawnItem identifiers="cdexamplebook1chargefire" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </Holdable>
+    <RangedWeapon weapondamagemodifier="1.8" penetration="0.05" reload="1.5" barrelpos="0,125" spread="6" unskilledspread="25" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2" holdtrigger="true" maxchargetime="1">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <!--吟唱特效-->
+      <ParticleEmitterCharge particle="chargepulselaser" particlespersecond="60" scalemultiplier="0.75,0.75" scalemin="1.0" scalemax="1.0" anglemin="0" anglemax="359" colormultiplier="255,255,20,255" />
+      <!--释放特效-->
+      <ParticleEmitter particle="impactfirearm" particleamount="1" anglemin="0" anglemax="360" velocitymin="0" velocitymax="0" scalemultiplier="10.0,7.0" colormultiplier="255,100,100,200" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="150.0" force="1" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="1.0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Conditional HasTag="eq cdfirelancemagazine" />
+        <Use />
+      </StatusEffect>
+      <RequiredItems items="cdexamplebook1magazine" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="80" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="6" hideitems="false" drawinventory="false" containedstateindicatorstyle="bullet"  SpawnWithId="cdexamplebook1magazine" removecontaineditemsondeconstruct="true"  containedstateindicatorslot="0">
+      <Containable items="cdexamplebook1magazine">
+      </Containable>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="cdexamplebook1chargefire" hide="false" itempos="0,30">
+          <StatusEffect type="OnContaining" target="This" cameraaimoffset="500" setvalue="true" interval="1" />
+          <StatusEffect type="OnRemoved" target="This" cameraaimoffset="0" setvalue="true" />
+        </Containable>
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="5000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.15" />
+    </Quality>
+    <SkillRequirementHint identifier="weapons" level="80" />
+  </Item>
+  <!--弹匣样本-->
+  <Item name="魔法" identifier="cdexamplebook1magazine" description="" maxstacksize="1" maxstacksizecharacterinventory="1" health="20" scale="0.2" category="Weapon" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,cdfirelancemagazine" impactsoundtag="impact_metal_light"  hideinmenus="true">
+    <Sprite texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" rotation="90" depth="0.55" origin="0.5,0.5" />
+    <Body width="77" height="45" density="25" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="cdexamplebook1round2" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="cdexamplebook1round2" />
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <SpawnItem identifiers="cdexamplebook1round2" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This" condition="-100" disabledeltatime="true" />
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <!--弹幕样本-->
+  <Item identifier="cdexamplebook1round2" health="100" category="Weapon" tags="smallitem" noninteractable="true" hideinmenus="true">
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="0,0,2,2" depth="0.55" origin="0.5,0.5" />
+    <Body width="16" height="16" density="10" friction="0.0" restitution="0.0" angulardamping="0.0" gravityscale="0" waterdragcoefficient="0" lineardamping="0"/>
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" damagedoors="true" launchimpulse="5.0" maxtargetstohit="1">
+      <Attack structuredamage="0.0" targetforce="1.0" itemdamage="4.0" severlimbsprobability="0.15">
+        <Affliction identifier="burn" strength="5" />
+        <Affliction identifier="explosiondamage" strength="20" />
+        <Affliction identifier="stun" strength="0.3" />
+      </Attack>
+      <StatusEffect type="OnNotContained" target="This" condition="-10">
+        <Conditional InWater="false" />
+        <ParticleEmitter particle="flameburningcharacter" scalemultiplier="1,1" DistanceMin="0" DistanceMax="30" ParticlesPerSecond="50" AngleMin="60" AngleMax="120" VelocityMax="20" colormultiplier="255,255,255,255" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This"  condition="-10">
+        <Conditional InWater="true" />
+        <ParticleEmitter particle="steamspray" scalemultiplier="1,1" DistanceMin="0" DistanceMax="30" ParticlesPerSecond="50" AngleMin="60" AngleMax="120" VelocityMax="20" colormultiplier="255,255,255,255" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This" condition="0.0" setvalue="true">
+        <ParticleEmitter particle="flamethrower" particleamount="3" distancemin="0" distancemax="25" anglemin="175" anglemax="5" scalemin="0.625" scalemax="1.125" velocitymin="0" velocitymax="200" highqualitycollisiondetection="true" />
+        <ParticleEmitter particle="flamethrower" particleamount="5" distancemin="0" distancemax="25" anglemin="175" anglemax="5" scalemin="0.375" scalemax="0.875" velocitymin="0" velocitymax="100" highqualitycollisiondetection="true" />
+        <ParticleEmitter particle="explosionsmoke" particleamount="1" scalemin="1.8" scalemax="1.9" highqualitycollisiondetection="true" />
+        <Sound file="Content/Items/Weapons/IncendiumGrenade.ogg" range="1500.0" frequency="2.0" volume="0.15" />
+        <Explosion range="200" force="1.0" camerashakerange="1000.0" camerashake="2.0" sparks="false" shockwave="false" flames="false" smoke="false" flash="true" underwaterBubble="false" playtinnitus="false" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+      <RequiredSkill identifier="weapons" level="55" />
+      <RequiredSkill identifier="mechanical" level="45" />
+    </Projectile>
+  </Item>
+  <!--展示物样本-->
+  <Item identifier="cdexamplebook1chargefire" name="一团火" description="" category="Misc" subcategory="CD" Tags="smallitem,explosive,demolitionsexpert" maxstacksize="1" Scale="0.5" cargocontaineridentifier="explosivecrate" impactsoundtag="impact_soft"  hideinmenus="true">
+    <Upgrade gameversion="0.9.3.0" scale="0.5" />
+    <InventoryIcon texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" depth="0.55" origin="0.5,0.5" />
+    <Body width="30" height="30" density="20" />
+    <ItemComponent>
+      <StatusEffect type="Always" target="This" Condition="-300.0">
+        <ParticleEmitter particle="flameburningcharacter" scalemultiplier="0.5,0.5" DistanceMin="0" DistanceMax="30" ParticlesPerSecond="50" AngleMin="60" AngleMax="120" VelocityMax="20" colormultiplier="255,255,255,255" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+</Items>
