@@ -75,6 +75,23 @@
 `particlespersecond="0"` 和足够大的 `emitinterval`。粒子 prefab 自身可以有很长
 的 `LifeTime` 和循环动画，停止仍由本扩展提前淡出。
 
+延迟启动的随动粒子还必须在对应 `StatusEffect` 上设置
+`checkconditionalalways="true"`，并提供能够反映动作是否仍在持续的
+`Conditional`。否则原版会在 `delay` 到期后无条件调用发射器，即使玩家已经停止
+瞄准。法阵测试魔法书使用每帧重置为 100 的 Condition 作为心跳：
+
+```xml
+<StatusEffect type="OnSecondaryUse" target="This"
+              delay="2" checkconditionalalways="true" stackable="true">
+  <Conditional Condition="eq 100" />
+  <ParticleEmitter followemitter="true" followemitterfadeout="0.2" ... />
+</StatusEffect>
+```
+
+使用精确的 `eq 100` 可以在首个未重置 Condition 的模拟帧直接取消等待项；
+`gt 88` 会继续匹配衰减中的 Condition，留下短暂的误触发窗口。条件失败时原版会在
+调用 `ParticleEmitter.Emit` 前移除等待项，因此未生成的粒子不会进入淡出流程。
+
 完整但未注册的结构示例位于
 `Examples/magic_book_secondary_use.xml`。它只是文档片段，不会被游戏加载。
 
