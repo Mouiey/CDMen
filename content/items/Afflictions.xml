@@ -48,6 +48,13 @@
       maxstrength="100"/>
     <!--1~11-->
     <Effect minstrength="0" maxstrength="11" strengthchange="0">
+      <!--魔力回复-->
+      <StatusEffect target="Character" >
+        <!--设置当前阶段魔力最大值-->
+        <Conditional cdmenmagic="lt 10" />
+        <!--设置当前阶段魔力阈值-->
+        <Affliction identifier="cdmenmagic" amount="5" MultiplyByMaxVitality="true"/>
+      </StatusEffect>
       <!--提高50%技能获取速度-->
       <StatValue stattype="SkillGainSpeed" value="0.5" />
       <!--受伤计数
@@ -71,6 +78,13 @@
     </Effect>
     <!--12~22-->
     <Effect minstrength="11" maxstrength="22" strengthchange="0">
+      <!--魔力回复-->
+      <StatusEffect target="Character" >
+        <!--设置当前阶段魔力最大值-->
+        <Conditional cdmenmagic="lt 20" />
+        <!--设置当前阶段魔力阈值-->
+        <Affliction identifier="cdmenmagic" amount="5" MultiplyByMaxVitality="true"/>
+      </StatusEffect>
       <!--提高50%技能获取速度-->
       <StatValue stattype="SkillGainSpeed" value="0.5" />
       <!--提高20%移动速度-->
@@ -96,6 +110,13 @@
     </Effect>
     <!--23~33-->
     <Effect minstrength="22" maxstrength="33" strengthchange="0">
+      <!--魔力回复-->
+      <StatusEffect target="Character" >
+        <!--设置当前阶段魔力最大值-->
+        <Conditional cdmenmagic="lt 40" />
+        <!--设置当前阶段魔力阈值-->
+        <Affliction identifier="cdmenmagic" amount="5" MultiplyByMaxVitality="true"/>
+      </StatusEffect>
       <!--提高50%技能获取速度-->
       <StatValue stattype="SkillGainSpeed" value="0.5" />
       <!--提高20%移动速度-->
@@ -124,6 +145,13 @@
     </Effect>
     <!--34~44-->
     <Effect minstrength="33" maxstrength="44" strengthchange="0">
+      <!--魔力回复-->
+      <StatusEffect target="Character" >
+        <!--设置当前阶段魔力最大值-->
+        <Conditional cdmenmagic="lt 80" />
+        <!--设置当前阶段魔力阈值-->
+        <Affliction identifier="cdmenmagic" amount="5" MultiplyByMaxVitality="true"/>
+      </StatusEffect>
       <!--提高50%技能获取速度-->
       <StatValue stattype="SkillGainSpeed" value="0.5" />
       <!--提高20%移动速度-->
@@ -155,6 +183,13 @@
     </Effect>
     <!--45~55-->
     <Effect minstrength="44" maxstrength="55" strengthchange="0">
+      <!--魔力回复-->
+      <StatusEffect target="Character" >
+        <!--设置当前阶段魔力最大值-->
+        <Conditional cdmenmagic="lt 100" />
+        <!--设置当前阶段魔力阈值-->
+        <Affliction identifier="cdmenmagic" amount="5" MultiplyByMaxVitality="true"/>
+      </StatusEffect>
       <!--提高50%技能获取速度-->
       <StatValue stattype="SkillGainSpeed" value="0.5" />
       <!--提高20%移动速度-->
@@ -189,6 +224,13 @@
     </Effect>
     <!--56~66-->
     <Effect minstrength="55" maxstrength="66" strengthchange="0" resistancefor="stun,acidburn" minresistance="0.2" maxresistance="0.2">
+      <!--魔力回复-->
+      <StatusEffect target="Character" >
+        <!--设置当前阶段魔力最大值-->
+        <Conditional cdmenmagic="lt 100" />
+        <!--设置当前阶段魔力阈值-->
+        <Affliction identifier="cdmenmagic" amount="10" MultiplyByMaxVitality="true"/>
+      </StatusEffect>
       <!--提高50%技能获取速度-->
       <StatValue stattype="SkillGainSpeed" value="0.5" />
       <!--提高20%移动速度-->
@@ -253,6 +295,13 @@
     </Effect>
     <!--67~77-->
     <Effect minstrength="66" maxstrength="77" strengthchange="0" resistancefor="stun,acidburn" minresistance="0.4" maxresistance="0.4">
+      <!--魔力回复-->
+      <StatusEffect target="Character" >
+        <!--设置当前阶段魔力最大值-->
+        <Conditional cdmenmagic="lt 100" />
+        <!--设置当前阶段魔力阈值-->
+        <Affliction identifier="cdmenmagic" amount="20" MultiplyByMaxVitality="true"/>
+      </StatusEffect>
       <!--提高50%技能获取速度-->
       <StatValue stattype="SkillGainSpeed" value="0.5" />
       <!--提高20%移动速度-->
@@ -327,6 +376,13 @@
     </Effect>
     <!--78~88-->
     <Effect minstrength="77" maxstrength="88" strengthchange="0" resistancefor="stun,acidburn" minresistance="0.6" maxresistance="0.6">
+      <!--魔力回复-->
+      <StatusEffect target="Character" >
+        <!--设置当前阶段魔力最大值-->
+        <Conditional cdmenmagic="lt 100" />
+        <!--设置当前阶段魔力阈值-->
+        <Affliction identifier="cdmenmagic" amount="30" MultiplyByMaxVitality="true"/>
+      </StatusEffect>
       <!--提高50%技能获取速度-->
       <StatValue stattype="SkillGainSpeed" value="0.5" />
       <!--提高20%移动速度-->
@@ -405,6 +461,13 @@
     </Effect>
     <!--89~98-->
     <Effect minstrength="88" maxstrength="99.4" strengthchange="0" resistancefor="stun,acidburn" minresistance="0.8" maxresistance="0.8">
+      <!--魔力回复-->
+      <StatusEffect target="Character" >
+        <!--设置当前阶段魔力最大值-->
+        <Conditional cdmenmagic="lt 100" />
+        <!--设置当前阶段魔力阈值-->
+        <Affliction identifier="cdmenmagic" amount="40" MultiplyByMaxVitality="true"/>
+      </StatusEffect>
       <!--提高50%技能获取速度-->
       <StatValue stattype="SkillGainSpeed" value="0.5" />
       <!--提高20%移动速度-->
@@ -490,6 +553,13 @@
     </Effect>
     <!--99-->
     <Effect minstrength="99.4" maxstrength="99.9" strengthchange="0" resistancefor="stun,acidburn" minresistance="0.8" maxresistance="0.8">
+      <!--魔力回复-->
+      <StatusEffect target="Character" >
+        <!--设置当前阶段魔力最大值-->
+        <Conditional cdmenmagic="lt 100" />
+        <!--设置当前阶段魔力阈值-->
+        <Affliction identifier="cdmenmagic" amount="100" MultiplyByMaxVitality="true"/>
+      </StatusEffect>
       <!--提高50%技能获取速度-->
       <StatValue stattype="SkillGainSpeed" value="0.5" />
       <!--提高20%移动速度-->
@@ -975,5 +1045,10 @@
     <Effect minstrength="0" maxstrength="1">
     </Effect>
     <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,2" sheetelementsize="128,128" origin="0,0"/>
+  </Affliction>
+  <!--魔力值（贴图未定）-->
+  <Affliction name="魔力" identifier="cdmenmagic" description="" isbuff="true" type="buff" limbspecific="false" maxstrength="100" showiconthreshold="0" showinhealthscannerthreshold="1000" affectmachines="false">
+    <Effect minstrength="0" maxstrength="100" strengthchange="0"></Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="122,137,122,119" color="255,255,255,255" origin="0,0" />
   </Affliction>
 </Afflictions>

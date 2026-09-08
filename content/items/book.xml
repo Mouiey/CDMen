@@ -75,7 +75,7 @@
     <SkillRequirementHint identifier="weapons" level="80" />
   </Item>
   <!--魔法书实例：朝上施法+展示内容-->
-  <Item name="魔法书" identifier="cdexamplebook1" category="Weapon" description="" subcategory="CD" tags="smallitem,weapon,book" hideinmenus="false" scale="0.2" impactsoundtag="weaponheavydrop"  hideconditionintooltip="true" >
+  <Item name="魔法书" identifier="cdexamplebook1" category="Weapon" description="" subcategory="CD" tags="smallitem,weapon,book" hideinmenus="false" scale="0.2" impactsoundtag="weaponheavydrop" hideconditionbar="true"  hideconditionintooltip="true" >
     <!--贴图正面--><!--914,6,379,861-->
     <InventoryIcon texture="%ModDir%/content/png/D05_深海遗物典.png" sourcerect="10,10,118,157" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/content/png/D05_深海遗物典90.png" sourcerect="6,61,215,95" depth="0.55" origin="0.5,0.5" />
@@ -86,7 +86,13 @@
     <BrokenSprite texture="%ModDir%/content/png/D05_深海遗物典90.png" depth="0.55" sourcerect="6,61,215,95" maxcondition="100" origin="0.509,0.8" />
     <Body width="400" height="154" density="50" />
     <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="40,0" aimpos="50,-10" handle1="-0,-24" handle2="-0,-55" holdangle="-30" msg="ItemMsgPickUpSelect" >
-      <StatusEffect type="OnSecondaryUse" target="this,Contained" condition="100" setvalue="true" allowwhenbroken="true" />
+      <!--需要魔力值，阈值10-->
+      <StatusEffect type="OnSecondaryUse" target="this,Contained,Character" condition="100" setvalue="true" allowwhenbroken="true" >
+        <Conditional cdmenmagic="gte 10" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="Contained,Character" condition="0" setvalue="true" allowwhenbroken="true" >
+        <Conditional cdmenmagic="lt 10" />
+      </StatusEffect>
       <StatusEffect type="Always" target="This" Condition="-50">
         <Conditional Condition="gt 88" />
       </StatusEffect>
@@ -96,7 +102,7 @@
         <SpawnItem identifiers="cdexamplebook1chargefire" spawnposition="ThisInventory" />
       </StatusEffect>
     </Holdable>
-    <RangedWeapon weapondamagemodifier="1.8" penetration="0.05" reload="1.5" barrelpos="0,125" spread="6" unskilledspread="25" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2" holdtrigger="true" maxchargetime="1">
+    <RangedWeapon weapondamagemodifier="1.8" penetration="0.05" reload="0.2" barrelpos="0,125" spread="6" unskilledspread="25" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2" holdtrigger="true" maxchargetime="0.3">
       <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
       <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
       <!--吟唱特效-->
@@ -106,11 +112,11 @@
       <StatusEffect type="OnUse" target="This">
         <Explosion range="150.0" force="1" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="1.0" />
       </StatusEffect>
-      <StatusEffect type="OnUse" target="Contained">
-        <Conditional HasTag="eq cdfirelancemagazine" />
+      <StatusEffect type="OnUse" target="Contained,Character" disabledeltatime="true">
+        <ReduceAffliction identifier="cdmenmagic" amount="10" />
         <Use />
       </StatusEffect>
-      <RequiredItems items="cdexamplebook1magazine" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredItems items="cdexamplebook1magazine" type="Contained" msg="魔力不足" />
       <RequiredSkill identifier="weapons" level="80" />
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="6" hideitems="false" drawinventory="false" containedstateindicatorstyle="bullet"  SpawnWithId="cdexamplebook1magazine" removecontaineditemsondeconstruct="true"  containedstateindicatorslot="0">
@@ -138,8 +144,7 @@
       <StatusEffect type="OnUse" target="This" disabledeltatime="true">
         <SpawnItem identifiers="cdexamplebook1round2" spawnposition="ThisInventory" />
       </StatusEffect>
-      <StatusEffect type="OnNotContained" target="This" condition="-100" disabledeltatime="true" />
-      <StatusEffect type="OnBroken" target="This">
+      <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" >
         <Remove />
       </StatusEffect>
     </ItemContainer>
@@ -194,4 +199,3 @@
     </ItemComponent>
   </Item>
 </Items>
-
