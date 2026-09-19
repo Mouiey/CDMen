@@ -1,68 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
-    <!--魔法书实例：朝上施法+展示内容-->
-  <Item name="魔法书_法阵特效测试" identifier="cdexamplebook2" category="Weapon" description="" subcategory="CD" tags="smallitem,weapon,book" hideinmenus="false" scale="0.2" impactsoundtag="weaponheavydrop"  hideconditionintooltip="true" >
+  <Item name="魔法典:倏烁" identifier="cdexamplebook2" category="Weapon" description="" subcategory="CD" tags="smallitem,weapon,book" hideinmenus="false" scale="0.2" impactsoundtag="weaponheavydrop" hideconditionbar="true"  hideconditionintooltip="true" >
     <!--贴图正面--><!--914,6,379,861-->
-    <InventoryIcon texture="%ModDir%/content/png/D05_深海遗物典.png" sourcerect="10,10,118,157" origin="0.5,0.5" />
-    <Sprite texture="%ModDir%/content/png/D05_深海遗物典90.png" sourcerect="6,61,215,95" depth="0.55" origin="0.5,0.5" />
+    <InventoryIcon texture="%ModDir%/content/png/D24_电木模拟法典.png" sourcerect="10,10,120,160" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/D24_电木模拟法典.png" sourcerect="173,76,211,95" depth="0.55" origin="0.5,0.5" />
     <!--正面贴图-->
-    <BrokenSprite texture="%ModDir%/content/png/D05_深海遗物典.png" depth="0.55" sourcerect="10,10,118,157"  maxcondition="89" origin="0.5,0.5" />
-    <BrokenSprite texture="%ModDir%/content/png/D05_深海遗物典.png" depth="0.55" sourcerect="10,10,118,157"  maxcondition="95.5" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir%/content/png/D24_电木模拟法典.png" depth="0.55" sourcerect="10,10,120,160"  maxcondition="89" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir%/content/png/D24_电木模拟法典.png" depth="0.55" sourcerect="10,10,120,160"  maxcondition="95.5" origin="0.5,0.5" />
     <!--朝上开启贴图-->
-    <BrokenSprite texture="%ModDir%/content/png/D05_深海遗物典90.png" depth="0.55" sourcerect="6,61,215,95" maxcondition="100" origin="0.509,0.8" />
+    <BrokenSprite texture="%ModDir%/content/png/D24_电木模拟法典.png" depth="0.55" sourcerect="173,76,211,95" maxcondition="100" origin="0.509,0.8" />
     <Body width="400" height="154" density="50" />
     <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="40,0" aimpos="50,-10" handle1="-0,-24" handle2="-0,-55" holdangle="-30" msg="ItemMsgPickUpSelect" >
-      <StatusEffect type="OnSecondaryUse" target="this,Contained" condition="100" setvalue="true" allowwhenbroken="true" />
-      <!-- 法阵旋转效果开始 -->
-      <StatusEffect type="OnSecondaryUse" target="This" offset="0,0" checkconditionalalways="true" stackable="true">
-        <ParticleEmitter particle="magiclab_user_project_1yd8xfu_p_mtosgl3b7f" itemlayerdepth="true" followemitter="true" followemitterfadeout="0.2" anglemin="0" anglemax="0" distancemin="0" distancemax="0" velocitymin="0" velocitymax="0" scalemin="1" scalemax="1" scalemultiplier="1,1" emitinterval="34" particleamount="1" particlespersecond="0" initialdelay="0" colormultiplier="255,255,255,255" lifetimemultiplier="1" copyparentparticlescale="false" highqualitycollisiondetection="false" copyentityangle="false" copyentitydir="false" copytargetangle="false" emitacrossrayinterval="0" usetracerpoints="false" draworder="Default" />
-        <ParticleEmitter particle="magiclab_user_project_1yd8xfu_p_mtosgl3b7h" itemlayerdepth="true" followemitter="true" followemitterfadeout="0.2" anglemin="0" anglemax="0" distancemin="0" distancemax="0" velocitymin="0" velocitymax="0" scalemin="1" scalemax="1" scalemultiplier="1,1" emitinterval="34" particleamount="1" particlespersecond="0" initialdelay="0" colormultiplier="255,255,255,255" lifetimemultiplier="1" copyparentparticlescale="false" highqualitycollisiondetection="false" copyentityangle="false" copyentitydir="false" copytargetangle="false" emitacrossrayinterval="0" usetracerpoints="false" draworder="Default" />
-        <ParticleEmitter particle="magiclab_user_project_1yd8xfu_p_mtosgl3b7j" itemlayerdepth="true" followemitter="true" followemitterfadeout="0.2" anglemin="0" anglemax="0" distancemin="0" distancemax="0" velocitymin="0" velocitymax="0" scalemin="1" scalemax="1" scalemultiplier="1,1" emitinterval="34" particleamount="1" particlespersecond="0" initialdelay="0" colormultiplier="255,255,255,255" lifetimemultiplier="1" copyparentparticlescale="false" highqualitycollisiondetection="false" copyentityangle="false" copyentitydir="false" copytargetangle="false" emitacrossrayinterval="0" usetracerpoints="false" draworder="Default" />
-        <ParticleEmitter particle="magiclab_user_project_1yd8xfu_p_mtosgl3b7l" itemlayerdepth="true" followemitter="true" followemitterfadeout="0.2" anglemin="0" anglemax="0" distancemin="0" distancemax="0" velocitymin="0" velocitymax="0" scalemin="1" scalemax="1" scalemultiplier="1,1" emitinterval="34" particleamount="1" particlespersecond="0" initialdelay="0" colormultiplier="255,255,255,255" lifetimemultiplier="1" copyparentparticlescale="false" highqualitycollisiondetection="false" copyentityangle="false" copyentitydir="false" copytargetangle="false" emitacrossrayinterval="0" usetracerpoints="false" draworder="Default" />
+      <!--需要魔力值，阈值10-->
+      <StatusEffect type="OnSecondaryUse" target="this,Contained,Character" condition="100" setvalue="true" allowwhenbroken="true" >
+        <Conditional cdmenmagic="gte 10" />
       </StatusEffect>
-      <!-- 延迟2秒-使用checkconditionalalways="true"检查并通过Condition判断是否需要进行播放,以免在延时到达前结束动作仍然播放粒子 -->
-      <StatusEffect type="OnSecondaryUse" target="This" offset="2.068389,0.222072" checkconditionalalways="true" stackable="true" delay="2">
-        <Conditional Condition="eq 100" />
-        <ParticleEmitter particle="magiclab_user_project_1yd8xfu_p_mtoskhx67s" itemlayerdepth="true" followemitter="true" followemitterfadeout="0.5" anglemin="0" anglemax="0" distancemin="0" distancemax="0" velocitymin="0" velocitymax="0" scalemin="1" scalemax="1" scalemultiplier="1,1" emitinterval="34" particleamount="1" particlespersecond="0" initialdelay="0" colormultiplier="255,255,255,255" lifetimemultiplier="1" copyparentparticlescale="false" highqualitycollisiondetection="false" copyentityangle="false" copyentitydir="false" copytargetangle="false" emitacrossrayinterval="0" usetracerpoints="false" draworder="Default" />
-        <ParticleEmitter particle="magiclab_user_project_1yd8xfu_p_mtoskhx67t" itemlayerdepth="true" followemitter="true" followemitterfadeout="0.5" anglemin="0" anglemax="0" distancemin="0" distancemax="0" velocitymin="0" velocitymax="0" scalemin="1" scalemax="1" scalemultiplier="1,1" emitinterval="34" particleamount="1" particlespersecond="0" initialdelay="0" colormultiplier="255,255,255,255" lifetimemultiplier="1" copyparentparticlescale="false" highqualitycollisiondetection="false" copyentityangle="false" copyentitydir="false" copytargetangle="false" emitacrossrayinterval="0" usetracerpoints="false" draworder="Default" />
+      <StatusEffect type="OnSecondaryUse" target="Contained,Character" condition="0" setvalue="true" allowwhenbroken="true" >
+        <Conditional cdmenmagic="lt 10" />
       </StatusEffect>
-      <StatusEffect type="OnSecondaryUse" target="This" offset="1.7204,0.222072" checkconditionalalways="true" stackable="true" delay="2">
-        <Conditional Condition="eq 100" />
-        <ParticleEmitter particle="magiclab_user_project_1yd8xfu_p_mtoskhx67u" itemlayerdepth="true" followemitter="true" followemitterfadeout="0.5" anglemin="0" anglemax="0" distancemin="0" distancemax="0" velocitymin="0" velocitymax="0" scalemin="1" scalemax="1" scalemultiplier="1,1" emitinterval="34" particleamount="1" particlespersecond="0" initialdelay="0" colormultiplier="255,255,255,255" lifetimemultiplier="1" copyparentparticlescale="false" highqualitycollisiondetection="false" copyentityangle="false" copyentitydir="false" copytargetangle="false" emitacrossrayinterval="0" usetracerpoints="false" draworder="Default" />
-        <ParticleEmitter particle="magiclab_user_project_1yd8xfu_p_mtoskhx67v" itemlayerdepth="true" followemitter="true" followemitterfadeout="0.5" anglemin="0" anglemax="0" distancemin="0" distancemax="0" velocitymin="0" velocitymax="0" scalemin="1" scalemax="1" scalemultiplier="1,1" emitinterval="34" particleamount="1" particlespersecond="0" initialdelay="0" colormultiplier="255,255,255,255" lifetimemultiplier="1" copyparentparticlescale="false" highqualitycollisiondetection="false" copyentityangle="false" copyentitydir="false" copytargetangle="false" emitacrossrayinterval="0" usetracerpoints="false" draworder="Default" />
-      </StatusEffect>
-      <!-- 法阵旋转效果结束 -->
       <StatusEffect type="Always" target="This" Condition="-50">
         <Conditional Condition="gt 88" />
       </StatusEffect>
       <!--开书时生成展示物-->
       <StatusEffect type="OnSecondaryUse" target="This" disabledeltatime="true">
         <Conditional Condition="gt 88" />
-        <SpawnItem identifiers="cdexamplebook1chargefire" spawnposition="ThisInventory" />
+        <SpawnItem identifiers="cdexamplebook1chargeflash" spawnposition="ThisInventory" />
       </StatusEffect>
     </Holdable>
-    <RangedWeapon weapondamagemodifier="1.8" penetration="0.05" reload="1.5" barrelpos="0,125" spread="6" unskilledspread="25" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2" holdtrigger="true" maxchargetime="1">
+    <RangedWeapon weapondamagemodifier="1.8" penetration="1" reload="0.2" barrelpos="0,125" spread="0" unskilledspread="0" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2" holdtrigger="true" maxchargetime="0.9">
       <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
       <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
       <!--吟唱特效-->
-      <ParticleEmitterCharge particle="chargepulselaser" particlespersecond="60" scalemultiplier="0.75,0.75" scalemin="1.0" scalemax="1.0" anglemin="0" anglemax="359" colormultiplier="255,255,20,255" />
+      <ParticleEmitterCharge particle="magiclab_cc0_0143" followemitter="true" followemitterfadeout="0.08" particleamount="1" particlespersecond="0" emitinterval="999999" scalemultiplier="6,6" scalemin="1" scalemax="1" anglemin="0" anglemax="0" velocitymin="0" velocitymax="0" colormultiplier="165,150,255,255" />
       <!--释放特效-->
-      <ParticleEmitter particle="impactfirearm" particleamount="1" anglemin="0" anglemax="360" velocitymin="0" velocitymax="0" scalemultiplier="10.0,7.0" colormultiplier="255,100,100,200" />
+      <ParticleEmitter particle="ElectricShock" particleamount="3" particlespersecond="0" emitinterval="0" anglemin="0" anglemax="0" distancemin="30" distancemax="45" velocitymin="0" velocitymax="0" scalemultiplier="0.12,0.12" scalemin="0.8" scalemax="1.2" colormultiplier="255,90,255,255" />
       <StatusEffect type="OnUse" target="This">
         <Explosion range="150.0" force="1" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="1.0" />
       </StatusEffect>
-      <StatusEffect type="OnUse" target="Contained">
-        <Conditional HasTag="eq cdfirelancemagazine" />
+      <StatusEffect type="OnUse" target="Contained,Character" disabledeltatime="true">
+        <ReduceAffliction identifier="cdmenmagic" amount="10" />
         <Use />
       </StatusEffect>
-      <RequiredItems items="cdexamplebook1magazine" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredItems items="cdexamplebook2magazine" type="Contained" msg="魔力不足" />
       <RequiredSkill identifier="weapons" level="80" />
     </RangedWeapon>
-    <ItemContainer capacity="1" maxstacksize="6" hideitems="false" drawinventory="false" containedstateindicatorstyle="bullet"  SpawnWithId="cdexamplebook1magazine" removecontaineditemsondeconstruct="true"  containedstateindicatorslot="0">
-      <Containable items="cdexamplebook1magazine">
+    <ItemContainer capacity="1" maxstacksize="6" hideitems="false" drawinventory="false" containedstateindicatorstyle="bullet"  SpawnWithId="cdexamplebook2magazine" removecontaineditemsondeconstruct="true"  containedstateindicatorslot="0">
+      <Containable items="cdexamplebook2magazine">
       </Containable>
       <SubContainer capacity="1" maxstacksize="1">
-        <Containable items="cdexamplebook1chargefire" hide="false" itempos="0,30">
+        <Containable items="cdexamplebook1chargeflash" hide="false" itempos="0,30">
           <StatusEffect type="OnContaining" target="This" cameraaimoffset="500" setvalue="true" interval="1" />
           <StatusEffect type="OnRemoved" target="This" cameraaimoffset="0" setvalue="true" />
         </Containable>
@@ -74,6 +60,66 @@
     </Quality>
     <SkillRequirementHint identifier="weapons" level="80" />
   </Item>
+  <!--展示物-雷电球-->
+  <Item identifier="cdexamplebook1chargeflash" name="雷球" description="" category="Misc" subcategory="CD" Tags="smallitem,explosive,demolitionsexpert" maxstacksize="1" Scale="0.5" cargocontaineridentifier="explosivecrate" impactsoundtag="impact_soft"  hideinmenus="true">
+    <Upgrade gameversion="0.9.3.0" scale="0.5" />
+    <InventoryIcon texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" depth="0.55" origin="0.5,0.5" />
+    <Body width="30" height="30" density="20" />
+    <ItemComponent>
+      <StatusEffect type="Always" target="This" Condition="-300.0">
+        <!-- <ParticleEmitter particle="flameburningcharacter" scalemultiplier="0.5,0.5" DistanceMin="0" DistanceMax="30" ParticlesPerSecond="50" AngleMin="60" AngleMax="120" VelocityMax="20" colormultiplier="255,255,255,255" /> -->
+        <ParticleEmitter particle="magiclab_fl003_flashcharge" followemitter="true" scalemultiplier="0.3,0.3" AngleMin="0" AngleMax="360" VelocityMax="10" emitinterval="0.3" particleamount="3" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <!--弹匣-雷劈-->
+  <Item name="魔法-雷劈" identifier="cdexamplebook2magazine" description="" maxstacksize="1" maxstacksizecharacterinventory="1" health="20" scale="0.2" category="Weapon" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,cdfirelancemagazine" impactsoundtag="impact_metal_light"  hideinmenus="true">
+    <Sprite texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" rotation="90" depth="0.55" origin="0.5,0.5" />
+    <Body width="77" height="45" density="25" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="cdexamplebook2marker1" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="cdexamplebook2marker1" />
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <SpawnItem identifiers="cdexamplebook2marker1" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" >
+        <Remove />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <!--弹幕-雷劈标记器-->
+  <Item identifier="cdexamplebook2marker1" health="100" category="Weapon" tags="smallitem" noninteractable="true" hideinmenus="true">
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="0,0,2,2" depth="0.55" origin="0.5,0.5" />
+    <Body width="16" height="16" density="10" friction="0.0" restitution="0.0" angulardamping="0.0" gravityscale="0" waterdragcoefficient="0" lineardamping="0"/>
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true"  damagedoors="true" launchimpulse="100" maxtargetstohit="1">
+      <Attack structuredamage="0.0" targetforce="1.0" itemdamage="4.0" severlimbsprobability="0.15">
+        <Affliction identifier="cddropmine" strength="5" multiplybymaxvitality="true" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="This" condition="0.0" setvalue="true" />
+      <!-- <StatusEffect type="OnNotContained" target="This" condition="-10">
+        <Conditional InWater="false" />
+        <ParticleEmitter particle="flameburningcharacter" scalemultiplier="1,1" DistanceMin="0" DistanceMax="30" ParticlesPerSecond="50" AngleMin="60" AngleMax="120" VelocityMax="20" colormultiplier="255,255,255,255" />
+      </StatusEffect> -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+      <RequiredSkill identifier="weapons" level="55" />
+      <RequiredSkill identifier="mechanical" level="45" />
+    </Projectile>
+  </Item>
+
+
+
+
+
+
+
+
   <!--魔法书实例：朝上施法+展示内容-->
   <Item name="魔法书" identifier="cdexamplebook1" category="Weapon" description="" subcategory="CD" tags="smallitem,weapon,book" hideinmenus="false" scale="0.2" impactsoundtag="weaponheavydrop" hideconditionbar="true"  hideconditionintooltip="true" >
     <!--贴图正面--><!--914,6,379,861-->

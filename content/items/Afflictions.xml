@@ -1051,4 +1051,22 @@
     <Effect minstrength="0" maxstrength="100" strengthchange="0"></Effect>
     <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="122,137,122,119" color="255,255,255,255" origin="0,0" />
   </Affliction>
+  <!-- 落雷-伤害效果待完善 -->
+   <Affliction name="落雷" identifier="cddropmine" isbuff="false" type="debuff" limbspecific="false" maxstrength="5" affectmachines="false" showiconthreshold="10" showinhealthscannerthreshold="10">
+     <Effect minstrength="4.999" maxstrength="5" strengthchange="-60">
+      <StatusEffect target="Character" disabledeltatime="true">
+        <ParticleEmitter particle="magiclab_dp093_flash"  scalemultiplier="1,1" particleamount="1" particlespersecond="0" emitinterval="0" colormultiplier="255,100,255,255" />
+        <Sound file="Content/Items/Weapons/IncendiumGrenade.ogg" range="1500.0" frequency="2.0" volume="0.15" />
+        <Explosion range="200" force="1.0" camerashakerange="1000.0" camerashake="2.0" sparks="false" shockwave="false" flames="false" smoke="false" flash="true" underwaterBubble="false" playtinnitus="false" />
+      </StatusEffect>
+    </Effect>
+     <Effect minstrength="0" maxstrength="4.999" strengthchange="-2">
+      <StatusEffect target="Character" interval="0.11" disabledeltatime="true">
+        <ParticleEmitter particle="magiclab_dp013_electricattach" scalemultiplier="0.5,0.5" particleamount="1" particlespersecond="0" emitinterval="0" colormultiplier="255,100,255,255" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="0,0,122,119" color="150,30,30,100" origin="0,0" />
+  </Affliction>
+
+
 </Afflictions>
