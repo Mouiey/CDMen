@@ -27,9 +27,8 @@
         <SpawnItem identifiers="cdexamplebook1chargeflash" spawnposition="ThisInventory" />
       </StatusEffect>
     </Holdable>
-    <RangedWeapon weapondamagemodifier="1.8" penetration="1" reload="0.2" barrelpos="0,125" spread="0" unskilledspread="0" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2" holdtrigger="true" maxchargetime="0.9">
-      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
-      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+    <RangedWeapon weapondamagemodifier="1.8" penetration="1" reload="0.2" barrelpos="0,125" spread="0" unskilledspread="0" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.4" holdtrigger="true" maxchargetime="0.9">
+      <Crosshair texture="%ModDir%/content/png/魔法准星1.png" sourcerect="0,0,244,278"  />
       <!--吟唱特效-->
       <ParticleEmitterCharge particle="magiclab_cc0_0143" followemitter="true" followemitterfadeout="0.08" particleamount="1" particlespersecond="0" emitinterval="999999" scalemultiplier="6,6" scalemin="1" scalemax="1" anglemin="0" anglemax="0" velocitymin="0" velocitymax="0" colormultiplier="165,150,255,255" />
       <!--释放特效-->
