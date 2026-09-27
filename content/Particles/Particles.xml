@@ -6,10 +6,12 @@
   <magiclab_cc0_fl_045_additive LifeTime="1.02" LifeTimeMin="0" StartDelayMin="0" StartDelayMax="0" AngularVelocityMin="0" AngularVelocityMax="0" StartRotationMin="0" StartRotationMax="0" RotateToDirection="true" Drag="0" WaterDrag="0" VelocityChange="0,0" VelocityChangeWater="0,0" StartSizeMin="1,1" StartSizeMax="1,1" SizeChangeMin="0,0" SizeChangeMax="0,0" GrowTime="0" StartColor="255,255,255,255" MiddleColor="255,255,255,127" EndColor="255,255,255,0" UseMiddleColor="true" DrawTarget="Both" DrawOrder="Default" UseCollision="false" CanEnterSubs="true" AnimDuration="1.0" LoopAnim="true" BlendState="Additive">
     <AnimatedSprite texture="%ModDir%/content/Particles/fl045.png" sourcerect="0,0,2048,1024" origin="0.5,0.5" depth="0.45" compress="false" columns="8" rows="4" emptyframes="0" />
   </magiclab_cc0_fl_045_additive>
+
   <!-- 雷劈 -->
-  <magiclab_dp093_flash LifeTime="0.3" LifeTimeMin="0" StartDelayMin="0" StartDelayMax="0" AngularVelocityMin="0" AngularVelocityMax="0" StartRotationMin="0" StartRotationMax="0" RotateToDirection="true" Drag="0" WaterDrag="0" VelocityChange="0,0" VelocityChangeWater="0,0" StartSizeMin="1,1" StartSizeMax="1,1" SizeChangeMin="0,0" SizeChangeMax="0,0" GrowTime="0" StartColor="255,255,255,255" MiddleColor="255,255,255,127" EndColor="255,255,255,0" UseMiddleColor="true" DrawTarget="Both" DrawOrder="Default" UseCollision="false" CanEnterSubs="true" AnimDuration="0.1" LoopAnim="true" BlendState="Additive">
+  <magiclab_dp093_flash LifeTime="0.3" LifeTimeMin="0" StartDelayMin="0" StartDelayMax="0" AngularVelocityMin="0" AngularVelocityMax="0" StartRotationMin="0" StartRotationMax="0" RotateToDirection="false" Drag="0" WaterDrag="0" VelocityChange="0,0" VelocityChangeWater="0,0" StartSizeMin="1,1" StartSizeMax="1,1" SizeChangeMin="0,0" SizeChangeMax="0,0" GrowTime="0" StartColor="255,255,255,255" MiddleColor="255,255,255,127" EndColor="255,255,255,0" UseMiddleColor="true" DrawTarget="Both" DrawOrder="Default" UseCollision="false" CanEnterSubs="true" AnimDuration="0.1" LoopAnim="true" BlendState="Additive">
     <AnimatedSprite texture="%ModDir%/content/Particles/dp093.png" sourcerect="0,0,450,300" origin="0.5,0.5" depth="0.45" compress="false" columns="9" rows="1" emptyframes="0" />
   </magiclab_dp093_flash>
+
   <!-- 雷光球 -->
   <magiclab_fl003_flashcharge LifeTime="0.3"  RotateToDirection="true" EndColor="255,255,255,0" UseMiddleColor="true" DrawTarget="Both" AnimDuration="0.66667">
     <AnimatedSprite texture="%ModDir%/content/Particles/fl003_fl003.png" sourcerect="0,0,2048,1024" origin="0.5,0.5" depth="0.45" compress="false" columns="8" rows="4" emptyframes="0" />
@@ -36,4 +38,12 @@
   <magiclab_cc0_0257 LifeTime="0.5" LifeTimeMin="0" StartDelayMin="0" StartDelayMax="0" AngularVelocityMin="0" AngularVelocityMax="0" StartRotationMin="0" StartRotationMax="0" RotateToDirection="false" Drag="0" WaterDrag="0" VelocityChange="0,0" VelocityChangeWater="0,0" StartSizeMin="1,1" StartSizeMax="1,1" SizeChangeMin="0,0" SizeChangeMax="0,0" GrowTime="0" StartColor="255,255,255,255" MiddleColor="255,255,255,255" EndColor="255,255,255,255" UseMiddleColor="true" DrawTarget="Both" DrawOrder="Default" UseCollision="false" CanEnterSubs="true" AnimDuration="0.5" LoopAnim="false" BlendState="AlphaBlend">
     <AnimatedSprite texture="%ModDir%/content/Particles/cc0_0257.png" sourcerect="0,0,1536,512" origin="0.5,0.5" depth="0.45" compress="false" columns="6" rows="2" emptyframes="0"/>
   </magiclab_cc0_0257>
+
+  <!-- 多簇燃烧火焰-当前不可用 -->
+  <magiclab_cc0_0258 LifeTime="1.2" LifeTimeMin="0" StartDelayMin="0" StartDelayMax="0" AngularVelocityMin="0" AngularVelocityMax="0" StartRotationMin="0" StartRotationMax="0" RotateToDirection="false" Drag="0" WaterDrag="0" VelocityChange="0,0" VelocityChangeWater="0,0" StartSizeMin="1,1" StartSizeMax="1,1" SizeChangeMin="0,0" SizeChangeMax="0,0" GrowTime="0" StartColor="255,255,255,255" MiddleColor="255,255,255,255" EndColor="255,255,255,255" UseMiddleColor="true" DrawTarget="Both" DrawOrder="Default" UseCollision="false" CanEnterSubs="true" AnimDuration="0.4" LoopAnim="true" BlendState="AlphaBlend">
+    <AnimatedSprite texture="%ModDir%/content/Particles/cc0_0258.png" sourcerect="0,0,1280,256" origin="0.5,0.5" depth="0.45" compress="false" columns="5" rows="1" emptyframes="0"/>
+  </magiclab_cc0_0258>
+
+
+
 </Particles>

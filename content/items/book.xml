@@ -1,5 +1,116 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
+   <Item name="魔法典:天殛" identifier="cdexamplebook3" requireaimtosecondaryuse="true" category="Weapon" description="" subcategory="CD" tags="smallitem,weapon,book" hideinmenus="false" scale="0.2" impactsoundtag="weaponheavydrop" hideconditionbar="true"  hideconditionintooltip="true" >
+    <!--贴图正面--><!--914,6,379,861-->
+    <InventoryIcon texture="%ModDir%/content/png/03_雷鸣术书.png" sourcerect="10,10,120,160" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/03_雷鸣术书.png" sourcerect="167,71,215,94" depth="0.55" origin="0.5,0.5" />
+    <!--正面贴图-->
+    <BrokenSprite texture="%ModDir%/content/png/03_雷鸣术书.png" depth="0.55" sourcerect="10,10,120,160"  maxcondition="89" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir%/content/png/03_雷鸣术书.png" depth="0.55" sourcerect="10,10,120,160"  maxcondition="95.5" origin="0.5,0.5" />
+    <!--朝上开启贴图-->
+    <BrokenSprite texture="%ModDir%/content/png/03_雷鸣术书.png" depth="0.55" sourcerect="167,71,215,94" maxcondition="100" origin="0.509,0.8" />
+    <Body width="400" height="154" density="50" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="40,0" aimpos="50,-10" handle1="-0,-24" handle2="-0,-55" holdangle="-30" msg="ItemMsgPickUpSelect" >
+      <!--需要魔力值，阈值10-->
+      <StatusEffect type="OnSecondaryUse" target="this,Contained,Character" condition="100" setvalue="true" allowwhenbroken="true" >
+        <Conditional cdmenmagic="gte 10" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="Contained,Character" condition="0" setvalue="true" allowwhenbroken="true" >
+        <Conditional cdmenmagic="lt 10" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" Condition="-50">
+        <Conditional Condition="gt 88" />
+      </StatusEffect>
+      <!--开书时生成展示物-->
+      <StatusEffect type="OnSecondaryUse" target="This" disabledeltatime="true">
+        <Conditional Condition="gt 88" />
+        <SpawnItem identifiers="cdexamplebook3chargeflash" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </Holdable>
+    <RangedWeapon weapondamagemodifier="1.8" penetration="1" reload="0.2" barrelpos="0,125" spread="0" unskilledspread="0" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.4" holdtrigger="true" maxchargetime="0.9">
+      <Crosshair texture="%ModDir%/content/png/魔法准星1.png" sourcerect="0,0,244,278"  />
+      <!--吟唱特效-->
+      <ParticleEmitterCharge particle="magiclab_cc0_0143" followemitter="true" followemitterfadeout="0.08" particleamount="1" particlespersecond="0" emitinterval="999999" scalemultiplier="7,7" scalemin="1" scalemax="1" anglemin="0" anglemax="0" velocitymin="0" velocitymax="0" colormultiplier="215,235,255,255" />
+      <!--释放特效-->
+      <ParticleEmitter particle="ElectricShock" particleamount="3" particlespersecond="0" emitinterval="0" anglemin="0" anglemax="0" distancemin="30" distancemax="45" velocitymin="0" velocitymax="0" scalemultiplier="0.16,0.16" scalemin="0.9" scalemax="1.3" colormultiplier="210,230,255,255" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="150.0" force="1" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="1.0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained,Character" disabledeltatime="true">
+        <ReduceAffliction identifier="cdmenmagic" amount="10" />
+        <Use />
+      </StatusEffect>
+      <RequiredItems items="cdexamplebook3magazine" type="Contained" msg="魔力不足" />
+      <RequiredSkill identifier="weapons" level="80" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="6" hideitems="false" drawinventory="false" containedstateindicatorstyle="bullet"  SpawnWithId="cdexamplebook3magazine" removecontaineditemsondeconstruct="true"  containedstateindicatorslot="0">
+      <Containable items="cdexamplebook3magazine">
+      </Containable>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="cdexamplebook3chargeflash" hide="false" itempos="0,30">
+          <StatusEffect type="OnContaining" target="This" cameraaimoffset="500" setvalue="true" interval="1" />
+          <StatusEffect type="OnRemoved" target="This" cameraaimoffset="0" setvalue="true" />
+        </Containable>
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="5000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.15" />
+    </Quality>
+    <SkillRequirementHint identifier="weapons" level="80" />
+  </Item>
+  <!--天殛展示物-冷色雷光球，仅用于开书时的视觉表现-->
+  <Item identifier="cdexamplebook3chargeflash" name="天殛蓄力光" description="" category="Misc" subcategory="CD" Tags="smallitem,explosive,demolitionsexpert" maxstacksize="1" Scale="0.5" cargocontaineridentifier="explosivecrate" impactsoundtag="impact_soft" hideinmenus="true">
+    <Upgrade gameversion="0.9.3.0" scale="0.5" />
+    <InventoryIcon texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" depth="0.55" origin="0.5,0.5" />
+    <Body width="30" height="30" density="20" />
+    <ItemComponent>
+      <StatusEffect type="Always" target="This" Condition="-300.0">
+        <ParticleEmitter particle="magiclab_fl003_flashcharge" followemitter="true" scalemultiplier="0.45,0.45" AngleMin="0" AngleMax="360" VelocityMax="12" emitinterval="0.22" particleamount="4" colormultiplier="190,225,255,240" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <!--天殛弹匣-->
+  <Item name="魔法-天殛" identifier="cdexamplebook3magazine" description="" maxstacksize="1" maxstacksizecharacterinventory="1" health="20" scale="0.2" category="Weapon" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,cdfirelancemagazine" impactsoundtag="impact_metal_light" hideinmenus="true">
+    <Sprite texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" rotation="90" depth="0.55" origin="0.5,0.5" />
+    <Body width="77" height="45" density="25" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="cdexamplebook3bolt" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="cdexamplebook3bolt" />
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <SpawnItem identifiers="cdexamplebook3bolt" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This" disabledeltatime="true">
+        <Remove />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <!--天殛子弹-->
+  <Item identifier="cdexamplebook3bolt" health="100" category="Weapon" tags="smallitem" noninteractable="true" hideinmenus="true">
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="0,0,2,2" depth="0.55" origin="0.5,0.5" />
+    <Body width="16" height="16" density="10" friction="0.0" restitution="0.0" angulardamping="0.0" gravityscale="0" waterdragcoefficient="0" lineardamping="0" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" damagedoors="true" launchimpulse="100" maxtargetstohit="1">
+      <Attack structuredamage="0.0" targetforce="1.0" itemdamage="4.0" severlimbsprobability="0.15">
+        <Affliction identifier="cddropmine_tj" strength="5" multiplybymaxvitality="true" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="This" condition="0.0" setvalue="true" />
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+      <RequiredSkill identifier="weapons" level="55" />
+      <RequiredSkill identifier="mechanical" level="45" />
+    </Projectile>
+  </Item>
+
+
+
+
+
   <Item name="魔法典:倏烁" identifier="cdexamplebook2" category="Weapon" description="" subcategory="CD" tags="smallitem,weapon,book" hideinmenus="false" scale="0.2" impactsoundtag="weaponheavydrop" hideconditionbar="true"  hideconditionintooltip="true" >
     <!--贴图正面--><!--914,6,379,861-->
     <InventoryIcon texture="%ModDir%/content/png/D24_电木模拟法典.png" sourcerect="10,10,120,160" origin="0.5,0.5" />
@@ -59,6 +170,7 @@
     </Quality>
     <SkillRequirementHint identifier="weapons" level="80" />
   </Item>
+
   <!--展示物-雷电球-->
   <Item identifier="cdexamplebook1chargeflash" name="雷球" description="" category="Misc" subcategory="CD" Tags="smallitem,explosive,demolitionsexpert" maxstacksize="1" Scale="0.5" cargocontaineridentifier="explosivecrate" impactsoundtag="impact_soft"  hideinmenus="true">
     <Upgrade gameversion="0.9.3.0" scale="0.5" />
