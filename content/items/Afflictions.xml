@@ -1129,5 +1129,21 @@
       <StatValue stattype="MovementSpeed" value="-10.0" />
     </Effect>
     <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="765,137,122,119" color="255,255,255,255" origin="0,0" />
+</Affliction>
+
+  <!--方案2水平雷电：单次命中闪光与短暂残余电弧。limbspecific=false；纯 XML 仍可能按 limb 重复结算。-->
+  <Affliction name="横贯雷" identifier="cddropmine_hl" isbuff="false" type="debuff" limbspecific="false" maxstrength="5" affectmachines="false" showiconthreshold="10" showinhealthscannerthreshold="10">
+    <Effect minstrength="4.999" maxstrength="5" strengthchange="-60">
+      <StatusEffect target="Character" disabledeltatime="true">
+        <ParticleEmitter particle="plasma" particleamount="2" scalemultiplier="0.65,0.65" colormultiplier="185,120,255,255" />
+        <ParticleEmitter particle="ElectricShock" particleamount="4" distancemin="8" distancemax="32" scalemin="0.18" scalemax="0.4" colormultiplier="190,125,255,255" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="0" maxstrength="4.999" strengthchange="-2">
+      <StatusEffect target="Character" interval="0.12" disabledeltatime="true">
+        <ParticleEmitter particle="faradayfx" particleamount="2" scalemultiplier="0.5,0.5" colormultiplier="170,110,255,220" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/content/png/Afflictionicons.png" sourcerect="0,0,122,119" color="150,80,230,120" origin="0,0" />
   </Affliction>
 </Afflictions>

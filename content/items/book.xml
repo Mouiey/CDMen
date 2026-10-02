@@ -1,5 +1,129 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
+  <!--方案2：水平雷电贯穿书。独立对象链；不改动倏烁、天殛、霆狱。-->
+  <Item name="魔法典:横贯雷" identifier="cdexamplebook5" requireaimtosecondaryuse="true" category="Weapon" description="" subcategory="CD" tags="smallitem,weapon,book" hideinmenus="false" scale="0.2" impactsoundtag="weaponheavydrop" hideconditionbar="true" hideconditionintooltip="true">
+    <!--图标贴图-->
+    <InventoryIcon texture="%ModDir%/content/png/17_晶体共鸣法典.png" sourcerect="10,10,120,160" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/17_晶体共鸣法典.png" sourcerect="162,72,217,94" depth="0.55" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir%/content/png/17_晶体共鸣法典.png" depth="0.55" sourcerect="10,10,120,160" maxcondition="89" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir%/content/png/17_晶体共鸣法典.png" depth="0.55" sourcerect="10,10,120,160" maxcondition="95.5" origin="0.5,0.5" />
+    <!--朝上开启贴图-->
+    <BrokenSprite texture="%ModDir%/content/png/17_晶体共鸣法典.png" depth="0.55" sourcerect="162,72,217,94" maxcondition="100" origin="0.509,0.8" />
+    <Body width="400" height="154" density="50" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="40,0" aimpos="50,-10" handle1="-0,-24" handle2="-0,-55" holdangle="-30" msg="ItemMsgPickUpSelect">
+      <!--魔力阈值 10。-->
+      <StatusEffect type="OnSecondaryUse" target="this,Contained,Character" condition="100" setvalue="true" allowwhenbroken="true">
+        <Conditional cdmenmagic="gte 10" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="Contained,Character" condition="0" setvalue="true" allowwhenbroken="true">
+        <Conditional cdmenmagic="lt 10" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" Condition="-50">
+        <Conditional Condition="gt 88" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This" disabledeltatime="true">
+        <Conditional Condition="gt 88" />
+        <SpawnItem identifiers="cdexamplebook5chargeflash" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </Holdable>
+    <RangedWeapon weapondamagemodifier="1.8" penetration="1" reload="0.2" barrelpos="0,125" spread="0" unskilledspread="0" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.4" holdtrigger="true" maxchargetime="0.9">
+      <Crosshair texture="%ModDir%/content/png/魔法准星1.png" sourcerect="0,0,244,278" />
+      <!--蓄力：复用模组雷法术粒子与原版 chargepulselaser。-->
+      <ParticleEmitterCharge particle="magiclab_cc0_0143" followemitter="true" followemitterfadeout="0.08" particleamount="1" particlespersecond="0" emitinterval="999999" scalemultiplier="7.5,7.5" scalemin="1" scalemax="1" anglemin="0" anglemax="0" velocitymin="0" velocitymax="0" colormultiplier="220,150,255,255" />
+      <ParticleEmitterCharge particle="magiclab_fl003_flashcharge" followemitter="true" particleamount="4" particlespersecond="14" emitinterval="0.08" scalemultiplier="0.45,0.45" anglemin="0" anglemax="360" velocitymin="0" velocitymax="12" colormultiplier="190,155,255,220" />
+      <ParticleEmitterCharge particle="chargepulselaser" particlespersecond="18" scalemultiplier="0.55,0.55" scalemin="1" scalemax="1" anglemin="0" anglemax="359" colormultiplier="190,130,255,220" />
+      <!--发射与射线：ElectricShock 闪光；tracerpulselaser 使用源码 tracerPoints 绘制直线光芯。-->
+      <ParticleEmitter particle="ElectricShock" particleamount="4" anglemin="0" anglemax="360" distancemin="12" distancemax="28" scalemin="0.18" scalemax="0.32" colormultiplier="210,130,255,255" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="150.0" force="1" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="1.0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained,Character" disabledeltatime="true">
+        <ReduceAffliction identifier="cdmenmagic" amount="10" />
+        <Use />
+      </StatusEffect>
+      <RequiredItems items="cdexamplebook5magazine" type="Contained" msg="魔力不足" />
+      <!--沿用霆狱技能要求。-->
+      <RequiredSkill identifier="weapons" level="80" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="6" hideitems="false" drawinventory="false" containedstateindicatorstyle="bullet" SpawnWithId="cdexamplebook5magazine" removecontaineditemsondeconstruct="true" containedstateindicatorslot="0">
+      <Containable items="cdexamplebook5magazine" />
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="cdexamplebook5chargeflash" hide="false" itempos="0,30">
+          <StatusEffect type="OnContaining" target="This" cameraaimoffset="500" setvalue="true" interval="1" />
+          <StatusEffect type="OnRemoved" target="This" cameraaimoffset="0" setvalue="true" />
+        </Containable>
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="5000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.15" />
+    </Quality>
+    <SkillRequirementHint identifier="weapons" level="80" />
+  </Item>
+  <!--方案2展示物：复用模组蓄力粒子。-->
+  <Item identifier="cdexamplebook5chargeflash" name="横贯雷蓄力光" description="" category="Misc" subcategory="CD" Tags="smallitem,explosive,demolitionsexpert" maxstacksize="1" Scale="0.5" cargocontaineridentifier="explosivecrate" impactsoundtag="impact_soft" hideinmenus="true">
+    <Upgrade gameversion="0.9.3.0" scale="0.5" />
+    <InventoryIcon texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" depth="0.55" origin="0.5,0.5" />
+    <Body width="30" height="30" density="20" />
+    <ItemComponent>
+      <!--展示物生成后短暂播放，避免书本单纯持有时持续发光。-->
+      <StatusEffect type="OnSpawn" target="This" duration="0.6" interval="0.08" stackable="false">
+        <ParticleEmitter particle="magiclab_fl003_flashcharge" followemitter="true" scalemultiplier="0.5,0.5" anglemin="0" anglemax="360" velocitymax="10" emitinterval="0.18" particleamount="5" colormultiplier="180,155,255,240" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <!--方案2弹匣。-->
+  <Item name="魔法-横贯雷" identifier="cdexamplebook5magazine" description="" maxstacksize="1" maxstacksizecharacterinventory="1" health="20" scale="0.2" category="Weapon" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,cdfirelancemagazine" impactsoundtag="impact_metal_light" hideinmenus="true">
+    <Sprite texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" rotation="90" depth="0.55" origin="0.5,0.5" />
+    <Body width="77" height="45" density="25" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="cdexamplebook5bolt" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="cdexamplebook5bolt" />
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <SpawnItem identifiers="cdexamplebook5bolt" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This" disabledeltatime="true">
+        <Remove />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <!--方案2子弹：hitscan；maxtargetstohit=4 为初版 3～5 可调上限。damagedoors=true 使门受击并终止射线。-->
+  <Item identifier="cdexamplebook5bolt" health="100" category="Weapon" tags="smallitem" noninteractable="true" hideinmenus="true">
+    <!--参考星界军激光枪：子弹本体使用不可见占位图，实际射线由 Projectile tracerPoints 绘制，避免刚体自旋带动贴图失控旋转。-->
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="0,0,2,2" depth="0.55" origin="0.5,0.5" />
+    <Body width="16" height="16" density="10" friction="0" restitution="0" angulardamping="0" gravityscale="0" waterdragcoefficient="0" lineardamping="0" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="false" damagedoors="true" launchimpulse="40" maxtargetstohit="4">
+      <!--伤害沿用霆狱：itemdamage=4，霆狱 Affliction 强度=5；limbspecific=false 的独立 Affliction。-->
+      <Attack structuredamage="0" targetforce="1" itemdamage="4" severlimbsprobability="0.15">
+        <Affliction identifier="cddropmine_hl" strength="5" multiplybymaxvitality="true" />
+      </Attack>
+      <!--tracerpulselaser 由 Projectile.cs 以 tracerPoints 从发射点绘制到最终命中点；蓝紫染色。-->
+      <!--主电光射线：按起点/终点拉伸，不使用 projectile Sprite 的旋转。-->
+      <ParticleEmitter particle="cd_horizontal_lightning_ray" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1,1" colormultiplier="190,125,255,255" useTracerPoints="true" />
+      <!--飞行期视觉：在当前射弹位置反复生成电弧，不改变物理运动。-->
+      <StatusEffect type="Always" target="This" interval="0.05" disabledeltatime="true">
+        <ParticleEmitter particle="cd_horizontal_lightning_arc" particleamount="1" distancemin="0" distancemax="5" anglemin="-12" anglemax="12" velocitymin="0" velocitymax="0" scalemin="0.65" scalemax="0.95" colormultiplier="185,120,255,230" />
+      </StatusEffect>
+      <!--终点闪光复用原版粒子；OnImpact 同样覆盖门/船体终点。-->
+      <StatusEffect type="OnImpact" target="This" condition="0" setvalue="true">
+        <ParticleEmitter particle="EmpBlast" particleamount="1" scalemultiplier="0.45,0.45" colormultiplier="150,80,255,220" />
+        <ParticleEmitter particle="ElectricShock" particleamount="5" distancemin="4" distancemax="24" scalemin="0.25" scalemax="0.5" colormultiplier="180,120,255,255" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+      <RequiredSkill identifier="weapons" level="55" />
+      <RequiredSkill identifier="mechanical" level="45" />
+    </Projectile>
+  </Item>
+
+
+
     <!--霆狱：中央雷柱与短暂雷域-->
   <Item name="魔法典:霆狱" identifier="cdexamplebook4" requireaimtosecondaryuse="true" category="Weapon" description="" subcategory="CD" tags="smallitem,weapon,book" hideinmenus="false" scale="0.2" impactsoundtag="weaponheavydrop" hideconditionbar="true" hideconditionintooltip="true">
     <!--贴图正面--><!--914,6,379,861-->
