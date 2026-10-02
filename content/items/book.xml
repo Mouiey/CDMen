@@ -224,6 +224,86 @@
 
 
 
+  <!--伤害吸收魔法书-->
+  <Item name="魔法典:无畏" identifier="cdbookreversedamage" category="Weapon" description="" subcategory="CD" tags="smallitem,weapon,book" hideinmenus="false" scale="0.2" impactsoundtag="weaponheavydrop" hideconditionbar="true"  hideconditionintooltip="true" >
+    <!--贴图--><!--斜着：136,43,81,93  正面：10,10,118,157  朝上开启：169,224,215,95  朝右开启：228,6,95,215 -->
+    <InventoryIcon texture="%ModDir%/content/png/D26_混凝土铸纹典.png" sourcerect="10,10,118,157" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/D26_混凝土铸纹典.png" sourcerect="169,224,215,95" depth="0.55" origin="0.5,0.5" />
+    <!--正面贴图-->
+    <BrokenSprite texture="%ModDir%/content/png/D26_混凝土铸纹典.png" depth="0.55" sourcerect="10,10,118,157"  maxcondition="89" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir%/content/png/D26_混凝土铸纹典.png" depth="0.55" sourcerect="10,10,118,157"  maxcondition="95.5" origin="0.5,0.5" />
+    <!--朝上开启贴图-->
+    <BrokenSprite texture="%ModDir%/content/png/D26_混凝土铸纹典.png" depth="0.55" sourcerect="169,224,215,95" maxcondition="100" origin="0.509,0.8" />
+    <Body width="400" height="154" density="50" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="40,0" aimpos="50,-10" handle1="-0,-24" handle2="-0,-55" holdangle="-30" msg="ItemMsgPickUpSelect" >
+      <!--需要魔力值，阈值100-->
+      <StatusEffect type="OnSecondaryUse" target="this,Contained,Character" condition="100" setvalue="true" allowwhenbroken="true" >
+        <Conditional cdmenmagic="gte 100" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="Contained,Character" condition="0" setvalue="true" allowwhenbroken="true" >
+        <Conditional cdmenmagic="lt 100" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" Condition="-50">
+        <Conditional Condition="gt 88" />
+      </StatusEffect>
+      <!--开书时生成展示物
+      <StatusEffect type="OnSecondaryUse" target="This" disabledeltatime="true">
+        <Conditional Condition="gt 88" />
+        <SpawnItem identifiers="cdbookreversedamagechargefire" spawnposition="ThisInventory" />
+      </StatusEffect>
+      -->
+      <StatusEffect type="OnActive" target="Character" setvalue="true" interval="4">
+        <GiveTalentInfo giverandom="false" talentidentifiers="cdbookstalents" />
+      </StatusEffect>
+    </Holdable>
+    <RangedWeapon weapondamagemodifier="1.8" penetration="0.05" reload="2" barrelpos="0,125" spread="6" unskilledspread="25" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2" holdtrigger="true">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <Sound file="%ModDir%/content/ogg/无畏音效.ogg" type="OnUse" range="3000" volume="3" loop="false"/>
+      <!--释放特效-->
+      <ParticleEmitter particle="impactfirearm" particleamount="1" anglemin="0" anglemax="360" velocitymin="0" velocitymax="0" scalemultiplier="10,10" colormultiplier="255,255,255,100" />
+      <ParticleEmitter particle="impactfirearm" particleamount="1" anglemin="90" anglemax="90" velocitymin="0" velocitymax="0" scalemultiplier="2.5,5" colormultiplier="255,255,255,200" />
+      <ParticleEmitter particle="impactfirearm" particleamount="1" anglemin="0" anglemax="0" velocitymin="0" velocitymax="0" scalemultiplier="5,2.5" colormultiplier="255,255,255,200" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="150.0" force="1" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="1.0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained,Character" disabledeltatime="true" setvalue="true">
+        <!--消耗魔力并停顿魔力回复-->
+        <ReduceAffliction type="cdmenmagic" amount="100" />
+        <Affliction identifier="cdmenmagicstop" amount="1" multiplybymaxvitality="true"/>
+        <Affliction identifier="bookreverseaff" amount="100" multiplybymaxvitality="true"/>
+        <Use />
+      </StatusEffect>
+      <RequiredItems items="cdbookreversedamagemagazine" type="Contained" msg="魔力不足" />
+      <RequiredSkill identifier="weapons" level="80" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="6" hideitems="false" drawinventory="false" containedstateindicatorstyle="bullet"  SpawnWithId="cdbookreversedamagemagazine" removecontaineditemsondeconstruct="true"  containedstateindicatorslot="0">
+      <Containable items="cdbookreversedamagemagazine">
+      </Containable>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="cdbookreversedamagechargefire" hide="false" itempos="0,30">
+          <StatusEffect type="OnContaining" target="This" cameraaimoffset="500" setvalue="true" interval="1" />
+          <StatusEffect type="OnRemoved" target="This" cameraaimoffset="0" setvalue="true" />
+        </Containable>
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="5000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.15" />
+    </Quality>
+    <SkillRequirementHint identifier="weapons" level="80" />
+  </Item>
+  <!--弹匣-->
+  <Item name="魔法" identifier="cdbookreversedamagemagazine" description="" maxstacksize="1" maxstacksizecharacterinventory="1" health="20" scale="0.2" category="Weapon" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,cdfirelancemagazine" impactsoundtag="impact_metal_light"  hideinmenus="true">
+    <Sprite texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" rotation="90" depth="0.55" origin="0.5,0.5" />
+    <Body width="77" height="45" density="25" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="cdbookreversedamageround2" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" >
+        <Remove />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
 
   <Item name="魔法典:倏烁" identifier="cdexamplebook2" category="Weapon" description="" subcategory="CD" tags="smallitem,weapon,book" hideinmenus="false" scale="0.2" impactsoundtag="weaponheavydrop" hideconditionbar="true"  hideconditionintooltip="true" >
     <!--贴图正面--><!--914,6,379,861-->
@@ -338,23 +418,16 @@
     </Projectile>
   </Item>
 
-
-
-
-
-
-
-
   <!--魔法书实例：朝上施法+展示内容-->
   <Item name="魔法书" identifier="cdexamplebook1" category="Weapon" description="" subcategory="CD" tags="smallitem,weapon,book" hideinmenus="false" scale="0.2" impactsoundtag="weaponheavydrop" hideconditionbar="true"  hideconditionintooltip="true" >
-    <!--贴图正面--><!--914,6,379,861-->
+    <!--贴图--><!--斜着：136,43,81,93  正面：10,10,118,157  朝上开启：169,224,215,95  朝右开启：228,6,95,215 -->
     <InventoryIcon texture="%ModDir%/content/png/D05_深海遗物典.png" sourcerect="10,10,118,157" origin="0.5,0.5" />
-    <Sprite texture="%ModDir%/content/png/D05_深海遗物典90.png" sourcerect="6,61,215,95" depth="0.55" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/D05_深海遗物典.png" sourcerect="169,224,215,95" depth="0.55" origin="0.5,0.5" />
     <!--正面贴图-->
     <BrokenSprite texture="%ModDir%/content/png/D05_深海遗物典.png" depth="0.55" sourcerect="10,10,118,157"  maxcondition="89" origin="0.5,0.5" />
     <BrokenSprite texture="%ModDir%/content/png/D05_深海遗物典.png" depth="0.55" sourcerect="10,10,118,157"  maxcondition="95.5" origin="0.5,0.5" />
     <!--朝上开启贴图-->
-    <BrokenSprite texture="%ModDir%/content/png/D05_深海遗物典90.png" depth="0.55" sourcerect="6,61,215,95" maxcondition="100" origin="0.509,0.8" />
+    <BrokenSprite texture="%ModDir%/content/png/D05_深海遗物典.png" depth="0.55" sourcerect="169,224,215,95" maxcondition="100" origin="0.509,0.8" />
     <Body width="400" height="154" density="50" />
     <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="40,0" aimpos="50,-10" handle1="-0,-24" handle2="-0,-55" holdangle="-30" msg="ItemMsgPickUpSelect" >
       <!--需要魔力值，阈值10-->
@@ -383,8 +456,10 @@
       <StatusEffect type="OnUse" target="This">
         <Explosion range="150.0" force="1" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="1.0" />
       </StatusEffect>
-      <StatusEffect type="OnUse" target="Contained,Character" disabledeltatime="true">
-        <ReduceAffliction identifier="cdmenmagic" amount="10" />
+      <StatusEffect type="OnUse" target="Contained,Character" disabledeltatime="true" setvalue="true">
+        <!--消耗魔力并停顿魔力回复-->
+        <ReduceAffliction type="cdmenmagic" amount="10" />
+        <Affliction identifier="cdmenmagicstop" amount="1" multiplybymaxvitality="true"/>
         <Use />
       </StatusEffect>
       <RequiredItems items="cdexamplebook1magazine" type="Contained" msg="魔力不足" />
