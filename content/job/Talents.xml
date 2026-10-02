@@ -1,5 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Override>
+  <!--魔法书天赋（贴图未做）-->
+  <Talent identifier="cdbookstalents">
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,6" sheetelementsize="128,128" />
+    <Description tag="talentdescription.cdbookstalents">
+    </Description>
+    <!--伤害吸收-->
+    <AbilityGroupEffect abilityeffecttype="OnAttacked">
+      <Conditions>
+        <AbilityConditionHasAffliction afflictionidentifier="bookreverseaff"/>
+        <AbilityConditionAttackData ignorenonharmfulattacks="false" ignoreOwnAttacks="false" weapontype="Ranged,NoWeapon,Melee,Turret"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="-2" />
+        <CharacterAbilityApplyStatusEffectsToAttacker>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character" targetlimb="Torso" delay="0" disabledeltatime="true">
+              <ParticleEmitter particle="magiclab_cc0_0012_additive" distancemin="30" distancemax="30" anglemin="0" anglemax="360" particlespersecond="1" particleamount="1" velocitymin="0" velocitymax="0" scalemin="0.75" scalemax="0.75" colormultiplier="255,255,255,100" />
+              <sound file="%ModDir%/content/ogg/MetalImpactHeavy2.ogg" range="500" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffectsToAttacker>
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
   <!--成神之路-->
   <Talent identifier="cdgodway" trackedstat="godwaycount" trackedmax="1000">
     <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="1,4" sheetelementsize="128,128"/>

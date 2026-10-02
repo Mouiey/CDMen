@@ -48,4 +48,7 @@
   <missionfailure.cdabandonedsx>我们仍未可知[location1]发生了什么</missionfailure.cdabandonedsx>
   <missionheader0.cdabandonedsx>保密协议已签署</missionheader0.cdabandonedsx>
   <missionmessage0.cdabandonedsx>我们会尽快汇报此事</missionmessage0.cdabandonedsx>
+  <!--魔法书描述-->
+  <entitydescription.cdexamplebook1>描述描述描述\n‖color:gui.orange‖使用时消耗10魔力‖end‖</entitydescription.cdexamplebook1>
+  <entitydescription.cdbookreversedamage>“历经的苦难将成为你的一部分”\n‖color:gui.orange‖使用时消耗50魔力‖end‖</entitydescription.cdbookreversedamage>
 </infotext>
