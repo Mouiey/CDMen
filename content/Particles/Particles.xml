@@ -44,8 +44,6 @@
     <AnimatedSprite texture="%ModDir%/content/Particles/cc0_0258.png" sourcerect="0,0,1280,256" origin="0.5,0.5" depth="0.45" compress="false" columns="5" rows="1" emptyframes="0"/>
   </magiclab_cc0_0258>
 
-
-
   <!--彩色泡沫迸发（伤害吸收）-->
   <magiclab_cc0_0012 LifeTime="0.82" LifeTimeMin="0" StartDelayMin="0" StartDelayMax="0" AngularVelocityMin="0" AngularVelocityMax="0" StartRotationMin="0" StartRotationMax="0" RotateToDirection="false" Drag="0" WaterDrag="0" VelocityChange="0,0" VelocityChangeWater="0,0" StartSizeMin="1,1" StartSizeMax="1,1" SizeChangeMin="0,0" SizeChangeMax="0,0" GrowTime="0" StartColor="255,255,255,255" MiddleColor="255,255,255,255" EndColor="255,255,255,255" UseMiddleColor="true" DrawTarget="Both" DrawOrder="Default" UseCollision="false" CanEnterSubs="true" AnimDuration="0.8" LoopAnim="false" BlendState="AlphaBlend">
     <AnimatedSprite texture="%ModDir%/content/Particles/cc0_0012.png" sourcerect="0,0,2048,1024" origin="0.5,0.5" depth="0.45" compress="false" columns="8" rows="4" emptyframes="0" />
@@ -62,4 +60,11 @@
   <cd_horizontal_lightning_arc LifeTime="0.16" LifeTimeMin="0.12" StartDelayMin="0" StartDelayMax="0" AngularVelocityMin="-8" AngularVelocityMax="8" StartRotationMin="-12" StartRotationMax="12" RotateToDirection="true" Drag="0" WaterDrag="0" VelocityChange="0,0" VelocityChangeWater="0,0" StartSizeMin="0.8,0.8" StartSizeMax="1.0,1.0" SizeChangeMin="0,0" SizeChangeMax="0,0" GrowTime="0" StartColor="185,120,255,230" MiddleColor="220,190,255,220" EndColor="80,40,255,0" UseMiddleColor="true" DrawTarget="Both" DrawOrder="Foreground" UseCollision="false" CanEnterSubs="true" AnimDuration="0.16" LoopAnim="false" BlendState="Additive" Priority="1">
     <AnimatedSprite texture="%ModDir%/content/Particles/horizontal_lightning_arc.png" sourcerect="0,0,256,64" origin="0.5,0.5" depth="0.44" compress="false" columns="4" rows="1" emptyframes="0" />
   </cd_horizontal_lightning_arc>
+  <!--火焰切割-->
+  <magiclab_cc0_0034 LifeTime="0.42" LifeTimeMin="0" StartDelayMin="0" StartDelayMax="0" AngularVelocityMin="0" AngularVelocityMax="0" StartRotationMin="0" StartRotationMax="360" RotateToDirection="false" Drag="0" WaterDrag="0" VelocityChange="0,0" VelocityChangeWater="0,0" StartSizeMin="1,1" StartSizeMax="1,1" SizeChangeMin="0,0" SizeChangeMax="0,0" GrowTime="0" StartColor="255,255,255,255" MiddleColor="255,255,255,255" EndColor="255,255,255,255" UseMiddleColor="true" DrawTarget="Both" DrawOrder="Default" UseCollision="false" CanEnterSubs="true" AnimDuration="0.4" LoopAnim="false" BlendState="AlphaBlend">
+    <AnimatedSprite texture="%ModDir%/content/Particles/cc0_0034.png" sourcerect="0,0,2048,1024" origin="0.5,0.5" depth="0.45" compress="false" columns="8" rows="4" emptyframes="0" />
+  </magiclab_cc0_0034>
+  <magiclab_cc0_0034_additive LifeTime="0.42" LifeTimeMin="0" StartDelayMin="0" StartDelayMax="0" AngularVelocityMin="0" AngularVelocityMax="0" StartRotationMin="0" StartRotationMax="360" RotateToDirection="false" Drag="0" WaterDrag="0" VelocityChange="0,0" VelocityChangeWater="0,0" StartSizeMin="1,1" StartSizeMax="1,1" SizeChangeMin="0,0" SizeChangeMax="0,0" GrowTime="0" StartColor="255,255,255,255" MiddleColor="255,255,255,255" EndColor="255,255,255,255" UseMiddleColor="true" DrawTarget="Both" DrawOrder="Default" UseCollision="false" CanEnterSubs="true" AnimDuration="0.4" LoopAnim="false" BlendState="Additive">
+    <AnimatedSprite texture="%ModDir%/content/Particles/cc0_0034.png" sourcerect="0,0,2048,1024" origin="0.5,0.5" depth="0.45" compress="false" columns="8" rows="4" emptyframes="0" />
+  </magiclab_cc0_0034_additive>
 </Particles>

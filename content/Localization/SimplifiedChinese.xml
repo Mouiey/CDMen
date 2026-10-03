@@ -51,4 +51,5 @@
   <!--魔法书描述-->
   <entitydescription.cdexamplebook1>描述描述描述\n‖color:gui.orange‖使用时消耗10魔力‖end‖</entitydescription.cdexamplebook1>
   <entitydescription.cdbookreversedamage>“历经的苦难将成为你的一部分”\n‖color:gui.orange‖使用时消耗50魔力‖end‖</entitydescription.cdbookreversedamage>
+  <entitydescription.cdfirecutbook>\n‖color:gui.orange‖使用时消耗5魔力‖end‖</entitydescription.cdfirecutbook>
 </infotext>
