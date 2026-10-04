@@ -1,6 +1,293 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
-
+  <!--魔法书实例：朝右施法-->
+  <Item name="魔法典:熔融" identifier="cdfirebook" category="Weapon" description="" subcategory="CD" tags="smallitem,weapon,book" hideinmenus="false" scale="0.2" impactsoundtag="weaponheavydrop" hideconditionbar="true"  hideconditionintooltip="true" >
+    <!--贴图--><!--斜着：136,43,81,93  正面：10,10,118,157  朝上开启：169,224,215,95  朝右开启：228,6,95,215 -->
+    <InventoryIcon texture="%ModDir%/content/png/01_火焰秘典.png" sourcerect="10,10,118,157" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/01_火焰秘典.png" sourcerect="228,6,95,215" depth="0.55" origin="0.5,0.5" />
+    <!--正面贴图-->
+    <BrokenSprite texture="%ModDir%/content/png/01_火焰秘典.png" depth="0.55" sourcerect="10,10,118,157"  maxcondition="49" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir%/content/png/01_火焰秘典.png" depth="0.55" sourcerect="10,10,118,157"  maxcondition="55.5" origin="0.5,0.5" />
+    <!--朝上开启贴图-->
+    <BrokenSprite texture="%ModDir%/content/png/01_火焰秘典.png" depth="0.55" sourcerect="228,6,95,215" maxcondition="100" origin="0.509,0.5" />
+    <Body width="400" height="154" density="50" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="40,0" aimpos="50,-10" handle1="-0,-24" handle2="-0,-55" holdangle="-30" msg="ItemMsgPickUpSelect" >
+      <!--需要魔力值，阈值10-->
+      <StatusEffect type="OnSecondaryUse" target="this,Contained,Character" condition="100" setvalue="false" allowwhenbroken="true">
+        <Conditional cdmenmagic="gt 0" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="Contained,Character" condition="0" setvalue="true" allowwhenbroken="true" >
+        <Conditional cdmenmagic="lte 0" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" Condition="-50">
+        <Conditional Condition="gt 48" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" Condition="-101">
+        <Conditional Condition="gt 60" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This" disabledeltatime="true">
+        <Conditional Condition="gt 75" />
+        <SpawnItem identifiers="cdfirebookchargefire1" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This" disabledeltatime="true">
+        <Conditional Condition="gt 90" />
+        <SpawnItem identifiers="cdfirebookchargefire2" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </Holdable>
+    <RepairTool firedamage="25.0" structurefixamount="0.0" range="1000" barrelpos="0,0" fireprobability="0.0" repairmultiple="true" RepairMultipleWalls="false" repairthroughwalls="false" repairthroughholes="true" combatpriority="50" spread="25" unskilledspread="25">
+      <!-- the item must contain a welding fuel tank for it to work -->
+      <RequiredItems items="cdfirebookmagazine" type="Contained" msg="魔力不足" />
+      <RequiredSkill identifier="weapons" level="50" />
+      <ParticleEmitterHitCharacter particle="fleshsmoke" particlespersecond="3" anglemin="265" anglemax="275" velocitymin="0" velocitymax="50" />
+      <sound file="Content/Items/Weapons/FlameThrowerLoop.ogg" type="OnUse" range="750.0" loop="true" frequency="0.8"/>
+      <StatusEffect type="OnFailure" target="This">
+        <ParticleEmitter particle="bubbles" particlespersecond="20" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
+        <ParticleEmitter particle="fleshsmoke" particlespersecond="10" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
+      </StatusEffect>
+      <StatusEffect type="OnSuccess" targettype="UseTarget" targets="item" Condition="-15.0">
+        <Conditional HasTag="neq weldable" />
+      </StatusEffect>
+      <!-- when using, the contained welding fuel tank will detoriate (= lose fuel) -->
+      <StatusEffect type="OnUse" target="Character">
+        <!--消耗魔力并停顿魔力回复-->
+        <ReduceAffliction type="cdmenmagic" amount="5" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" setvalue="true">
+        <Affliction identifier="cdmenmagicstop" amount="1" multiplybymaxvitality="true"/>
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" setvalue="false" condition="55">
+      </StatusEffect>
+      <!--基础伤害-->
+      <StatusEffect type="OnUse" target="UseTarget">
+        <Affliction identifier="burn" amount="1.25" />
+        <Affliction identifier="burning" amount="2" dividebylimbcount="true" />
+      </StatusEffect>
+      <!--火焰特效-->
+      <StatusEffect type="OnUse" target="This">
+        <Conditional condition="lt 75" />
+        <ParticleEmitter particle="flamethrower" copyentityangle="true" particlespersecond="80" anglemin="0" anglemax="0" velocitymin="2000" velocitymax="3000" highqualitycollisiondetection="true" />
+      </StatusEffect>
+      <!--二阶伤害-->
+      <StatusEffect type="OnUse" target="This,UseTarget">
+        <RequiredItem items="cdfirebookchargefire1" type="Contained" />
+        <Affliction identifier="burn" amount="5" />
+        <Affliction identifier="burning" amount="2" dividebylimbcount="true" />
+      </StatusEffect>
+      <!--火焰特效-->
+      <StatusEffect type="OnUse" target="This" comparison="and">
+        <Conditional condition="gte 75" />
+        <Conditional condition="lt 90" />
+        <sound file="Content/Items/Weapons/FlameThrowerLoop.ogg" range="750.0"  frequency="1" loop="true" />
+        <ParticleEmitter particle="flamethrower" copyentityangle="true" particlespersecond="80" anglemin="0" anglemax="0" velocitymin="2000" velocitymax="3000" highqualitycollisiondetection="true" colormultiplier="55,125,255,255" />
+      </StatusEffect>
+      <!--三阶伤害-->
+      <StatusEffect type="OnUse" target="This,UseTarget">
+        <RequiredItem items="cdfirebookchargefire2" type="Contained" />
+        <Affliction identifier="burn" amount="10" />
+        <Affliction identifier="burning" amount="2" dividebylimbcount="true" />
+      </StatusEffect>
+      <!--火焰特效-->
+      <StatusEffect type="OnUse" target="This">
+        <Conditional condition="gte 90" />
+        <sound file="Content/Items/Weapons/FlameThrowerLoop.ogg" range="750.0"  frequency="1.2" loop="true" />
+        <ParticleEmitter particle="flamethrowerblack" copyentityangle="true" particlespersecond="80" anglemin="0" anglemax="0" velocitymin="2000" velocitymax="3000" highqualitycollisiondetection="true" colormultiplier="255,255,255,255" />
+      </StatusEffect>
+      <!--灯光-->
+      <StatusEffect type="OnUse" target="This" targetitemcomponent="LightComponent" LightColor="255,174,121,255" setvalue="true">
+        <RequiredItem items="weldingtoolfuel" type="Contained" />
+      </StatusEffect>
+      <LightComponent LightColor="255,174,121,255" Flicker="0.5" Range="500">
+        <sprite texture="Content/Items/Electricity/lightsprite.png" origin="0.5,0.5" />
+      </LightComponent>
+    </RepairTool>
+    <ItemContainer capacity="1" maxstacksize="6" hideitems="false" drawinventory="false" containedstateindicatorstyle="bullet"  SpawnWithId="cdfirebookmagazine" removecontaineditemsondeconstruct="true"  containedstateindicatorslot="0">
+      <Containable items="cdfirebookmagazine">
+      </Containable>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="cdfirebookchargefire1" hide="false" itempos="0,30">
+          <StatusEffect type="OnContaining" target="This" cameraaimoffset="500" setvalue="true" interval="1" />
+          <StatusEffect type="OnRemoved" target="This" cameraaimoffset="0" setvalue="true" />
+        </Containable>
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="cdfirebookchargefire2" hide="false" itempos="0,30">
+          <StatusEffect type="OnContaining" target="This" cameraaimoffset="500" setvalue="true" interval="1" />
+          <StatusEffect type="OnRemoved" target="This" cameraaimoffset="0" setvalue="true" />
+        </Containable>
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="5000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.15" />
+    </Quality>
+    <SkillRequirementHint identifier="weapons" level="80" />
+  </Item>
+  <!--弹匣样本-->
+  <Item name="魔法" identifier="cdfirebookmagazine" description="" maxstacksize="1" maxstacksizecharacterinventory="1" health="20" scale="0.2" category="Weapon" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,cdfirelancemagazine" impactsoundtag="impact_metal_light"  hideinmenus="true">
+    <Sprite texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" rotation="90" depth="0.55" origin="0.5,0.5" />
+    <Body width="77" height="45" density="25" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="cdfirebookround2" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" >
+        <Remove />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <!--展示物样本-->
+  <Item identifier="cdfirebookchargefire1" name="二阶" description="" category="Misc" subcategory="CD" Tags="smallitem,explosive,demolitionsexpert" maxstacksize="1" Scale="0.5" cargocontaineridentifier="explosivecrate" impactsoundtag="impact_soft"  hideinmenus="true">
+    <Upgrade gameversion="0.9.3.0" scale="0.5" />
+    <InventoryIcon texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" depth="0.55" origin="0.5,0.5" />
+    <Body width="30" height="30" density="20" />
+    <ItemComponent>
+      <StatusEffect type="Always" target="This" Condition="-300.0">
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <Item identifier="cdfirebookchargefire2" name="三阶" description="" category="Misc" subcategory="CD" Tags="smallitem,explosive,demolitionsexpert" maxstacksize="1" Scale="0.5" cargocontaineridentifier="explosivecrate" impactsoundtag="impact_soft"  hideinmenus="true">
+    <Upgrade gameversion="0.9.3.0" scale="0.5" />
+    <InventoryIcon texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" depth="0.55" origin="0.5,0.5" />
+    <Body width="30" height="30" density="20" />
+    <ItemComponent>
+      <StatusEffect type="Always" target="This" Condition="-300.0">
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <!--魔法书实例：朝上施法+展示内容-->
+  <Item name="魔法典:火球术" identifier="cdfireballbook" category="Weapon" description="" subcategory="CD" tags="smallitem,weapon,book" hideinmenus="false" scale="0.2" impactsoundtag="weaponheavydrop" hideconditionbar="true"  hideconditionintooltip="true" >
+    <!--贴图--><!--斜着：136,43,81,93  正面：10,10,118,157  朝上开启：169,224,215,95  朝右开启：228,6,95,215 -->
+    <InventoryIcon texture="%ModDir%/content/png/D17_彩窗铅格典.png" sourcerect="10,10,118,157" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/D17_彩窗铅格典.png" sourcerect="169,224,215,95" depth="0.55" origin="0.5,0.5" />
+    <!--正面贴图-->
+    <BrokenSprite texture="%ModDir%/content/png/D17_彩窗铅格典.png" depth="0.55" sourcerect="10,10,118,157"  maxcondition="89" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir%/content/png/D17_彩窗铅格典.png" depth="0.55" sourcerect="10,10,118,157"  maxcondition="95.5" origin="0.5,0.5" />
+    <!--朝上开启贴图-->
+    <BrokenSprite texture="%ModDir%/content/png/D17_彩窗铅格典.png" depth="0.55" sourcerect="169,224,215,95" maxcondition="100" origin="0.509,0.8" />
+    <Body width="400" height="154" density="50" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="40,0" aimpos="50,-10" handle1="-0,-24" handle2="-0,-55" holdangle="-30" msg="ItemMsgPickUpSelect" >
+      <!--需要魔力值，阈值10-->
+      <StatusEffect type="OnSecondaryUse" target="this,Contained,Character" condition="100" setvalue="true" allowwhenbroken="true" >
+        <Conditional cdmenmagic="gte 10" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="Contained,Character" condition="0" setvalue="true" allowwhenbroken="true" >
+        <Conditional cdmenmagic="lt 10" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" Condition="-50">
+        <Conditional Condition="gt 88" />
+      </StatusEffect>
+      <!--开书时生成展示物-->
+      <StatusEffect type="OnSecondaryUse" target="This" disabledeltatime="true">
+        <Conditional Condition="gt 88" />
+        <SpawnItem identifiers="cdfireballbookchargefire" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </Holdable>
+    <RangedWeapon weapondamagemodifier="1.8" penetration="0.05" reload="0.2" barrelpos="0,125" spread="6" unskilledspread="25" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2" holdtrigger="true" maxchargetime="0.3">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <Sound file="Content/Items/Weapons/IncendiumGrenade.ogg" range="3000.0"  frequency="2.0"  type="OnUse"  volume="0.5" />
+      <!--释放特效-->
+      <ParticleEmitter particle="flameburningcharacter" scalemultiplier="0.5,0.5" DistanceMin="0" DistanceMax="20" ParticlesPerSecond="50" AngleMin="0" AngleMax="180" VelocityMax="20" colormultiplier="255,255,255,255" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="150.0" force="1" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="1.0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained,Character" disabledeltatime="true" setvalue="true">
+        <!--消耗魔力并停顿魔力回复-->
+        <ReduceAffliction type="cdmenmagic" amount="10" />
+        <Affliction identifier="cdmenmagicstop" amount="1" multiplybymaxvitality="true"/>
+        <Use />
+      </StatusEffect>
+      <RequiredItems items="cdfireballbookmagazine" type="Contained" msg="魔力不足" />
+      <RequiredSkill identifier="weapons" level="80" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="6" hideitems="false" drawinventory="false" containedstateindicatorstyle="bullet"  SpawnWithId="cdfireballbookmagazine" removecontaineditemsondeconstruct="true"  containedstateindicatorslot="0">
+      <Containable items="cdfireballbookmagazine">
+      </Containable>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="cdfireballbookchargefire" hide="false" itempos="0,30">
+          <StatusEffect type="OnContaining" target="This" cameraaimoffset="500" setvalue="true" interval="1" />
+          <StatusEffect type="OnRemoved" target="This" cameraaimoffset="0" setvalue="true" />
+        </Containable>
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="5000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.15" />
+    </Quality>
+    <SkillRequirementHint identifier="weapons" level="80" />
+  </Item>
+  <!--弹匣样本-->
+  <Item name="魔法" identifier="cdfireballbookmagazine" description="" maxstacksize="1" maxstacksizecharacterinventory="1" health="20" scale="0.2" category="Weapon" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,cdfirelancemagazine" impactsoundtag="impact_metal_light"  hideinmenus="true">
+    <Sprite texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" rotation="90" depth="0.55" origin="0.5,0.5" />
+    <Body width="77" height="45" density="25" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="cdfireballbookround2" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="cdfireballbookround2" />
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <SpawnItem identifiers="cdfireballbookround2" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This" disabledeltatime="true" >
+        <Remove />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <!--弹幕样本-->
+  <Item identifier="cdfireballbookround2" health="100" category="Weapon" tags="smallitem" noninteractable="true" hideinmenus="true">
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="0,0,2,2" depth="0.55" origin="0.5,0.5" />
+    <Body width="16" height="16" density="10" friction="0.0" restitution="0.0" angulardamping="0.0" gravityscale="0" waterdragcoefficient="0" lineardamping="0"/>
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" damagedoors="true" launchimpulse="5.0" maxtargetstohit="5">
+      <Attack structuredamage="0.0" targetforce="1.0" itemdamage="4.0" severlimbsprobability="0.15">
+        <Affliction identifier="burn" strength="5" />
+        <Affliction identifier="explosiondamage" strength="20" />
+        <Affliction identifier="stun" strength="0.3" />
+      </Attack>
+      <StatusEffect type="OnNotContained" target="This" condition="-10">
+        <Conditional InWater="false" />
+        <ParticleEmitter particle="flameburningcharacter" scalemultiplier="1,1" DistanceMin="0" DistanceMax="30" ParticlesPerSecond="50" AngleMin="60" AngleMax="120" VelocityMax="20" colormultiplier="255,255,255,255" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This"  condition="-10">
+        <Conditional InWater="true" />
+        <ParticleEmitter particle="steamspray" scalemultiplier="1,1" DistanceMin="0" DistanceMax="30" ParticlesPerSecond="50" AngleMin="60" AngleMax="120" VelocityMax="20" colormultiplier="255,255,255,255" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This" condition="-20" setvalue="false">
+        <ParticleEmitter particle="flamethrower" particleamount="3" distancemin="0" distancemax="12.5" anglemin="175" anglemax="5" scalemin="0.3125" scalemax="0.55125" velocitymin="0" velocitymax="200" highqualitycollisiondetection="true" />
+        <ParticleEmitter particle="flamethrower" particleamount="5" distancemin="0" distancemax="12.5" anglemin="175" anglemax="5" scalemin="0.1875" scalemax="0.4375" velocitymin="0" velocitymax="100" highqualitycollisiondetection="true" />
+        <ParticleEmitter particle="explosionsmoke" particleamount="1" scalemin="0.9" scalemax="0.95" highqualitycollisiondetection="true" />
+        <Sound file="Content/Items/Weapons/IncendiumGrenade.ogg" range="1500.0" frequency="2.0" volume="0.15" />
+        <Explosion range="200" force="1.0" camerashakerange="1000.0" camerashake="2.0" sparks="false" shockwave="false" flames="false" smoke="false" flash="true" underwaterBubble="false" playtinnitus="false" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This,UseTarget" condition="0.0" setvalue="true">
+        <Conditional entitytype="eq Structure" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+      <RequiredSkill identifier="weapons" level="55" />
+      <RequiredSkill identifier="mechanical" level="45" />
+    </Projectile>
+  </Item>
+  <!--展示物样本-->
+  <Item identifier="cdfireballbookchargefire" name="一团火" description="" category="Misc" subcategory="CD" Tags="smallitem,explosive,demolitionsexpert" maxstacksize="1" Scale="0.5" cargocontaineridentifier="explosivecrate" impactsoundtag="impact_soft"  hideinmenus="true">
+    <Upgrade gameversion="0.9.3.0" scale="0.5" />
+    <InventoryIcon texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/content/png/空.png" sourcerect="0,0,32,32" depth="0.55" origin="0.5,0.5" />
+    <Body width="30" height="30" density="20" />
+    <ItemComponent>
+      <StatusEffect type="Always" target="This" Condition="-300.0">
+        <ParticleEmitter particle="flameburningcharacter" scalemultiplier="0.5,0.5" DistanceMin="0" DistanceMax="30" ParticlesPerSecond="50" AngleMin="60" AngleMax="120" VelocityMax="20" colormultiplier="255,255,255,255" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
   <!--魔法书实例：朝右施法-->
   <Item name="魔法典:斩" identifier="cdfirecutbook" category="Weapon" description="" subcategory="CD" tags="smallitem,weapon,book" hideinmenus="false" scale="0.2" impactsoundtag="weaponheavydrop" hideconditionbar="true"  hideconditionintooltip="true" >
     <!--贴图--><!--斜着：136,43,81,93  正面：10,10,118,157  朝上开启：169,224,215,95  朝右开启：228,6,95,215 -->
@@ -85,7 +372,7 @@
         <Affliction identifier="lacerations" strength="10" />
         <Affliction identifier="stun" strength="0.5" probability="0.1" />
         <Sound file="%ModDir%/content/ogg/火焰斩.ogg" range="3000" volume="5" />
-        <Sound file="%ModDir%/content/ogg/切割1.ogg" range="3000" volume="0.5" />
+        <Sound file="%ModDir%/content/ogg/切割1.ogg" range="3000"  frequency="1.5" volume="0.5" />
       </Attack>
       <StatusEffect type="OnImpact" target="UseTarget">
         <ParticleEmitter particle="magiclab_cc0_0034_additive" distancemin="0" distancemax="0" anglemin="0" anglemax="360" particlespersecond="1" particleamount="1" velocitymin="0" velocitymax="0" scalemin="0.75" scalemax="0.75" colormultiplier="255,255,255,100" />

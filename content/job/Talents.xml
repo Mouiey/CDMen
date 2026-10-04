@@ -2,7 +2,7 @@
 <Override>
   <!--魔法书天赋（贴图未做）-->
   <Talent identifier="cdbookstalents">
-    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="4,6" sheetelementsize="128,128" />
+    <Icon texture="%ModDir%/content/png/TalentsIcons_reveng.png" sheetindex="3,2" sheetelementsize="128,128" />
     <Description tag="talentdescription.cdbookstalents">
     </Description>
     <!--伤害吸收-->

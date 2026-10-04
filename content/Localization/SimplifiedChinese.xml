@@ -22,6 +22,8 @@
   <!--天赋-->
   <jobname.cdmener>非凡信徒</jobname.cdmener>
   <jobdescription.cdmener>被非凡追逐之人。</jobdescription.cdmener>
+  <talentname.cdbookstalents></talentname.cdbookstalents>
+  <talentdescription.cdbookstalents></talentdescription.cdbookstalents>
   <talentname.cdgodway>成神仪式</talentname.cdgodway>
   <talentdescription.cdgodway>当你拥有天赋时，击杀生物将帮助你成为神。‖color:245,215,15,255‖死亡后不清理计数‖color:end‖</talentdescription.cdgodway>
   <talentname.cdgetgoodspider>非凡赐福</talentname.cdgetgoodspider>
@@ -52,4 +54,6 @@
   <entitydescription.cdexamplebook1>描述描述描述\n‖color:gui.orange‖使用时消耗10魔力‖end‖</entitydescription.cdexamplebook1>
   <entitydescription.cdbookreversedamage>“历经的苦难将成为你的一部分”\n‖color:gui.orange‖使用时消耗50魔力‖end‖</entitydescription.cdbookreversedamage>
   <entitydescription.cdfirecutbook>\n‖color:gui.orange‖使用时消耗5魔力‖end‖</entitydescription.cdfirecutbook>
+  <entitydescription.cdfireballbook>\n‖color:gui.orange‖使用时消耗10魔力‖end‖</entitydescription.cdfireballbook>
+  <entitydescription.cdfirebook>\n‖color:gui.orange‖使用时消耗5魔力‖end‖</entitydescription.cdfirebook>
 </infotext>
